@@ -4,9 +4,10 @@
  */
 package guda.cms.test;
 
-import guda.mvc.runtime.core.config.ConfigrationFactory;
-import org.mortbay.jetty.Server;
-import org.mortbay.jetty.webapp.WebAppContext;
+
+import guda.mvc.core.config.ConfigrationFactory;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.webapp.WebAppContext;
 
 import java.io.File;
 
@@ -23,6 +24,9 @@ public class JettyServer {
 
     public void start() throws Exception {
         Server server = new Server(jettyPort);
+        //Ajp13SocketConnector c = new Ajp13SocketConnector();
+        //c.setPort(9091);
+       // server.addConnector(c);
         server.setHandler(createWebapp());
         server.start();
         server.join();
@@ -31,25 +35,24 @@ public class JettyServer {
     protected WebAppContext createWebapp() {
         WebAppContext webapp = new WebAppContext();
         webapp.setDescriptor(getWebDescriptor());
-        webapp.setResourceBase(getAppRoot() + "/htdocs");
-        webapp.setContextPath("");
+        webapp.setResourceBase(getAppRoot() + "/htdocs/home");
+        webapp.setContextPath("/");
 
-        //  webapp.setParentLoaderPriority(true);
         return webapp;
     }
 
-    /**
-     * Setter method for property <tt>jettyPort</tt>.
-     * 
-     * @param jettyPort value to be assigned to property jettyPort
-     */
     public void setJettyPort(int jettyPort) {
         this.jettyPort = jettyPort;
     }
 
     private String getWebDescriptor() {
+        return getAppRoot() + File.separatorChar + "htdocs" + File.separatorChar + "home"
+               + File.separatorChar + "WEB-INF"+File.separatorChar+"web.xml";
+    }
+
+    private String getWebDefDescriptor() {
         return getAppRoot() + File.separatorChar + "assembly" + File.separatorChar + "config"
-               + File.separatorChar + "web.xml";
+               + File.separatorChar + "webdefault.xml";
     }
 
     private String getRealm() {
@@ -62,7 +65,7 @@ public class JettyServer {
     }
 
     protected String getAppRoot() {
-        return System.getProperty("user.dir");
+        return ConfigrationFactory.getConfigration().getAppRoot();
     }
 
     protected String getHtdocsRoot() {
