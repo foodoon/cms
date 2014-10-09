@@ -1,0 +1,51 @@
+新增
+
+<form name="staffForm" action="$!homeServer.getURI("staff/doCreate.htm")" method="post">
+  <table>
+    #springBind("staffForm.id")
+    <tr>
+        <td>id</td>
+        <td>
+            <input type="text" name="${status.expression}" value="$!status.value" />
+            #foreach($error in $status.errorMessages) <b>$error</b>  #end
+        </td>
+    </tr>
+    #springBind("staffForm.name")
+    <tr>
+        <td>name</td>
+        <td>
+            <input type="text" name="${status.expression}" value="$!status.value" />
+            #foreach($error in $status.errorMessages) <b>$error</b>  #end
+        </td>
+    </tr>
+    #springBind("staffForm.password")
+    <tr>
+        <td>password</td>
+        <td>
+            <input type="text" name="${status.expression}" value="$!status.value" />
+            #foreach($error in $status.errorMessages) <b>$error</b>  #end
+        </td>
+    </tr>
+    #springBind("staffForm.gmtCreate")
+    <tr>
+        <td>gmtCreate</td>
+        <td>
+            <input type="text" name="${status.expression}" value="$!status.value" />
+            #foreach($error in $status.errorMessages) <b>$error</b>  #end
+        </td>
+    </tr>
+    #springBind("staffForm.amount")
+    <tr>
+        <td>amount</td>
+        <td>
+            <input type="text" name="${status.expression}" value="$!status.value" />
+            #foreach($error in $status.errorMessages) <b>$error</b>  #end
+        </td>
+    </tr>
+
+	  <tr>
+	  <td colspan="2">
+	  <input type="submit" value="提交"/></td>
+	  </tr>
+  </table>
+</form>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<tools>
+	
+
+	<toolbox scope="application">
+		<tool key="operationContext"
+			class="com.foodoon.mvc.runtime.core.security.OperationContextHolder" />
+	</toolbox>
+	
+
+</tools>

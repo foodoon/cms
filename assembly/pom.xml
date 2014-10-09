@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>guda.cms</groupId>
+	<artifactId>cms-assembly</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>guda</groupId>
+		<artifactId>cms</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<assembly.name>cms</assembly.name>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.foodoon.gooda</groupId>
+			<artifactId>gooda</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>guda.cms.web</groupId>
+			<artifactId>cms-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>guda.cms.dao</groupId>
+			<artifactId>cms-dao</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>guda.cms.biz</groupId>
+			<artifactId>cms-biz</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>guda.cms.util</groupId>
+			<artifactId>cms-util</artifactId>
+		</dependency>
+
+		
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.0</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<excludeTransitive>false</excludeTransitive>
+							<outputDirectory>${project.build.directory}/${assembly.name}/WEB-INF/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.3</version>
+				<executions>
+					<execution>
+						<id>copy-config</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<copy todir="${project.build.directory}/${assembly.name}/WEB-INF">
+									<fileset dir="config" />
+								</copy>
+								<zip destfile="${project.build.directory}/${assembly.name}-${project.version}-war.zip">
+									<zipfileset dir="${project.build.directory}/${assembly.name}" includes="**/*.*" excludes="*.zip" />
+								</zip>
+								<copy file="${project.build.directory}/${assembly.name}-${project.version}-war.zip" tofile="${project.build.directory}/${assembly.name}-${project.version}.war" />
+
+								<copy todir="${project.build.directory}/htdocs">
+									<fileset dir="../htdocs" />
+								</copy>
+								<delete dir="${project.build.directory}/${assembly.name}" />
+
+								<delete includeEmptyDirs="true">
+									<fileset dir="${project.build.directory}" includes="**/*.zip" />
+								</delete>
+								<zip destfile="${project.build.directory}/${assembly.name}-${project.version}.zip">
+									<zipfileset dir="${project.build.directory}" includes="**/*.*"></zipfileset>
+								</zip>
+
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<id>attach-artifacts</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attach-artifact</goal>
+						</goals>
+						<configuration>
+							<artifacts>
+								<artifact>
+									<file>${project.build.directory}/${assembly.name}-${project.version}.war</file>
+									<type>war</type>
+								</artifact>
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

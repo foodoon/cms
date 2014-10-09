@@ -1,0 +1,32 @@
+<a class="btn btn-default" href="$!homeServer.getURI("demo/create.htm")">新建</a>
+
+<table  class="table table-striped">
+    <thead>
+    <tr>
+        <th> id</th>
+        <th> name</th>
+        <th> password</th>
+        <th> gmtCreate</th>
+        <th> amount</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    #foreach($f in $demoDOList)
+        <tr>
+            <td> $!f.id</td>
+            <td> $!f.name</td>
+            <td> $!f.password</td>
+            <td> $!f.gmtCreate</td>
+            <td> $!f.amount</td>
+            <td><a href="$!homeServer.getURI("demo/edit.htm").addQueryData('id',"$!f.id")">编辑</a></td>
+            <td><a href="$!homeServer.getURI("demo/detail.htm").addQueryData('id',"$!f.id")">查看详情</a></td>
+            <td><a href="$!homeServer.getURI("demo/doDelete.htm").addQueryData('id',"$!f.id")"
+                   onclick="return confirm('确定删除吗?')">删除</a></td>
+        </tr>
+    #end
+    </tbody>
+</table>
+
+$tile.load('home/common/page.vm').param('query',$query).param('path','demo/list.htm')
+

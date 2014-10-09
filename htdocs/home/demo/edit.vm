@@ -1,0 +1,52 @@
+编辑
+
+<form name="demoEditForm" action="$!homeServer.getURI("demo/doUpdate.htm")" method="post">
+  <table>
+  #springBind("demoEditForm.id")
+  <input type="hidden" name="${status.expression}" value="$!status.value" />
+                #springBind("demoEditForm.id")
+          <tr>
+              <td>id</td>
+              <td>
+                  <input  class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+                  #foreach($error in $status.errorMessages) <b>$error</b>  #end
+              </td>
+          </tr>
+                #springBind("demoEditForm.name")
+          <tr>
+              <td>name</td>
+              <td>
+                  <input  class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+                  #foreach($error in $status.errorMessages) <b>$error</b>  #end
+              </td>
+          </tr>
+                #springBind("demoEditForm.password")
+          <tr>
+              <td>password</td>
+              <td>
+                  <input  class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+                  #foreach($error in $status.errorMessages) <b>$error</b>  #end
+              </td>
+          </tr>
+                #springBind("demoEditForm.gmtCreate")
+          <tr>
+              <td>gmtCreate</td>
+              <td>
+                  <input  class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+                  #foreach($error in $status.errorMessages) <b>$error</b>  #end
+              </td>
+          </tr>
+                #springBind("demoEditForm.amount")
+          <tr>
+              <td>amount</td>
+              <td>
+                  <input  class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+                  #foreach($error in $status.errorMessages) <b>$error</b>  #end
+              </td>
+          </tr>
+      	  <tr>
+	  <td colspan="2">
+	  <input type="submit" class="btn" value="提交"/></td>
+	  </tr>
+  </table>
+</form>

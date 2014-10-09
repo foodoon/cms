@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <property name="run_mode" defaultValue="test" description="运行模式，开发还是线上" />
+	<property name="app_name" defaultValue="cc" description="系统名" />
+	<property name="app_root" defaultValue="D:\work-dir\sms\trunk"
+		description="系统根目录" />
+	<property name="htdocs_root" defaultValue="/" description="文档目录" />
+
+</config>
