@@ -208,9 +208,9 @@ img{ border:0; -ms-interpolation-mode:bicubic; display:block;}
 .blk_18 #List1_1{ float:left;}
 .blk_18 #List2_1{ float:left;}
 .blk_18 .LeftBotton {
- background: url(http://demo.jeecms.com/r/cms/www/two/img/turnicon.png) no-repeat; margin:50px 1px; width:30px; height:45px; z-index:50; position:absolute;}
+ background: url(http://wmtv.cn/r/cms/www/two/img/turnicon.png) no-repeat; margin:50px 1px; width:30px; height:45px; z-index:50; position:absolute;}
 .blk_18 .RightBotton {
- background: url(http://demo.jeecms.com/r/cms/www/two/img/turnicon.png) no-repeat; margin:50px 1px 50px 970px; width:30px; height:45px; z-index:50; position:absolute;}
+ background: url(http://wmtv.cn/r/cms/www/two/img/turnicon.png) no-repeat; margin:50px 1px 50px 970px; width:30px; height:45px; z-index:50; position:absolute;}
 .blk_18 .LeftBotton{ background-position:-1px -1px;}
 .blk_18 .RightBotton{ background-position:-50px -1px;}
 .blk_18 .LeftBotton:hover{ background-position:-1px -54px;}
