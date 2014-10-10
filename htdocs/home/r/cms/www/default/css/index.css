@@ -1,0 +1,13 @@
+.w1000{ width:1000px; margin:auto;}
+.toplogo/*网站标志*/{ float:left; margin-right:6.5%; margin-top:50px; _margin-top:5px;}
+.topsearch{ float:left; margin-right:6.5%; margin-top:66px; _margin-top:18px;}
+.topdate{ float:left; margin-top:75px; _margin-top:30px; font-size:12px;}
+.topssLeft/*搜索左边*/{ height:33px; line-height:33px; width:408px; border-left:1px solid #cccccc; border-top:1px solid #cccccc; border-bottom:1px solid #cccccc; float:left; text-indent:5px;}
+.topssRight/*搜索右边*/{ float:left; background-image:url(../img/index/searchMenu.gif); width:50px; height:35px; border:0; cursor:pointer;}
+/*导航栏*/
+.topdhl2{ border:1px solid #ebebeb; width:998px; height:58px; padding:0 0 10px 0;}
+.topdhl2 h1{ font-weight:bold; font-size:13px; font-family:"微软雅黑","simhei"; float:left; margin-right:10px; float:left; margin:10px 10px 0 18px; display:inline;}
+.topdhl2 h2{ font-size:13px; font-family:"微软雅黑","simhei"; float:left; margin-right:11px; width:30px; text-align:center; float:left; margin-top:9px;}
+.selected{ color:#cc0f0e;}
+
+
