@@ -5,8 +5,15 @@
 package guda.cms.test;
 
 
+
 import guda.mvc.core.config.ConfigrationFactory;
+import org.eclipse.jetty.security.ConstraintSecurityHandler;
+import org.eclipse.jetty.security.HashLoginService;
+import org.eclipse.jetty.security.SecurityHandler;
+import org.eclipse.jetty.server.NCSARequestLog;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.HandlerCollection;
+import org.eclipse.jetty.server.handler.RequestLogHandler;
 import org.eclipse.jetty.webapp.WebAppContext;
 
 import java.io.File;
@@ -27,7 +34,18 @@ public class JettyServer {
         //Ajp13SocketConnector c = new Ajp13SocketConnector();
         //c.setPort(9091);
        // server.addConnector(c);
-        server.setHandler(createWebapp());
+
+        HandlerCollection collection = new HandlerCollection();
+        RequestLogHandler logHandler = new RequestLogHandler();
+        NCSARequestLog log = new NCSARequestLog();
+        log.setFilename("request.log");
+        logHandler.setRequestLog(log);
+
+
+      //  collection.addHandler(logHandler);
+        collection.addHandler(createWebapp());
+        server.setHandler(collection);
+
         server.start();
         server.join();
     }
@@ -37,7 +55,11 @@ public class JettyServer {
         webapp.setDescriptor(getWebDescriptor());
         webapp.setResourceBase(getAppRoot() + "/htdocs/home");
         webapp.setContextPath("/");
-
+        SecurityHandler securityHandler = new ConstraintSecurityHandler();
+        HashLoginService loginService  = new HashLoginService();
+        loginService.setName("authorizingRealm");
+        securityHandler.setLoginService(loginService);
+        webapp.setSecurityHandler(securityHandler);
         return webapp;
     }
 

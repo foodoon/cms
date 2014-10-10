@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd"
+	default-lazy-init="true">
+	<!--HttpSession-->
+	<bean id="sessionProvider" class="guda.common.web.session.HttpSessionProvider"/>
+	<!--缓存Session
+		<bean id="sessionProvider" class="guda.common.web.session.CacheSessionProvider">
+			<property name="sessionCache" ref="sessionCache"/>
+			<property name="sessionIdGenerator" ref="sessionIdGenerator"/>
+		</bean>
+		-->
+	<!--Memcached缓存
+		<bean id="sessionCache" class="guda.common.web.session.cache.MemcachedDangaCache">
+			<property name="servers">
+				<list>
+					<value>127.0.0.1:11211</value>
+				</list>
+			</property>
+			<property name="weights">
+				<list>
+					<value>1</value>
+				</list>
+			</property>
+		</bean>
+		-->
+	<!--Ehcache缓存
+		<bean id="sessionCache" class="guda.common.web.session.cache.EhcacheSessionCache">
+			<property name="cache" ref="ehSessionCache"/>
+		</bean>
+		-->
+	<!--SessionId生成器
+		<bean id="sessionIdGenerator" class="guda.common.web.session.id.JdkUUIDGenerator"/>
+		-->
+	<!--图片处理-->
+	<bean id="imageScale" class="guda.common.image.ImageScaleImpl" init-method="init">
+		<property name="tryMagick" value="true"/>
+	</bean>
+	<!--密码加密器-->
+	<bean id="pwdEncoder" class="guda.common.security.encoder.Md5PwdEncoder"/>
+		
+	<!--执行时间标签-->
+	<bean id="uuid" class="guda.common.web.freemarker.UUIDDirective"/>
+	<bean id="process_time" class="guda.common.web.freemarker.ProcessTimeDirective"/>
+	<bean id="text_cut" class="guda.common.web.freemarker.TextCutDirective"/>
+	<bean id="html_cut" class="guda.common.web.freemarker.HtmlCutDirective"/>
+	
+	<bean id="realPathResolver" class="guda.common.web.springmvc.ServletContextRealPathResolver"/>
+	<bean id="fileRepository" class="guda.common.upload.FileRepository"/>
+	<!--文件模板-->
+	<bean id="tplManager" class="guda.core.tpl.FileTplManagerImpl"/>
+	<!--数据库模板
+		<bean id="dbTplDao" class="guda.core.dao.impl.DbTplDaoImpl"/>
+		<bean id="tplManager" class="guda.core.manager.impl.DbTplMngImpl"/>
+		-->
+
+	<bean id="ipSeeker" class="guda.common.ipseek.IPSeekerImpl" init-method="init">
+		<property name="dir" value="/WEB-INF/ipseek"/>
+		<property name="filename" value="QQWry.Dat"/>
+	</bean>
+	<bean id="authenticationDao" class="guda.core.dao.impl.AuthenticationDaoImpl"/>
+	<bean id="dbFileDao" class="guda.core.dao.impl.DbFileDaoImpl"/>
+	<bean id="unifiedUserDao" class="guda.core.dao.impl.UnifiedUserDaoImpl"/>
+	<bean id="ftpDao" class="guda.core.dao.impl.FtpDaoImpl"/>
+	<bean id="configDao" class="guda.core.dao.impl.ConfigDaoImpl"/>
+	<bean id="configItemDao" class="guda.core.dao.impl.CmsConfigItemDaoImpl"/>
+	
+	<bean id="cmsSiteDao" class="guda.core.dao.impl.CmsSiteDaoImpl"/>
+	<bean id="cmsConfigDao" class="guda.core.dao.impl.CmsConfigDaoImpl"/>
+	<bean id="cmsUserDao" class="guda.core.dao.impl.CmsUserDaoImpl"/>
+	<bean id="cmsUserExtDao" class="guda.core.dao.impl.CmsUserExtDaoImpl"/>
+	<bean id="cmsUserSiteDao" class="guda.core.dao.impl.CmsUserSiteDaoImpl"/>
+	<bean id="cmsGroupDao" class="guda.core.dao.impl.CmsGroupDaoImpl"/>
+	<bean id="cmsRoleDao" class="guda.core.dao.impl.CmsRoleDaoImpl"/>
+	<bean id="cmsLogDao" class="guda.core.dao.impl.CmsLogDaoImpl"/>
+	<bean id="cmsDepartmentDao" class="guda.core.dao.impl.CmsDepartmentDaoImpl"/>
+	<bean id="cmsDictionaryDao" class="guda.core.dao.impl.CmsDictionaryDaoImpl"/>
+	<bean id="cmsSiteCompanyDao" class="guda.core.dao.impl.CmsSiteCompanyDaoImpl"/>
+	<bean id="cmsUserResumeDao" class="guda.core.dao.impl.CmsUserResumeDaoImpl"/>
+	<bean id="cmsWorkflowDao" class="guda.core.dao.impl.CmsWorkflowDaoImpl"/>
+	<bean id="cmsWorkflowEventDao" class="guda.core.dao.impl.CmsWorkflowEventDaoImpl"/>
+	<bean id="cmsWorkflowEventUserDao" class="guda.core.dao.impl.CmsWorkflowEventUserDaoImpl"/>
+	<bean id="cmsWorkflowRecordDao" class="guda.core.dao.impl.CmsWorkflowRecordDaoImpl"/>
+
+	<bean id="authenticationMng" class="guda.core.manager.impl.AuthenticationMngImpl"/>
+	<bean id="dbFileMng" class="guda.core.manager.impl.DbFileMngImpl"/>
+	<bean id="unifiedUserMng" class="guda.core.manager.impl.UnifiedUserMngImpl"/>
+	<bean id="ftpMng" class="guda.core.manager.impl.FtpMngImpl"/>
+	<bean id="configMng" class="guda.core.manager.impl.ConfigMngImpl"/>
+	<bean id="configItemMng" class="guda.core.manager.impl.CmsConfigItemMngImpl"/>
+	
+	<bean id="cmsSiteMng" class="guda.core.manager.impl.CmsSiteMngImpl"/>
+	<bean id="cmsConfigMng" class="guda.core.manager.impl.CmsConfigMngImpl"/>
+	<bean id="cmsUserMng" class="guda.core.manager.impl.CmsUserMngImpl"/>
+	<bean id="cmsUserExtMng" class="guda.core.manager.impl.CmsUserExtMngImpl"/>
+	<bean id="cmsUserSiteMng" class="guda.core.manager.impl.CmsUserSiteMngImpl"/>
+	<bean id="cmsGroupMng" class="guda.core.manager.impl.CmsGroupMngImpl"/>
+	<bean id="cmsRoleMng" class="guda.core.manager.impl.CmsRoleMngImpl"/>
+	<bean id="cmsLogMng" class="guda.core.manager.impl.CmsLogMngImpl"/>
+	<bean id="cmsDepartmentMng" class="guda.core.manager.impl.CmsDepartmentMngImpl"/>
+	<bean id="cmsDictionaryMng" class="guda.core.manager.impl.CmsDictionaryMngImpl"/>
+	<bean id="cmsSiteCompanyMng" class="guda.core.manager.impl.CmsSiteCompanyMngImpl"/>
+	<bean id="cmsUserResumeMng" class="guda.core.manager.impl.CmsUserResumeMngImpl"/>
+	<bean id="cmsWorkflowMng" class="guda.core.manager.impl.CmsWorkflowMngImpl"/>
+	<bean id="cmsWorkflowEventMng" class="guda.core.manager.impl.CmsWorkflowEventMngImpl"/>
+	<bean id="cmsWorkflowEventUserMng" class="guda.core.manager.impl.CmsWorkflowEventUserMngImpl"/>
+	<bean id="cmsWorkflowRecordMng" class="guda.core.manager.impl.CmsWorkflowRecordMngImpl"/>
+	
+</beans>

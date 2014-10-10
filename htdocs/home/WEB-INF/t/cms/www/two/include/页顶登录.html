@@ -1,0 +1,64 @@
+<script>
+$(document).ready(function(){
+	$(".menu li").hover(function(){
+			$(this).addClass("hover");
+			$(this).children("ul li").attr('class','');
+		},function(){
+			$(this).removeClass("hover");  
+			$(this).children("ul li").attr('class','');
+		}
+	); 
+	$(".menu li.no_sub").hover(function(){
+			$(this).addClass("hover1");
+		},function(){
+			$(this).removeClass("hover1");  
+		}
+	); 
+})
+</script>
+<style>
+tr,td{ margin:0; padding:0; line-height:28px;}
+.yzm{ width:70px; border:1px solid #ccc; height:20px; line-height:20px; outline-width:medium; outline-style:none;}
+.dengluzhuce{ width:150px; border:1px solid #ccc; height:20px; line-height:20px; outline-width:medium; outline-style:none;}
+</style>
+<div class="toplogin">
+    <ul class="menu">
+        <li>
+        <div class="denglumenu"><a class="tablink" href="#">登录</a></div>
+        <ul>
+        	<li><b>JEECMS用户登录</b></li>
+            <li>
+            <form id="jvForm" action="${base}/login.jspx" method="post">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" style="color:#888888; font-size:12px;">	
+                    <tr>
+                    <td height="32" colspan="3" align="left">用户名：<input type="text" id="username" name="username" class="dengluzhuce"/>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td height="32" colspan="3" align="left">密　码：<input type="password" id="password" name="password" class="dengluzhuce"/>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td align="left">验证码：<input type="text" id="captcha" name="captcha" class="yzm"/>
+                    </td>
+                    <td>
+                    <img src="${base}/captcha.svl" onClick="this.src='${base}/captcha.svl?d='+new Date()*1" width="100" height="35"/ >
+                    </td>
+                    </tr>	
+                    <tr>
+                    <td height="45" colspan="3" align="center">
+                    <input type="submit" value=" 登 录 " class="loginmenu"/>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td height="30" colspan="3" align="center">
+                    <a href="${base}/register.jspx"  target="_blank">免费注册</a> &nbsp;|&nbsp; <a href="${base}/member/forgot_password.jspx" target="_blank">忘记密码？</a>
+                    </td>
+                    </tr>
+				</table>
+			</form>	
+          </li>
+        </ul>
+        </li>
+    </ul>
+</div>

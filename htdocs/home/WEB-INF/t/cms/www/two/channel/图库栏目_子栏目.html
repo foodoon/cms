@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<title>${channel.title!channel.name} - ${site.name} - Powered by JEECMS</title>
+<meta http-equiv="keywords" content="${channel.keywords!}"/>
+<meta http-equiv="description" content="${channel.description!}"/>
+<link href="/${res}/css/index.css" rel="stylesheet" type="text/css"/>
+<script src="${resSys}/jquery.js" type="text/javascript"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+	Cms.siteFlow("${base}", location.href, document.referrer);
+});
+</script>
+</head>
+
+<body>
+[#include "../include/页头顶栏.html"/]   
+[#include "../include/页头导航栏.html"/]
+<div class="w1000">
+	<!-- 左栏_begin -->
+	<div class="w665">
+        <div class="website">当前位置：<a href="${base}/">首页</a> > [#list channel.nodeList as n]<a href="${n.url}" target="_blank">${n.name}</a>[#if n_has_next] > [/#if][/#list]</div>
+        <div class="clear"></div>
+        [@cms_content_page count='15' orderBy='4' channelId=channel.id channelOption='1' dateFormat='yyyy-MM-dd']
+        [#list tag_pagination.list as a]
+        <div class="hdNews hasPic">
+            <a href="${a.url}" target="_blank" class="pic" style="border:1px solid #ccc;">
+            <img src="${a.titleImg!site.titleImg}" />
+            </a>
+            <a href="${a.url}" title="${a.title}" target="_blank">
+            <h2>[@text_cut s=a.title len=22 /]</h2>
+            </a>
+            <p>
+            [@text_cut s=a.desc len=60 append='...'/]
+            <span style="color:#999">(${a.date?string(dateFormat)})</span>
+            </p>
+        
+        </div>
+        [/#list]
+        <div style="clear:both;"></div>
+        <div class="pagesite">[@cms_pagination sysPage='1'/]</div>
+        [/@cms_content_page]
+        
+        
+    </div>
+    <!-- 左栏_end -->
+    <!-- 右栏_begin -->
+    <div class="w320">
+    	<!--视频_begin-->
+        <div class="ConTop">
+        	<h1>视频</h1>
+            <span>
+            [@cms_channel id='77']
+            <a href="${tag_bean.url}" target="_blank">更多></a>
+            [/@cms_channel]
+            </span>
+        </div>
+        <div class="tvList">
+        	<ul>
+        		[@cms_content_list count='4' orderBy='4' titLen='11' channelId='77'  channelOption='1']
+                [#list tag_list as a]
+                <li>
+                <a href="${a.url}" target="_blank">
+                <img src="${a.titleImg!site.defImg}" alt="${a.title}" />
+                </a>
+                <p>
+                <a href="${a.url}" title="${a.title}" target="_blank">
+                [@text_cut s=a.title len=titLen /]
+                </a>
+                </p>
+                </li>
+                [/#list]
+                [/@cms_content_list]
+        	</ul>
+        </div>
+        <!--视频_end-->
+        <div class="clear10"></div>
+        <!--娱乐_begin-->
+    	<div class="ConTop">
+        	<h1>娱乐</h1>
+            <span>
+            [@cms_channel id='94']
+            <a href="${tag_bean.url}" target="_blank">更多></a>
+            [/@cms_channel]
+            </span>
+        </div>
+        <div class="wenhuaList">
+        	<ul>
+            	[@cms_content_list count='10' orderBy='4' titLen='28' channelId='75'  channelOption='1' typeId='2' dateFormat='yyyy-MM-dd']
+                [#list tag_list as a]
+                <li>
+                <a href="${a.url}" target="_blank">
+                <img src="${a.typeImg!site.defImg}" alt="${a.title}" />
+                </a>
+                <p>
+                <a href="${a.url}" title="${a.title}" target="_blank">
+                [@text_cut s=a.title len=titLen /]
+                </a>
+                <span>${a.date?string(dateFormat)}</span>
+                </p>
+                </li>
+                [/#list]
+                [/@cms_content_list]
+            </ul>
+        </div>
+        <!--娱乐_end-->
+        <div class="clear10"></div>
+        <!--新闻点击排行榜_begin-->
+        <div class="ConTop">
+        	<h1>新闻点击排行榜</h1>
+        </div>
+        <div class="dianjipaihang">
+        	<ul>
+            [@cms_content_list count='10' titLen='16' orderBy='9' channelOption='1' channelId='69']
+            [#list tag_list as a]
+            <li>
+            <div class="topRank">${a_index+1}</div>
+            <a href="${a.url}" title="${a.title}" target="_blank">
+            [@text_cut s=a.title len=titLen /]
+            </a>
+            <span>${a.views!}次</span>
+            </li>
+            [/#list]
+            [/@cms_content_list]
+        	</ul>
+        </div>
+        <!--新闻点击排行榜_end-->
+    </div>
+    <!-- 右栏_end -->
+</div>
+</body>
+</html>

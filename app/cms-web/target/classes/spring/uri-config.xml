@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uri-config>
+<!--  
+  <uri name="smsServer" value="${smsServer.url}"></uri>
+  <uri name="msgModule" value="msg/msg.htm" extends="smsServer"></uri>
+  -->
+    <uri name="staticServer" value="${staticServer.url}"></uri>
+</uri-config>

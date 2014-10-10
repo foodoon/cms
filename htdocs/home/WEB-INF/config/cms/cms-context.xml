@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd"
+	default-lazy-init="true">
+	
+	<bean id="tplMessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="cacheSeconds" value="0"/>
+		<property name="basenames" value="#{propertyUtils.getList('messages.tpl.')}"/>
+	</bean>
+	<!--标签-->
+	<bean id="cms_pagination" class="guda.cms.action.directive.PaginationDirective"/>
+	<bean id="cms_channel_list" class="guda.cms.action.directive.ChannelListDirective"/>
+	<bean id="cms_channel_page" class="guda.cms.action.directive.ChannelPageDirective"/>
+	<bean id="cms_channel" class="guda.cms.action.directive.ChannelDirective"/>
+	<bean id="cms_content" class="guda.cms.action.directive.ContentDirective"/>
+	<bean id="cms_content_list" class="guda.cms.action.directive.ContentListDirective"/>
+	<bean id="cms_content_page" class="guda.cms.action.directive.ContentPageDirective"/>
+	<bean id="cms_tag_list" class="guda.cms.action.directive.ContentTagListDirective"/>
+	<bean id="cms_tag_page" class="guda.cms.action.directive.ContentTagPageDirective"/>
+	<bean id="cms_topic_list" class="guda.cms.action.directive.CmsTopicListDirective"/>
+	<bean id="cms_topic_page" class="guda.cms.action.directive.CmsTopicPageDirective"/>
+	<bean id="cms_comment_list" class="guda.cms.action.directive.CmsCommentListDirective"/>
+	<bean id="cms_comment_page" class="guda.cms.action.directive.CmsCommentPageDirective"/>
+	<bean id="cms_guestbook_ctg_list" class="guda.cms.action.directive.CmsGuestbookCtgListDirective"/>
+	<bean id="cms_guestbook_list" class="guda.cms.action.directive.CmsGuestbookListDirective"/>
+	<bean id="cms_guestbook_page" class="guda.cms.action.directive.CmsGuestbookPageDirective"/>
+	<bean id="cms_vote" class="guda.cms.action.directive.CmsVoteDirective"/>
+	<bean id="cms_friendlink_ctg_list" class="guda.cms.action.directive.CmsFriendlinkCtgListDirective"/>
+	<bean id="cms_friendlink_list" class="guda.cms.action.directive.CmsFriendlinkListDirective"/>
+	<bean id="cms_lucene_list" class="guda.cms.lucene.LuceneDirectiveList"/>
+	<bean id="cms_lucene_page" class="guda.cms.lucene.LuceneDirectivePage"/>
+	<bean id="cms_advertising" class="guda.cms.action.directive.CmsAdvertisingDirective"/>
+	<bean id="cms_vote_list" class="guda.cms.action.directive.CmsVoteListDirective"/>
+	<bean id="cms_model" class="guda.cms.action.directive.CmsModelDirective"/>
+	<bean id="cms_score_group" class="guda.cms.action.directive.ScoreGroupDirective"/>
+	
+	<!--后台权限标签-->
+	<bean id="cms_perm" class="guda.cms.web.PermistionDirective"/>
+	
+	<!--SERVICE-->
+	<bean id="contentCountCache" class="guda.cms.service.ContentCountCacheImpl"/>
+	<bean id="channelCountCache" class="guda.cms.service.ChannelCountCacheImpl"/>
+	<bean id="cmsSiteFlowCache" class="guda.cms.service.CmsSiteFlowCacheImpl"/>
+	<bean id="weixinTokenCache" class="guda.cms.service.WeixinTokenCacheImpl"/>
+	<bean id="acquisitionSvc" class="guda.cms.service.AcquisitionSvcImpl"/>
+	<bean id="luceneContentSvc" class="guda.cms.lucene.LuceneContentSvcImpl"/>
+	<bean id="searchWordsCache" class="guda.cms.service.SearchWordsCacheImpl"/>
+	<bean id="imageSvc" class="guda.cms.service.ImageSvcImpl"/>
+	<bean id="staticPageSvc" class="guda.cms.staticpage.StaticPageSvcImpl">
+		<property name="tplMessageSource" ref="tplMessageSource"/>
+		<property name="freeMarkerConfigurer">
+			<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+				<!--获取标签配置-->
+				<property name="freemarkerVariables" value="#{propertyUtils.getBeanMap('directive.')}"/>
+				<property name="templateLoaderPath" value=""/>
+				<property name="freemarkerSettings">
+					<props>
+						<prop key="tag_syntax">auto_detect</prop>
+						<prop key="template_update_delay">5</prop>
+						<prop key="defaultEncoding">UTF-8</prop>
+						<prop key="url_escaping_charset">UTF-8</prop>
+						<prop key="locale">zh_CN</prop>
+						<prop key="boolean_format">true,false</prop>
+						<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+						<prop key="date_format">yyyy-MM-dd</prop>
+						<prop key="time_format">HH:mm:ss</prop>
+						<prop key="number_format">0.######</prop>
+						<prop key="whitespace_stripping">true</prop>
+						<prop key="auto_import">/WEB-INF/ftl/jeecms/index.ftl as p,/WEB-INF/ftl/spring.ftl as s</prop>
+					</props>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="cmsStatistSvc" class="guda.cms.statistic.CmsStatisticSvcImpl"/>
+	
+	<!--LISTENER-->
+	<bean id="contentLuceneListener" class="guda.cms.lucene.ContentLuceneListener"/>
+	<bean id="contentStaticPageListener" class="guda.cms.staticpage.ContentStaticPageListener"/>
+	<bean id="contentDocListener" class="guda.cms.service.ContentDocListener"/>
+	
+	<!--MANAGER-->
+	<bean id="channelMng" class="guda.cms.manager.main.impl.ChannelMngImpl">
+		<property name="deleteCheckerList">
+			<list>
+				<ref bean="contentMng"/>
+				<ref bean="cmsTopicMng"/>
+				<ref bean="cmsAcquisitionMng"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="channelExtMng" class="guda.cms.manager.main.impl.ChannelExtMngImpl"/>
+	<bean id="channelTxtMng" class="guda.cms.manager.main.impl.ChannelTxtMngImpl"/>
+	<bean id="channelCountMng" class="guda.cms.manager.main.impl.ChannelCountMngImpl"/>
+	<bean id="contentMng" class="guda.cms.manager.main.impl.ContentMngImpl">
+		<property name="listenerList">
+			<list>
+				<ref bean="contentLuceneListener"/>
+				<ref bean="contentStaticPageListener"/>
+				<ref bean="contentDocListener"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="contentTagMng" class="guda.cms.manager.main.impl.ContentTagMngImpl"/>
+	<bean id="contentTypeMng" class="guda.cms.manager.main.impl.ContentTypeMngImpl"/>
+	<bean id="contentExtMng" class="guda.cms.manager.main.impl.ContentExtMngImpl"/>
+	<bean id="contentTxtMng" class="guda.cms.manager.main.impl.ContentTxtMngImpl"/>
+	<bean id="contentCountMng" class="guda.cms.manager.main.impl.ContentCountMngImpl"/>
+	<bean id="contentCheckMng" class="guda.cms.manager.main.impl.ContentCheckMngImpl"/>
+	<bean id="contentShareCheckMng" class="guda.cms.manager.main.impl.ContentShareCheckMngImpl"/>
+	<bean id="cmsModelMng" class="guda.cms.manager.main.impl.CmsModelMngImpl"/>
+	<bean id="cmsModelItemMng" class="guda.cms.manager.main.impl.CmsModelItemMngImpl"/>
+	<bean id="cmsTopicMng" class="guda.cms.manager.main.impl.CmsTopicMngImpl"/>
+	<bean id="cmsThirdAccountMng" class="guda.cms.manager.main.impl.CmsThirdAccountMngImpl"/>
+	<bean id="weiXinSvc" class="guda.cms.service.WeiXinSvcImpl"/>
+	
+	
+	<bean id="cmsAcquisitionMng" class="guda.cms.manager.assist.impl.CmsAcquisitionMngImpl"/>
+	<bean id="cmsAcquisitionHistoryMng" class="guda.cms.manager.assist.impl.CmsAcquisitionHistoryMngImpl"/>
+	<bean id="cmsAcquisitionTempMng" class="guda.cms.manager.assist.impl.CmsAcquisitionTempMngImpl"/>
+	<bean id="cmsCommentMng" class="guda.cms.manager.assist.impl.CmsCommentMngImpl"/>
+	<bean id="cmsCommentExtMng" class="guda.cms.manager.assist.impl.CmsCommentExtMngImpl"/>
+	<bean id="cmsKeywordMng" class="guda.cms.manager.assist.impl.CmsKeywordMngImpl"/>
+	<bean id="cmsSensitivityMng" class="guda.cms.manager.assist.impl.CmsSensitivityMngImpl"/>
+	<bean id="cmsResourceMng" class="guda.cms.manager.assist.impl.CmsResourceMngImpl"/>
+	<bean id="cmsGuestbookCtgMng" class="guda.cms.manager.assist.impl.CmsGuestbookCtgMngImpl"/>
+	<bean id="cmsGuestbookExtMng" class="guda.cms.manager.assist.impl.CmsGuestbookExtMngImpl"/>
+	<bean id="cmsGuestbookMng" class="guda.cms.manager.assist.impl.CmsGuestbookMngImpl"/>
+	<bean id="cmsVoteTopicMng" class="guda.cms.manager.assist.impl.CmsVoteTopicMngImpl"/>
+	<bean id="cmsVoteItemMng" class="guda.cms.manager.assist.impl.CmsVoteItemMngImpl"/>
+	<bean id="cmsVoteRecordMng" class="guda.cms.manager.assist.impl.CmsVoteRecordMngImpl"/>
+	<bean id="cmsFriendlinkCtgMng" class="guda.cms.manager.assist.impl.CmsFriendlinkCtgMngImpl"/>
+	<bean id="cmsFriendlinkMng" class="guda.cms.manager.assist.impl.CmsFriendlinkMngImpl"/>
+	<bean id="cmsAdvertisingSpaceMng" class="guda.cms.manager.assist.impl.CmsAdvertisingSpaceMngImpl"/>
+	<bean id="cmsAdvertisingMng" class="guda.cms.manager.assist.impl.CmsAdvertisingMngImpl"/>
+	<bean id="cmsMessageMng" class="guda.cms.manager.assist.impl.CmsMessageMngImpl"/>
+	<bean id="cmsReceiverMessageMng" class="guda.cms.manager.assist.impl.CmsReceiverMessageMngImpl"/>
+	
+	<bean id="cmsMysqlDataBackMng" class="guda.cms.manager.assist.impl.CmsMysqlDataBackMngImpl"/>
+	<bean id="cmsSqlserverDataBackMng" class="guda.cms.manager.assist.impl.CmsSqlserverDataBackMngImpl"/>
+	<bean id="cmsOracleDataBackMng" class="guda.cms.manager.assist.impl.CmsOracleDataBackMngImpl"/>
+	<bean id="cmsDb2DataBackMng" class="guda.cms.manager.assist.impl.CmsDb2DataBackMngImpl"/>
+	
+	<bean id="cmsFileMngImpl" class="guda.cms.manager.assist.impl.CmsFileMngImpl"/>
+	<bean id="cmsWorkLoadStatisticSvc" class="guda.cms.statistic.workload.CmsWorkLoadStatisticSvcImpl"/>
+	<bean id="cmsVoteReplyMng" class="guda.cms.manager.assist.impl.CmsVoteReplyMngImpl"/>
+	<bean id="cmsVoteSubTopicMng" class="guda.cms.manager.assist.impl.CmsVoteSubTopicMngImpl"/>
+	<bean id="cmsJobApplyMng" class="guda.cms.manager.assist.impl.CmsJobApplyMngImpl"/>
+	<bean id="contentDocMng" class="guda.cms.manager.main.impl.ContentDocMngImpl"/>
+	<bean id="cmsTaskMng" class="guda.cms.manager.assist.impl.CmsTaskMngImpl"/>
+	<bean id="cmsOriginMng" class="guda.cms.manager.assist.impl.CmsOriginMngImpl"/>
+	<bean id="cmsSearchWordsMng" class="guda.cms.manager.assist.impl.CmsSearchWordsMngImpl"/>
+	<bean id="cmsPlugMng" class="guda.cms.manager.assist.impl.CmsPlugMngImpl"/>
+	<bean id="cmsSiteAccessMng" class="guda.cms.manager.assist.impl.CmsSiteAccessMngImpl"/>
+	<bean id="cmsSiteAccessPagesMng" class="guda.cms.manager.assist.impl.CmsSiteAccessPagesMngImpl"/>
+	<bean id="cmsSiteAccessStatisticMng" class="guda.cms.manager.assist.impl.CmsSiteAccessStatisticMngImpl"/>
+	<bean id="cmsSiteAccessCountMng" class="guda.cms.manager.assist.impl.CmsSiteAccessCountMngImpl"/>
+	<bean id="cmsUserMenuMng" class="guda.cms.manager.assist.impl.CmsUserMenuMngImpl"/>
+	<bean id="cmsDirectiveTplMng" class="guda.cms.manager.assist.impl.CmsDirectiveTplMngImpl"/>
+	<bean id="cmsScoreGroupMng" class="guda.cms.manager.assist.impl.CmsScoreGroupMngImpl"/>
+	<bean id="cmsScoreItemMng" class="guda.cms.manager.assist.impl.CmsScoreItemMngImpl"/>
+	<bean id="cmsScoreRecordMng" class="guda.cms.manager.assist.impl.CmsScoreRecordMngImpl"/>
+	<!--DAO-->
+	<bean id="channelDao" class="guda.cms.dao.main.impl.ChannelDaoImpl"/>
+	<bean id="channelExtDao" class="guda.cms.dao.main.impl.ChannelExtDaoImpl"/>
+	<bean id="channelTxtDao" class="guda.cms.dao.main.impl.ChannelTxtDaoImpl"/>
+	<bean id="channelCountDao" class="guda.cms.dao.main.impl.ChannelCountDaoImpl"/>
+	<bean id="contentDao" class="guda.cms.dao.main.impl.ContentDaoImpl"/>
+	<bean id="contentTagDao" class="guda.cms.dao.main.impl.ContentTagDaoImpl"/>
+	<bean id="contentTypeDao" class="guda.cms.dao.main.impl.ContentTypeDaoImpl"/>
+	<bean id="contentExtDao" class="guda.cms.dao.main.impl.ContentExtDaoImpl"/>
+	<bean id="contentTxtDao" class="guda.cms.dao.main.impl.ContentTxtDaoImpl"/>
+	<bean id="contentCountDao" class="guda.cms.dao.main.impl.ContentCountDaoImpl"/>
+	<bean id="contentCheckDao" class="guda.cms.dao.main.impl.ContentCheckDaoImpl"/>
+	<bean id="contentShareCheckDao" class="guda.cms.dao.main.impl.ContentShareCheckDaoImpl"/>
+	
+	<bean id="cmsModelDao" class="guda.cms.dao.main.impl.CmsModelDaoImpl"/>
+	<bean id="cmsModelItemDao" class="guda.cms.dao.main.impl.CmsModelItemDaoImpl"/>
+	<bean id="cmsTopicDao" class="guda.cms.dao.main.impl.CmsTopicDaoImpl"/>
+	<bean id="cmsThirdAccountDao" class="guda.cms.dao.main.impl.CmsThirdAccountDaoImpl"/>
+	
+	
+	<bean id="cmsAcquisitionDao" class="guda.cms.dao.assist.impl.CmsAcquisitionDaoImpl"/>
+	<bean id="cmsAcquisitionHistoryDao" class="guda.cms.dao.assist.impl.CmsAcquisitionHistoryDaoImpl"/>
+	<bean id="cmsAcquisitionTempDao" class="guda.cms.dao.assist.impl.CmsAcquisitionTempDaoImpl"/>
+	<bean id="cmsCommentDao" class="guda.cms.dao.assist.impl.CmsCommentDaoImpl"/>
+	<bean id="cmsCommentExtDao" class="guda.cms.dao.assist.impl.CmsCommentExtDaoImpl"/>
+	<bean id="cmsKeywordDao" class="guda.cms.dao.assist.impl.CmsKeywordDaoImpl"/>
+	<bean id="cmsSensitivityDao" class="guda.cms.dao.assist.impl.CmsSensitivityDaoImpl"/>
+	<bean id="cmsGuestbookCtgDao" class="guda.cms.dao.assist.impl.CmsGuestbookCtgDaoImpl"/>
+	<bean id="cmsGuestbookExtDao" class="guda.cms.dao.assist.impl.CmsGuestbookExtDaoImpl"/>
+	<bean id="cmsGuestbookDao" class="guda.cms.dao.assist.impl.CmsGuestbookDaoImpl"/>
+	<bean id="cmsVoteTopicDao" class="guda.cms.dao.assist.impl.CmsVoteTopicDaoImpl"/>
+	<bean id="cmsVoteItemDao" class="guda.cms.dao.assist.impl.CmsVoteItemDaoImpl"/>
+	<bean id="cmsVoteRecordDao" class="guda.cms.dao.assist.impl.CmsVoteRecordDaoImpl"/>
+	<bean id="cmsFriendlinkCtgDao" class="guda.cms.dao.assist.impl.CmsFriendlinkCtgDaoImpl"/>
+	<bean id="cmsFriendlinkDao" class="guda.cms.dao.assist.impl.CmsFriendlinkDaoImpl"/>
+	<bean id="cmsAdvertisingSpaceDao" class="guda.cms.dao.assist.impl.CmsAdvertisingSpaceDaoImpl"/>
+	<bean id="cmsAdvertisingDao" class="guda.cms.dao.assist.impl.CmsAdvertisingDaoImpl"/>
+	<bean id="cmsMessageDao" class="guda.cms.dao.assist.impl.CmsMessageDaoImpl"/>
+	<bean id="cmsReceiverMessageDao" class="guda.cms.dao.assist.impl.CmsReceiverMessageDaoImpl"/>
+	
+	<bean id="luceneContentDao" class="guda.cms.lucene.LuceneContentDaoImpl"/>
+	
+	<bean id="staticPageDao" class="guda.cms.staticpage.StaticPageDaoImpl"/>
+	<bean id="cmsStatisticDao" class="guda.cms.statistic.CmsStatisticDaoImpl"/>
+	<bean id="cmsMysqlDataDaoBack" class="guda.cms.dao.assist.impl.CmsMysqlDataBackDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="cmsSqlserverDataDaoBack" class="guda.cms.dao.assist.impl.CmsSqlserverDataBackDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="cmsDb2DataDaoBack" class="guda.cms.dao.assist.impl.CmsDb2DataBackDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="lobHandler" ref="defaultLobHandler"/>
+	</bean>
+	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor" lazy-init="true"/>
+	<bean id="oracleLobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler" lazy-init="true">
+		<property name="nativeJdbcExtractor" ref="nativeJdbcExtractor"/> 
+	</bean>
+	<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true"/>
+	<bean id="cmsOracleDataDaoBack" class="guda.cms.dao.assist.impl.CmsOracleDataBackDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="lobHandler" ref="oracleLobHandler"/>
+	</bean>
+	<bean id="cmsFileDaoImpl" class="guda.cms.dao.assist.impl.CmsFileDaoImpl"/>
+	<bean id="cmsWorkLoadStatisticDao" class="guda.cms.statistic.workload.CmsWorkLoadStatisticDaoImpl"/>
+	<bean id="cmsVoteReplyDao" class="guda.cms.dao.assist.impl.CmsVoteReplyDaoImpl"/>
+	<bean id="cmsVoteSubTopicDao" class="guda.cms.dao.assist.impl.CmsVoteSubTopicDaoImpl"/>
+	<bean id="cmsJobApplyDao" class="guda.cms.dao.assist.impl.CmsJobApplyDaoImpl"/>
+	<bean id="contentDocDao" class="guda.cms.dao.main.impl.ContentDocDaoImpl"/>
+	<bean id="cmsTaskDao" class="guda.cms.dao.assist.impl.CmsTaskDaoImpl"/>
+	<bean id="cmsOriginDao" class="guda.cms.dao.assist.impl.CmsOriginDaoImpl"/>
+	<bean id="cmsSearchWordsDao" class="guda.cms.dao.assist.impl.CmsSearchWordsDaoImpl"/>
+	<bean id="cmsPlugDao" class="guda.cms.dao.assist.impl.CmsPlugDaoImpl"/>
+	<bean id="cmsSiteAccessDao" class="guda.cms.dao.assist.impl.CmsSiteAccessDaoImpl"/>
+	<bean id="cmsSiteAccessPagesDao" class="guda.cms.dao.assist.impl.CmsSiteAccessPagesDaoImpl"/>
+	<bean id="cmsSiteAccessStatisticDao" class="guda.cms.dao.assist.impl.CmsSiteAccessStatisticDaoImpl"/>
+	<bean id="cmsSiteAccessCountDao" class="guda.cms.dao.assist.impl.CmsSiteAccessCountDaoImpl"/>
+	<bean id="cmsUserMenuDao" class="guda.cms.dao.assist.impl.CmsUserMenuDaoImpl"/>
+	<bean id="cmsDirectiveTplDao" class="guda.cms.dao.assist.impl.CmsDirectiveTplDaoImpl"/>
+	<bean id="cmsScoreGroupDao" class="guda.cms.dao.assist.impl.CmsScoreGroupDaoImpl"/>
+	<bean id="cmsScoreItemDao" class="guda.cms.dao.assist.impl.CmsScoreItemDaoImpl"/>
+	<bean id="cmsScoreRecordDao" class="guda.cms.dao.assist.impl.CmsScoreRecordDaoImpl"/>
+	
+	<bean id="openOfficeConverter" class="guda.common.office.OpenOfficeConverter" />
+	<!--init-method="init" destroy-method="destroy"-->
+</beans>
