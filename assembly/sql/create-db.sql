@@ -1,9 +1,9 @@
-DROP DATABASE IF EXISTS `demo`;
-CREATE DATABASE `demo`;
-use `demo`;
+DROP DATABASE IF EXISTS `cms`;
+CREATE DATABASE `cms`;
+use `cms`;
 
 
 delete from mysql.user where User = 'demo_user';
-grant select,update,delete,insert on `demo`.* to 'demo_user'@'%' identified by 'demo_pwd';
-grant select,update,delete,insert on `demo`.* to 'demo_user'@'localhost' identified by 'demo_pwd';
+grant select,update,delete,insert on `cms`.* to 'cms_user'@'%' identified by 'cms_pwd';
+grant select,update,delete,insert on `cms`.* to 'cms_user'@'localhost' identified by 'cms_pwd';
 flush privileges;
