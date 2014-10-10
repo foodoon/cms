@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>评论页 - ${site.name} - Powered by JEECMS</title>
+<title>评论页 - ${site.name} </title>
 <meta http-equiv="keywords" content="${content.tagStr!}"/>
 <meta http-equiv="description" content="${content.description!}"/>
 <link href="/${res}/css/index.css" rel="stylesheet" type="text/css"/>
@@ -19,8 +19,8 @@ $(function() {
 </script>
 </head>
 <body>
-[#include "../include/页头顶栏.html"/]
-[#include "../include/页头导航栏.html"/]
+[#include "../include/header_top.html"/]
+[#include "../include/header_nav.html"/]
 <div class="w1000">
 	<div class="w665">
         <div class="hundred100">
@@ -126,8 +126,8 @@ $(function() {
     <!--右栏_end-->
 </div>
 <div class="w1000">
-	[#include "../include/页脚友情链接栏.html"/]
-    [#include "../include/页脚信息栏.html"/]
+	[#include "../include/footer_link.html"/]
+    [#include "../include/footer.html"/]
 </div>
 </body>
 </html>
