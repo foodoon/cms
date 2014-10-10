@@ -1,0 +1,3 @@
+jar cvf jeecms-cms-lc-identity-2012-beta.jar -C com/jeecms/ cms
+jar cvf jeecms-common-2012-beta.jar -C com/jeecms/ common
+jar cvf jeecms-core-lc-identity-2012-beta.jar -C com/jeecms/ core

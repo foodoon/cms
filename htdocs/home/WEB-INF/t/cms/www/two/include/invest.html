@@ -1,0 +1,27 @@
+<div class="w320">
+    <div class="ConTop">
+        <h1>正在进行的中调查</h1>
+    </div>
+    <div class="surveylist">
+        <ul>
+            <li>
+            [@cms_vote]
+            ${tag_bean.title?html}
+            [/@cms_vote]
+            </li>
+        </ul>
+    </div>
+    <div class="clear"></div> 
+    <div class="ConTop mt10">
+        <h1>往期调查</h1>
+    </div>
+    <div class="surveylist">
+        <ul>
+        [@cms_vote_list  siteId=site.id]
+        [#list tag_list as vote]
+        <li><a href="${base}/vote.jspx?voteId=${vote.id}">${vote.title?html}</a>&nbsp;[#if vote.endTime??]${vote.endTime?string("yyyy-MM-dd")}[/#if]</li>
+        [/#list]
+        [/@cms_vote_list]
+        </ul>
+    </div>
+</div>
