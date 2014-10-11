@@ -1,0 +1,40 @@
+<div class="footer">
+    <div class="clearfix footer-inner">
+        <a target="_blank" href="/about.jhtml">关于我们</a> -
+        <a target="_blank" href="http://www.wmtv.cn/lxwm.htm">联系我们</a> -
+        <a target="_blank" href="http://www.wmtv.cn">友情链接</a> -
+        <a target="_blank" href="${base}/s/index.do">管理登录</a>
+
+        <br/>
+        Copyright &copy; 2014-2015 www.wmtv.cn, All Rights Reserved
+        pv总量<span id="pv"></span>  访客数总量<span id="visitor"></span>
+      
+
+      
+    </div>
+</div>
+<script type="text/javascript" language="javascript">
+   //加入收藏
+	   function AddFavorite(sURL, sTitle) {
+		   sURL =encodeURI(sURL); 
+	   try{   
+		  window.external.addFavorite(sURL, sTitle);   
+	   }catch(e) {   
+		  try{   
+			  window.sidebar.addPanel(sTitle, sURL, "");   
+		   }catch (e){   
+			  alert("您的浏览器不支持自动加入收藏功能，请使用Ctrl+D进行添加，或手动在浏览器里进行设置！");
+		  }   
+	   }
+   }
+   
+   //设为首页
+   function SetHome(url){
+	   if (document.all) {
+		  document.body.style.behavior='url(#default#homepage)';
+			 document.body.setHomePage(url);
+	   }else{
+		   alert("您的浏览器不支持自动设置页面为首页功能，请您手动在浏览器里设置该页面为首页！");
+	   }
+   }
+</script>

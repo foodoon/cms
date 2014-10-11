@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>管理控制台</title>
+<#include "/html_admin/head_new.html"/>
+</head>
+<body scroll="yes" style="overflow-x:hidden;overflow-y:scroll;height:800px">
+<#include "top2.ftl" parse=true/>
+<div class="container-fluid" id="main-container">
+    <!-- BEGIN Sidebar -->
+    <div id="sidebar" class="nav-collapse">
+        <!-- BEGIN Navlist -->
+        <ul class="nav nav-list">
+            <!-- BEGIN Search Form -->
+
+            <!-- END Search Form -->
+            <li class="active">
+                <a href="right.do" target="rightFrame">
+                    <i class="icon-dashboard"></i>
+                    <span><@s.m "global.admin.index"/></span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-file"></i>
+                    <span>内容管理</span>
+                    <b class="arrow icon-angle-right"></b>
+                </a>
+
+                <!-- BEGIN Submenu -->
+                <ul class="submenu">
+                    <#list channelList as channel>
+                        <li><a href="content/v_list.do?id=${channel.id}" target="rightFrame">${channel.name}</a></li>
+                    </#list>
+                </ul>
+                <!-- END Submenu -->
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-edit"></i>
+                    <span>栏目维护</span>
+                    <b class="arrow icon-angle-right"></b>
+                </a>
+
+                <!-- BEGIN Submenu -->
+                <ul class="submenu">
+                    <#list channelList as channel>
+                        <li><a href="channel/v_edit.do?id=${channel.id}" target="rightFrame">${channel.name}</a></li>
+                    </#list>
+                </ul>
+                <!-- END Submenu -->
+            </li>
+
+            <li>
+                <a href="type/v_list.do" target="rightFrame">
+                    <i class="icon-text-width"></i></i>
+                    <span>内容类型维护</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-desktop"></i>
+                    <span>统计</span>
+                    <b class="arrow icon-angle-right"></b>
+                </a>
+
+                <!-- BEGIN Submenu -->
+                <ul class="submenu">
+                    <@cms_perm url="/personal/v_profile.do">
+                    <li>
+                        <a href="personal/v_profile.do" target="rightFrame">
+                            <@s.m "cmsPersonal.function"/>
+                        </a>
+                    </li>
+                </@cms_perm>
+
+                <@cms_perm url="/statistic_member/v_list.do">
+            <li><a href="statistic_member/v_list.do" target="rightFrame"><@s.m "statistic.function.member"/></a></li>
+        </@cms_perm>
+        <@cms_perm url="/statistic_content/v_list.do">
+        <li><a href="statistic_content/v_list.do" target="rightFrame"><@s.m "statistic.function.content"/></a></li>
+    </@cms_perm>
+    <@cms_perm url="/statistic_comment/v_list.do">
+    <li><a href="statistic_comment/v_list.do" target="rightFrame"><@s.m "statistic.function.comment"/></a></li>
+</@cms_perm>
+<@cms_perm url="/statistic_guestbook/v_list.do">
+<li><a href="statistic_guestbook/v_list.do" target="rightFrame"><@s.m "statistic.function.guestbook"/></a></li>
+</@cms_perm>
+<@cms_perm url="/flow_pv/v_list.do">
+<li><a href="flow_pv/v_list.do" target="rightFrame"><@s.m "statistic.function.pv"/></a></li>
+</@cms_perm>
+<!--
+                <@cms_perm url="/flow_uniqueIp/v_list.do">
+                <li><a href="flow_uniqueIp/v_list.do" target="rightFrame"><@s.m "statistic.function.uniqueIp"/></a></li>
+                </@cms_perm>
+                <@cms_perm url="/flow_uniqueVisitor/v_list.do">
+                <li><a href="flow_uniqueVisitor/v_list.do" target="rightFrame"><@s.m "statistic.function.uniqueVisitor"/></a></li>
+                </@cms_perm>
+                <@cms_perm url="/flow_refererWebSite/v_list.do">
+                <li><a href="flow_refererWebSite/v_list.do" target="rightFrame"><@s.m "statistic.function.avgViews"/></a></li>
+                </@cms_perm>
+                <@cms_perm url="/flow_refererWebSite/v_list.do">
+                <li><a href="flow_avgViews/v_list.do" target="rightFrame"><@s.m "statistic.function.refererWebSite"/></a></li>
+                </@cms_perm>
+                <@cms_perm url="/flow_refererPage/v_list.do">
+                <li><a href="flow_refererPage/v_list.do" target="rightFrame"><@s.m "statistic.function.refererPage"/></a></li>
+                </@cms_perm>
+                <@cms_perm url="/flow_refererKeyword/v_list.do">
+                <li><a href="flow_refererKeyword/v_list.do" target="rightFrame"><@s.m "statistic.function.refererKeyword"/></a></li>
+                </@cms_perm>
+                <@cms_perm url="/flow_accessPage/v_list.do">
+                <li><a href="flow_accessPage/v_list.do" target="rightFrame"><@s.m "statistic.function.accessPage"/></a></li>
+                </@cms_perm>
+                <@cms_perm url="/flow_area/v_list.do">
+                <li><a href="flow_area/v_list.do" target="rightFrame"><@s.m "statistic.function.area"/></a></li>
+                </@cms_perm>
+                <@cms_perm url="/statistic_flow/v_list.do">
+                <li><a href="statistic_flow/v_list.do" target="rightFrame"><@s.m "statistic.function.flowinit"/></a></li>
+                </@cms_perm>
+-->
+</ul>
+<!-- END Submenu -->
+</li>
+
+
+
+<li>
+    <a href="model/v_list.do" target="rightFrame">
+        <i class="icon-text-width"></i></i>
+        <span>模型管理</span>
+    </a>
+</li>
+<li>
+    <a href="topic/v_list.do" target="rightFrame">
+        <i class="icon-text-width"></i></i>
+        <span>专题维护</span>
+    </a>
+</li>
+
+
+
+
+</ul>
+<!-- END Navlist -->
+
+<!-- BEGIN Sidebar Collapse Button -->
+<div id="sidebar-collapse" class="visible-desktop">
+    <i class="icon-double-angle-left"></i>
+</div>
+<!-- END Sidebar Collapse Button -->
+</div>
+<!-- END Sidebar -->
+
+<div id="main-content">
+    <iframe name="rightFrame" id="rightFrame" src="right.do" scrolling="no" frameborder="0" height="100%" id="mainFrame" width="100%" onload='IFrameReSize("rightFrame");IFrameReSizeWidth("rightFrame");'></iframe>
+</div>
+</div>
+</body>
+<script>
+    function IFrameReSize(iframename) {
+        var pTar = document.getElementById(iframename);
+        if (pTar) {
+            if (pTar.contentDocument && pTar.contentDocument.body.offsetHeight) {
+                pTar.height = pTar.contentDocument.body.offsetHeight;
+            } else if (pTar.Document && pTar.Document.body.scrollHeight) {
+                pTar.height = pTar.Document.body.scrollHeight;
+            }
+        }
+    }
+    function IFrameReSizeWidth(iframename) {
+        var pTar = document.getElementById(iframename);
+        if (pTar) {
+            if (pTar.contentDocument && pTar.contentDocument.body.offsetWidth) {
+                pTar.width = pTar.contentDocument.body.offsetWidth;
+            }
+            else if (pTar.Document && pTar.Document.body.scrollWidth) {
+                pTar.width = pTar.Document.body.scrollWidth;
+            }
+        }
+    }
+</script>
+</html>
