@@ -95,7 +95,6 @@ public class CookieUtils {
 			cookie.setDomain(domain);
 		}
 		String ctx = request.getContextPath();
-		System.out.println("cookie ctx==="+ctx);
 		cookie.setPath(StringUtils.isBlank(ctx) ? "/" : ctx);
 		response.addCookie(cookie);
 		return cookie;

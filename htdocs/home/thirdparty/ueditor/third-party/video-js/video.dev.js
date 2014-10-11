@@ -3365,7 +3365,7 @@ vjs.Player.prototype.remainingTime = function(){
   return this.duration() - this.currentTime();
 };
 
-// http://dev.w3.org/html5/spec/video.html#dom-media-buffered
+// http://dev.w3.org/html5/spec/vedio.html#dom-media-buffered
 // Buffered returns a timerange object.
 // Kind of like an array of portions of the video that have been downloaded.
 // So far no browsers return more than one range (portion)
@@ -3709,13 +3709,13 @@ vjs.Player.prototype.src = function(source){
 };
 
 // Begin loading the src data
-// http://dev.w3.org/html5/spec/video.html#dom-media-load
+// http://dev.w3.org/html5/spec/vedio.html#dom-media-load
 vjs.Player.prototype.load = function(){
   this.techCall('load');
   return this;
 };
 
-// http://dev.w3.org/html5/spec/video.html#dom-media-currentsrc
+// http://dev.w3.org/html5/spec/vedio.html#dom-media-currentsrc
 vjs.Player.prototype.currentSrc = function(){
   return this.techGet('currentSrc') || this.cache_.src || '';
 };

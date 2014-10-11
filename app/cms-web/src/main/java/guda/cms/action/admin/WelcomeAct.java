@@ -1,9 +1,11 @@
 package guda.cms.action.admin;
 
 import guda.cms.entity.assist.CmsUserMenu;
+import guda.cms.entity.main.Channel;
 import guda.cms.entity.main.Content;
 import guda.cms.entity.main.Content.ContentStatus;
 import guda.cms.manager.assist.CmsUserMenuMng;
+import guda.cms.manager.main.ChannelMng;
 import guda.cms.manager.main.ContentMng;
 import guda.cms.web.AdminContextInterceptor;
 import guda.core.entity.CmsSite;
@@ -11,6 +13,7 @@ import guda.core.entity.CmsUser;
 import guda.core.manager.CmsSiteMng;
 import guda.core.web.util.CmsUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -26,7 +29,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class WelcomeAct {
 	@RequiresPermissions("index")
 	@RequestMapping("/index.do")
-	public String index(HttpServletRequest request) {
+	public String index(HttpServletRequest request, ModelMap model) {
+        List<CmsSite> siteList = cmsSiteMng.getList();
+        CmsSite site = CmsUtils.getSite(request);
+        CmsUser user = CmsUtils.getUser(request);
+        model.addAttribute("siteList", siteList);
+        model.addAttribute("site", site);
+        model.addAttribute("siteParam", AdminContextInterceptor.SITE_PARAM);
+        model.addAttribute("user", user);
+
+
+        List<Channel> list = channelMng.getTopList(site.getId(), false);
+        List<Channel> channelList = new ArrayList<Channel>();
+        for(Channel channel:list) {
+            List<Channel> tempList = channelMng.getChildList(channel.getId(), false);
+            System.out.println(channel.getPath() + ":"+tempList.size());
+            if(tempList == null || tempList.size() ==0 ){
+                //没有子节点的，自己就是栏目
+                channelList.add(channel);
+            }else {
+                channelList.addAll(tempList);
+            }
+        }
+
+        model.addAttribute("channelList", channelList);
 		return "index";
 	}
 
@@ -103,4 +129,7 @@ public class WelcomeAct {
 	private ContentMng contentMng;
 	@Autowired
 	private CmsUserMenuMng userMenuMng;
+
+    @Autowired
+    private ChannelMng channelMng;
 }

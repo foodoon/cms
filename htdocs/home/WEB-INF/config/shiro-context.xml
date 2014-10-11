@@ -26,19 +26,19 @@
 				/login.jspx = authc
 				/logout.jspx = logout
 				/member/** = user
-				/jeeadmin/jeecms/login.do = authc
-				/jeeadmin/jeecms/logout.do = logout
-				/jeeadmin/jeecms/** =user
+				/s/login.do = authc
+				/s/logout.do = logout
+				/s/** =user
 			</value>
 		</property>
 	</bean>
 	<!-- Shiro Filter -->	
 	<bean id="adminUrlBean" class="guda.core.security.CmsAdminUrl">
-		<property name="adminLogin" value="/jeeadmin/jeecms/login.do"/>
-		<property name="adminPrefix" value="/jeeadmin/jeecms/"/>
+		<property name="adminLogin" value="/s/login.do"/>
+		<property name="adminPrefix" value="/s/"/>
 	</bean>
 	<bean id="authcFilter" class="guda.core.security.CmsAuthenticationFilter" parent="adminUrlBean">
-		<property name="adminIndex" value="/jeeadmin/jeecms/index.do"/>
+		<property name="adminIndex" value="/s/index.do"/>
 	</bean>
 	<bean id="userFilter" class="guda.core.security.CmsUserFilter" parent="adminUrlBean"/>
 	<bean id="logoutFilter" class="guda.core.security.CmsLogoutFilter" parent="adminUrlBean"/>
