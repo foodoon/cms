@@ -43,7 +43,6 @@ public class WelcomeAct {
         List<Channel> channelList = new ArrayList<Channel>();
         for(Channel channel:list) {
             List<Channel> tempList = channelMng.getChildList(channel.getId(), false);
-            System.out.println(channel.getPath() + ":"+tempList.size());
             if(tempList == null || tempList.size() ==0 ){
                 //没有子节点的，自己就是栏目
                 channelList.add(channel);

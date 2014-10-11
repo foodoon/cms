@@ -20,11 +20,12 @@
 
         .nav{height:28px; overflow:hidden;}
         .nav-menu{ height:28px; list-style:none; font-size:13px;}
-        .nav .current {background: url(${base}/res/jeecms/img/admin/top_menu_selected.png) no-repeat center; color:#fff; text-align:center; width:100px; height:28px;}
-        .nav .current a{color:#093153;}
+        .nav .current {background: #4CA4EE no-repeat center; color:#fff; text-align:center; width:100px; height:28px;}
+        .nav .current a{color:#fff;}
+        .nav li:hover {background: #4CA4EE no-repeat center; color:#fff; text-align:center; width:100px; height:28px;}
         .nav-menu li {height:28px;text-align:center; line-height:28px; float:left; }
         .nav-menu li a{color:#fff; font-weight:bold;}
-        .nav-menu li.sep{background: url(${base}/res/jeecms/img/admin/top_menu_Divideline.png) no-repeat; width:3px; height:13px; margin:9px 0 0 0;}
+        .nav-menu li.sep{ no-repeat; width:3px; height:13px; margin:9px 0 0 0;}
         .nav .normal{text-align:center; width:100px;}
 
         .undis{display:none;}
@@ -120,9 +121,14 @@
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <td>
-                                        <ul class="nav-menu">
+                                        <ul class="nav-menu" >
                                             <li class="sep"></li>
-                                            <li class="current" id="tb_11" onclick="HoverLi(11);"><a href="main.do" target="mainFrame"><@s.m "cms.function.workbench"/></a></li>
+                                            <li class="current" id="tb_11" onclick="HoverLi(11);">
+
+                                                <a href="main.do" target="mainFrame">
+                                                    <i class="fa fa-file"></i>
+                                                <@s.m "cms.function.workbench"/>
+                                            </a></li>
                                             <@cms_perm url="/frame/content_main.do">
                                             <li class="sep"></li><li class="normal" id="tb_12" onclick="HoverLi(12);"><a href="frame/content_main.do?source=top" target="mainFrame"><@s.m "cms.function.content"/></a></li>
                                         </@cms_perm>
