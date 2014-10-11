@@ -9,14 +9,14 @@
         a:focus {outline:none;}
         html{height:100%;overflow:hidden;}
         body{height:100%;}
-        #top{ background-color:#58B1FC; height:71px; width:100%;}
-        .logo{width:209px; height:71px;}
-        .topbg{ height:71px;}
-        .login-welcome{padding-left:20px; color:#8099ae; font-size:12px;}
-        .login-welcome a:link,.login-welcome a:visited{color:#8099ae; text-decoration:none;}
+        #top{ background-color:#58B1FC; height:50px; width:100%;}
+        .logo{width:209px; height:50px;}
+        .topbg{ height:50;}
+        .login-welcome{padding-left:20px; color:#fff; font-size:12px;}
+        .login-welcome a:link,.login-welcome a:visited{color:#fff; text-decoration:none;}
 
-        #welcome {color: #8099ae;padding: 0 30px 0 5px;}
-        #logout {color: #8099ae; padding-left: 5px;}
+        #welcome {color: #fff;padding: 0 30px 0 5px;}
+        #logout {color: #fff; padding-left: 5px;}
 
         .nav{height:28px; overflow:hidden;}
         .nav-menu{ height:28px; list-style:none; font-size:13px;}
@@ -90,13 +90,13 @@
     <div class="top">
         <table width="100%" border="0" cellspacing="0" cellpadding="0" >
             <tr>
-                <td width="209"><div class="logo"><small style="font-size:80%;font-weight: 200">为民网管理系统</small></div></td>
-                <td valign="top" style="background:url(${base}/res/jeecms/img/admin/newtopbg1.jpg) no-repeat;">
+                <td width="209"><div class="logo"><span style="font-size:22px;font-weight:200;color:#fff;display:block;text-align:center; line-height:50px;">为民网管理系统</span></div></td>
+                <td valign="top" >
                     <div class="topbg">
                         <div class="login-welcome">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
-                                    <td width="420" height="42">
+                                    <td width="420" height="20">
                                         <img src="${base}/res/jeecms/img/admin/top_useinfo_icon_01.png"/>&nbsp;<span id="welcome"><@s.ma code="global.admin.welcome" args=[user.username]/></span>
                                         <img src="${base}/res/jeecms/img/admin/top_useinfo_icon_02.png"/>&nbsp;<a href="logout.do?returnUrl=index.do" target="_top" id="logout" onclick="return confirm('<@s.m "global.confirm.logout"/>');"><@s.m "global.admin.logout"/></a>　　
                                         <img src="${base}/res/jeecms/img/admin/top_useinfo_icon_03.png"/>&nbsp;&nbsp;<a href="message/v_list.do" target="rightFrame"><@s.m "cmsUser.has"/>&nbsp;<span id="countDiv"></span>&nbsp;<@s.m "cmsUser.unreadcount"/></a>
@@ -112,9 +112,6 @@
                                     </td>
                                     <td width="180">
                                         &nbsp;<a id="view_index" href="${site.url}" target="_blank"><@s.m "global.admin.viewFrontIndex"/></a>
-                                        <!--
-                                        &nbsp;<a style="color:#FFF" href="javascript:alert($(document).width()+','+$(document).height())">【窗口大小】</a>
-                                        -->
                                     </td>
                                 </tr>
                             </table>

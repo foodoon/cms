@@ -57,8 +57,8 @@ a.normal{text-decoration:underline;}
 .leftNol{ cursor:pointer; background:url(../img/admin/LMBg2.jpg); width:209px; height:27px; line-height:27px; color:#14436b; margin-top:1px; text-indent:9em;}
 
 /*----------------right-----------------*/
-.box-positon{background:url(../img/admin/dqwzBG.jpg); height:26px;}
-.box-positon h1{color:#ffffff; font-size:12px; line-height:26px; font-weight:normal; background:url(../img/admin/house.jpg) no-repeat 15px 5px; text-indent:40px; margin:0;}
+.box-positon{background:none repeat scroll 0% 0% #3294C8; height:26px;}
+.box-positon h1{color:#ffffff; font-size:12px; line-height:26px; font-weight:normal; background:none repeat scroll 0% 0% #3E4349; text-indent:40px; margin:0;}
 .welcom-con{ margin:0 auto; width:100%;}
 .we-txt{ margin-top:2px;}
 .we-txt ul{ margin:0; padding:0;}
