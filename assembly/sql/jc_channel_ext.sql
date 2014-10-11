@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2014-10-11 10:56:12
+Date: 2014-10-11 16:40:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -57,16 +57,16 @@ CREATE TABLE `jc_channel_ext` (
 -- ----------------------------
 -- Records of jc_channel_ext
 -- ----------------------------
-INSERT INTO `jc_channel_ext` VALUES ('69', '新闻', null, null, '0', '0', '0', '0', '20', null, null, null, null, null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '新闻', '新闻', '新闻', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('70', '图库', null, null, '0', '0', '0', '0', '20', null, null, null, null, null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', '图库', '图库', '图库', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('69', '新闻', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '新闻', '新闻', '新闻', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('70', '图库', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/pic.html', null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', '图库', '图库', '图库', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('71', '财经', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_finance.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '财经', '财经', '财经', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('72', '下载', null, null, '0', '0', '1', '0', '20', null, null, null, null, null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '下载', '下载', '下载', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('72', '下载', null, null, '0', '0', '1', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/download.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '下载', '下载', '下载', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('73', '教育', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_edu.html', null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', '教育', '教育', '教育', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('74', '汽车', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_car.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '汽车', '汽车', '汽车', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('75', '娱乐', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_relax.html', null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', '娱乐', '娱乐', '娱乐', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('76', '招聘', null, null, '0', '0', '0', '0', '20', null, null, null, null, null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', '招聘', '招聘', '招聘', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('77', '视频', null, null, '0', '0', '0', '0', '20', null, null, null, null, null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', '视频', '视频', '视频', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('78', '文库', null, null, '0', '0', '0', '0', '20', null, null, null, null, null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', '文库', '文库', '文库', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('76', '招聘', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/hire.html', null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', '招聘', '招聘', '招聘', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('77', '视频', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/vedio.html', null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', '视频', '视频', '视频', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('78', '文库', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/doc.html', null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', '文库', '文库', '文库', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('79', '时政', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_sub.html', null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', '时政', '时政', '时政', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('80', '国际新闻', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_sub.html', null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', '国际新闻', '国际新闻', '国际新闻', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('81', '国内新闻', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_sub.html', null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', '国内新闻', '国内新闻', '国内新闻', '0', '0');
@@ -79,9 +79,9 @@ INSERT INTO `jc_channel_ext` VALUES ('87', '旅游', null, null, '0', '0', '0', 
 INSERT INTO `jc_channel_ext` VALUES ('88', '要闻', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_sub.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '要闻', '要闻', '要闻', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('89', '股票', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_sub.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '股票', '股票', '股票', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('90', '理财', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_sub.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '理财', '理财', '理财', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('91', '软件', null, null, '0', '0', '1', '0', '20', null, null, null, null, null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '软件', '软件', '软件', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('92', '游戏', null, null, '0', '0', '1', '0', '20', null, null, null, null, null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '游戏', '游戏', '游戏', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('93', '工具', null, null, '0', '0', '1', '0', '20', null, null, null, null, null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '工具', '工具', '工具', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('91', '软件', null, null, '0', '0', '1', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/download_2.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '软件', '软件', '软件', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('92', '游戏', null, null, '0', '0', '1', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/download_2.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '游戏', '游戏', '游戏', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('93', '工具', null, null, '0', '0', '1', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/download_2.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '工具', '工具', '工具', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('94', '文化', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_sub.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '文化', '文化', '文化', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('95', '历史', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_sub.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '历史', '历史', '历史', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('96', '车情', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_sub.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '车情', '车情', '车情', '0', '0');
@@ -92,11 +92,11 @@ INSERT INTO `jc_channel_ext` VALUES ('100', '明星', null, null, '0', '0', '0',
 INSERT INTO `jc_channel_ext` VALUES ('101', '八卦', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_sub.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '八卦', '八卦', '八卦', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('102', '情感', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/news_sub.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '情感', '情感', '情感', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('103', 'IT', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/hire.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', 'IT', 'IT', 'IT', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('104', '通信', null, null, '0', '0', '0', '0', '20', null, null, null, null, null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '通信', '通信', '通信', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('105', '家电', null, null, '0', '0', '0', '0', '20', null, null, null, null, null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '家电', '家电', '家电', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('106', '电影', null, null, '0', '0', '0', '0', '20', null, null, null, null, null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '电影', '电影', '电影', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('107', '综艺', null, null, '0', '0', '0', '0', '20', null, null, null, null, null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '综艺', '综艺', '综艺', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('108', '电视', null, null, '0', '0', '0', '0', '20', null, null, null, null, null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '电视剧', '电视剧', '电视剧', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('109', '教育', null, null, '0', '0', '0', '0', '20', null, null, null, null, null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '教育', '教育', '教育', '0', '0');
-INSERT INTO `jc_channel_ext` VALUES ('110', '科技', null, null, '0', '0', '0', '0', '20', null, null, null, null, null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '科技', '科技', '科技', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('104', '通信', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/hire.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '通信', '通信', '通信', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('105', '家电', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/hire.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '家电', '家电', '家电', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('106', '电影', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/vedio.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '电影', '电影', '电影', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('107', '综艺', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/vedio_sub.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '综艺', '综艺', '综艺', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('108', '电视', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/vedio_sub.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '电视剧', '电视剧', '电视剧', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('109', '教育', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/doc_sub.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '教育', '教育', '教育', '0', '0');
+INSERT INTO `jc_channel_ext` VALUES ('110', '科技', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/html_front/cms/www/two/channel/doc_sub.html', null, null, null, '1', '0', '139', '139', '310', '310', '0', '1', '0', '科技', '科技', '科技', '0', '0');
 INSERT INTO `jc_channel_ext` VALUES ('111', '网络调查', null, null, '0', '0', '0', '0', '20', null, null, null, '/WEB-INF/t/cms/www/two/channel/news_net.html', null, null, null, '0', '0', '139', '139', '310', '310', '0', '1', '0', null, null, null, '0', '0');
