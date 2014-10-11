@@ -3,6 +3,7 @@ package guda.common.util;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DateFormatUtils extends org.apache.commons.lang.time.DateFormatUtils{
@@ -24,26 +25,22 @@ public class DateFormatUtils extends org.apache.commons.lang.time.DateFormatUtil
 	}
 	
 	public static Date parseTime(Date time){
-		DateFormat format = new SimpleDateFormat("HH:mm:ss"); 
-		Date result=time;
-		try {
-			result = format.parse(formatTime(time));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}  
-		return result;
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(time);
+        instance.set(Calendar.YEAR,2014);
+        instance.set(Calendar.MONTH,1);
+        instance.set(Calendar.DAY_OF_MONTH,1);
+        return instance.getTime();
 	}
 	
 	public static Date parseDate(Date time){
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd"); 
-		Date result=time;
-		try {
-			result = format.parse(formatDate(time));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}  
-		return result;
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(time);
+        instance.set(Calendar.HOUR_OF_DAY,0);
+        instance.set(Calendar.MINUTE,0);
+        instance.set(Calendar.SECOND,0);
+        instance.set(Calendar.MILLISECOND,0);
+
+		return instance.getTime();
 	}
 }
