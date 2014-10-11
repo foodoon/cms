@@ -7,7 +7,7 @@ import guda.common.page.Pagination;
 import java.util.Date;
 
 /**
- *江西金磊科技发展有限公司jeecms研发
+ *
  */
 public interface CmsMessageDao {
 

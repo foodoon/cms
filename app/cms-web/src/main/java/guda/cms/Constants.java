@@ -90,11 +90,11 @@ public class Constants {
 	/**
 	 * 上传路径
 	 */
-	public static final String UPLOAD_PATH = "/u/cms/";
+	public static final String UPLOAD_PATH = "/upload/";
 	/**
 	 * 截图路径
 	 */
-	public static final String SNAP_PATH = "/u/cms/snap";
+	public static final String SNAP_PATH = "/upload/snap";
 	/**
 	 * 上传路径
 	 */
@@ -106,11 +106,11 @@ public class Constants {
 	/**
 	 * 资源路径
 	 */
-	public static final String RES_PATH = "/r/cms";
+	public static final String RES_PATH = "/style";
 	/**
 	 * 模板路径
 	 */
-	public static final String TPL_BASE = "/WEB-INF/t/cms";
+	public static final String TPL_BASE = "/WEB-INF/html_front/cms";
 	/**
 	 * 全文检索索引路径
 	 */
@@ -118,15 +118,15 @@ public class Constants {
 	/**
 	 * 列表样式模板路径
 	 */
-	public static final String TPL_STYLE_LIST = "/WEB-INF/t/cms_sys_defined/style_list/style_";
+	public static final String TPL_STYLE_LIST = "/WEB-INF/html_front/cms_sys_defined/style_list/style_";
 	/**
 	 * 内容分页模板路径
 	 */
-	public static final String TPL_STYLE_PAGE_CONTENT = "/WEB-INF/t/cms_sys_defined/style_page/content_";
+	public static final String TPL_STYLE_PAGE_CONTENT = "/WEB-INF/html_front/cms_sys_defined/style_page/content_";
 	/**
 	 * 列表分页模板路径
 	 */
-	public static final String TPL_STYLE_PAGE_CHANNEL = "/WEB-INF/t/cms_sys_defined/style_page/channel_";
+	public static final String TPL_STYLE_PAGE_CHANNEL = "/WEB-INF/html_front/cms_sys_defined/style_page/channel_";
 	/**
 	 * 页面禁止访问
 	 */
@@ -150,7 +150,7 @@ public class Constants {
 	/**
 	 * 配置文件
 	 */
-	public static String JEECMS_CONFIG = "/WEB-INF/config/jeecms/jeecms.properties";
+	public static String JEECMS_CONFIG = "/WEB-INF/config/cms/cms.properties";
 	/**
 	 * 插件路径
 	 */
@@ -166,5 +166,5 @@ public class Constants {
 	/**
 	 * 模板路径
 	 */
-	public static final String TPL_BACK_BASE = "/WEB-INF/cms_sys";
+	public static final String TPL_BACK_BASE = "/WEB-INF/html_admin";
 }

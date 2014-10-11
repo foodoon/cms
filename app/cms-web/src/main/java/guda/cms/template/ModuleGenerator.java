@@ -199,9 +199,5 @@ public class ModuleGenerator {
 		writeFile();
 	}
 
-	public static void main(String[] args) {
-		String packName = "com.jeecms.common.developer.template";
-		String fileName = "template.properties";
-		new ModuleGenerator(packName, fileName).generate();
-	}
+
 }

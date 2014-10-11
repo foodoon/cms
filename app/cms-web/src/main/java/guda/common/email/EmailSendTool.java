@@ -180,15 +180,6 @@ public class EmailSendTool {
 		this.personalName = personalName;
 	}
 
-	public static void main(String[] args) {
-		EmailSendTool sendEmail = new EmailSendTool("smtp.163.com",
-				"jeecms2012@163.com", "jeecms2012strong", "664592270@qq.com",
-				"测试", "文本内容", "我", "", "");
-		try {
-			sendEmail.send();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-	}
+
 
 }

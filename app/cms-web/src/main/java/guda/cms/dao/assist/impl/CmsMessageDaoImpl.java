@@ -11,7 +11,7 @@ import java.util.Date;
 import org.apache.commons.lang.StringUtils;
 
 /**
- *江西金磊科技发展有限公司jeecms研发
+ *
  */
 
 public class CmsMessageDaoImpl extends HibernateBaseDao<CmsMessage, Integer>

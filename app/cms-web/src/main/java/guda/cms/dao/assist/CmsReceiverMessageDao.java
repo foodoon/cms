@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *江西金磊科技发展有限公司jeecms研发
+ *
  */
 public interface CmsReceiverMessageDao {
 

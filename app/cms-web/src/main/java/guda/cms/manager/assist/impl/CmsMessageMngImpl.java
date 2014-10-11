@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- *江西金磊科技发展有限公司jeecms研发
+ *
  */
 @Service
 @Transactional
