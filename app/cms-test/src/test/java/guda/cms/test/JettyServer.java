@@ -36,10 +36,10 @@ public class JettyServer {
        // server.addConnector(c);
 
         HandlerCollection collection = new HandlerCollection();
-        RequestLogHandler logHandler = new RequestLogHandler();
-        NCSARequestLog log = new NCSARequestLog();
-        log.setFilename("request.log");
-        logHandler.setRequestLog(log);
+//        RequestLogHandler logHandler = new RequestLogHandler();
+//        NCSARequestLog log = new NCSARequestLog();
+//        log.setFilename("request.log");
+//        logHandler.setRequestLog(log);
 
 
       //  collection.addHandler(logHandler);
@@ -55,7 +55,7 @@ public class JettyServer {
         webapp.setDescriptor(getWebDescriptor());
         webapp.setResourceBase(getAppRoot() + "/htdocs/home");
         webapp.setContextPath("/");
-        webapp.setInitParameter("useFileMappedBuffer","false");
+      //  webapp.setInitParameter("useFileMappedBuffer","false");
         SecurityHandler securityHandler = new ConstraintSecurityHandler();
         HashLoginService loginService  = new HashLoginService();
         loginService.setName("authorizingRealm");

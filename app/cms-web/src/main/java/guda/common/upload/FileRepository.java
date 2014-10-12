@@ -5,9 +5,12 @@ import java.io.IOException;
 
 import javax.servlet.ServletContext;
 
+import guda.common.util.PropertyUtils;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
  */
 public class FileRepository implements ServletContextAware {
 	private Logger log = LoggerFactory.getLogger(FileRepository.class);
+
+    public static final String UPLOAD_FILE_DIR = "upload.file.dir";
 
 	public String storeByExt(String path, String ext, MultipartFile file)
 			throws IOException {
@@ -74,7 +79,11 @@ public class FileRepository implements ServletContextAware {
 	}
 	
 	private String getRealPath(String name){
-		String realpath=ctx.getRealPath(name);
+        String propertiesString = propertyUtils.getPropertiesString(UPLOAD_FILE_DIR);
+        if(StringUtils.hasText(propertiesString)){
+            return propertiesString + name;
+        }
+        String realpath=ctx.getRealPath(name);
 		if(realpath==null){
 			realpath=ctx.getRealPath("/")+name;
 		}
@@ -82,8 +91,15 @@ public class FileRepository implements ServletContextAware {
 	}
 
 	private ServletContext ctx;
+    //upload.file.dir=
+    private PropertyUtils propertyUtils;
 
-	public void setServletContext(ServletContext servletContext) {
+    @Autowired
+    public void setPropertyUtils(PropertyUtils propertyUtils) {
+        this.propertyUtils = propertyUtils;
+    }
+
+    public void setServletContext(ServletContext servletContext) {
 		this.ctx = servletContext;
 	}
 }
