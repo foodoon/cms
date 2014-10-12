@@ -55,6 +55,7 @@ public class JettyServer {
         webapp.setDescriptor(getWebDescriptor());
         webapp.setResourceBase(getAppRoot() + "/htdocs/home");
         webapp.setContextPath("/");
+        webapp.setInitParameter("useFileMappedBuffer","false");
         SecurityHandler securityHandler = new ConstraintSecurityHandler();
         HashLoginService loginService  = new HashLoginService();
         loginService.setName("authorizingRealm");

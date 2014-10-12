@@ -9,7 +9,7 @@
         a:focus {outline:none;}
         html{height:100%;overflow:hidden;}
         body{height:100%;}
-        #top{ background-color:#58B1FC; height:50px; width:100%;}
+        #top{ background-color:#58B1FC; height:60px; width:100%;}
         .logo{width:209px; height:50px;}
         .topbg{ height:50;}
         .login-welcome{padding-left:20px; color:#fff; font-size:12px;}
@@ -18,13 +18,13 @@
         #welcome {color: #fff;padding: 0 30px 0 5px;}
         #logout {color: #fff; padding-left: 5px;}
 
-        .nav{height:28px; overflow:hidden;}
-        .nav-menu{ height:28px; list-style:none; font-size:13px;}
-        .nav .current {background: #4CA4EE no-repeat center; color:#fff; text-align:center; width:100px; height:28px;}
-        .nav .current a{color:#fff;}
-        .nav li:hover {background: #4CA4EE no-repeat center; color:#fff; text-align:center; width:100px; height:28px;}
-        .nav-menu li {height:28px;text-align:center; line-height:28px; float:left; }
-        .nav-menu li a{color:#fff; font-weight:bold;}
+        .nav{height:38px; overflow:hidden;}
+        .nav-menu{ height:38px; list-style:none; font-size:13px;}
+        .nav .current {background: #4CA4EE no-repeat center; color:#fff; text-align:center; width:100px; height:38px;}
+        .nav .current a{color:#fff;padding: 3px 10px 0px !important;display: block;}
+        .nav li:hover {background: #4CA4EE no-repeat center; color:#fff; text-align:center; width:100px; height:38px;}
+        .nav-menu li {height:38px;text-align:center; line-height:38px; float:left; }
+        .nav-menu li a{color:#fff; font-weight:bold;display: block;padding: 3px 10px 0px !important;}
         .nav-menu li.sep{ no-repeat; width:3px; height:13px; margin:9px 0 0 0;}
         .nav .normal{text-align:center; width:100px;}
 
@@ -126,26 +126,42 @@
                                             <li class="current" id="tb_11" onclick="HoverLi(11);">
 
                                                 <a href="main.do" target="mainFrame">
-                                                    <i class="fa fa-file"></i>
+                                                    <i class="fa fa-desktop"></i>
                                                 <@s.m "cms.function.workbench"/>
                                             </a></li>
                                             <@cms_perm url="/frame/content_main.do">
-                                            <li class="sep"></li><li class="normal" id="tb_12" onclick="HoverLi(12);"><a href="frame/content_main.do?source=top" target="mainFrame"><@s.m "cms.function.content"/></a></li>
+                                            <li class="normal" id="tb_12" onclick="HoverLi(12);">
+                                                <a href="frame/content_main.do?source=top" target="mainFrame">
+                                                    <i class="fa fa-edit"></i>
+                                                    <@s.m "cms.function.content"/></a></li>
                                         </@cms_perm>
                                         <@cms_perm url="/frame/maintain_main.do">
-                                        <li class="sep"></li><li class="normal" id="tb_13" onclick="HoverLi(13);"><a href="frame/maintain_main.do" target="mainFrame"><@s.m "cms.function.maintain"/></a></li>
+                                        <li class="normal" id="tb_13" onclick="HoverLi(13);"><a href="frame/maintain_main.do" target="mainFrame">
+                                            <i class="fa fa-list"></i>
+                                        <@s.m "cms.function.maintain"/></a></li>
                                     </@cms_perm>
                                     <@cms_perm url="/frame/user_main.do">
-                                    <li class="sep"></li><li class="normal" id="tb_14" onclick="HoverLi(14);"><a href="frame/user_main.do" target="mainFrame"><@s.m "cms.function.user"/></a></li>
+                                    <li class="normal" id="tb_14" onclick="HoverLi(14);">
+                                        <a href="frame/user_main.do" target="mainFrame">
+                                            <i class="fa fa-users"></i>
+                                            <@s.m "cms.function.user"/></a></li>
                                 </@cms_perm>
                                 <@cms_perm url="/frame/expand_main.do">
-                                <li class="sep"></li><li class="normal" id="tb_15" onclick="HoverLi(15);"><a href="frame/expand_main.do" target="mainFrame"><@s.m "cms.function.expand"/></a></li>
+                                <li class="normal" id="tb_15" onclick="HoverLi(15);">
+                                    <a href="frame/expand_main.do" target="mainFrame">
+                                        <i class="fa fa-expand"></i>
+                                        <@s.m "cms.function.expand"/></a></li>
                             </@cms_perm>
                             <@cms_perm url="/frame/statistic_main.do">
-                            <li class="sep"></li><li class="normal" id="tb_16" onclick="HoverLi(16);"><a href="frame/statistic_main.do" target="mainFrame"><@s.m "cms.function.data"/></a></li>
+                            <li class="normal" id="tb_16" onclick="HoverLi(16);">
+                                <a href="frame/statistic_main.do" target="mainFrame">
+                                    <i class="fa fa-bar-chart"></i>
+                                    <@s.m "cms.function.data"/></a></li>
                         </@cms_perm>
                         <@cms_perm url="/frame/config_main.do">
-                        <li class="sep"></li><li class="normal" id="tb_17" onclick="HoverLi(17);"><a href="frame/config_main.do" target="mainFrame"><@s.m "cms.function.config"/></a></li>
+                        <li class="normal" id="tb_17" onclick="HoverLi(17);"><a href="frame/config_main.do" target="mainFrame">
+                            <i class="fa fa-cog"></i>
+                            <@s.m "cms.function.config"/></a></li>
                     </@cms_perm>
                     </ul>
                 </td>
