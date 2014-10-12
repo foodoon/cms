@@ -285,7 +285,7 @@
                                 </copy>
                                 <copy todir="${project.build.directory}/${assembly.name}">
                                     <fileset dir="../htdocs/home">
-                                        <exclude name="upload/**”"/>
+                                        <exclude name="upload/**"/>
                                     </fileset>
                                 </copy>
                                 <zip destfile="${project.build.directory}/${assembly.name}-${project.version}-war.zip">
