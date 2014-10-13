@@ -28,16 +28,14 @@
             [#if q??]
             [@cms_lucene_page q=q channelId=channelId descLen='100' append='...' count='10']
             <div class="search_msg">
-            您搜索的<span class="red">“${q!}”</span>， 共有 <span class="red">${tag_list?size} 条</span> 查询结果，[@process_time/]
+            您搜索的<span class="red">“${q!}”</span>， 共有 <span class="red">${tag_list?size} 条</span> 查询结果
             </div>
             [#list tag_list as s]
-                <#if s??>
                 <dl class="sslist">
                     <dt><span>[<a href="${s.ctgUrl!}" target="_blank">${s.ctgName!}</a>]</span>  <a href="${s.url}" title="${s.title!}" target="_blank">${s.title!}</a></dt>
                     <dd class="zy">[@text_cut s=s.description len=descLen append=append/]</dd>
                     <dd>来源： <a href="${s.originUrl!}" target="_blank">${s.origin!'本站原创'}</a> &nbsp;&nbsp; 浏览次数：${s.views}次 &nbsp;&nbsp; 发布时间： ${s.releaseDate!} </dd>
                 </dl>
-                </#if>
                 [/#list]
             <div class="pagesite">[@cms_pagination sysPage='1'/]</div>
             [/@cms_lucene_page]	  
