@@ -33,9 +33,7 @@
         <param-value>/WEB-INF/log4j.xml</param-value>
     </context-param>
 
-    <listener>
-        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-    </listener>
+
 	<filter>
 		<filter-name>processTime</filter-name>
 		<filter-class>guda.common.web.ProcessTimeFilter</filter-class>

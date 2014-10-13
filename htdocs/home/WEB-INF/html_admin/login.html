@@ -27,9 +27,17 @@
         <hr/>
         <div class="form-group">
             <div class="controls">
-                <#if errors??>
+                <#if error??>
                     <ul>
-                        <#list errors as error><li>${error}</li></#list>
+                        <#if error=="org.apache.shiro.authc.IncorrectCredentialsException">
+                            <li><@s.m "error.invalidPassword"/></li>
+                            <#elseif error=="org.apache.shiro.authc.UnknownAccountException">
+                                <li><@s.m "error.usernameNotExist"/></li>
+                                <#elseif error=="com.jeecms.common.security.CaptchaErrorException">
+                                    <li><@s.m "error.invalidCaptcha"/></li>
+                                    <#elseif error=="com.jeecms.common.security.DisabledException">
+                                        <li><@s.m "error.userDisabled"/></li>
+                        </#if>
                     </ul>
                 </#if>
             </div>
