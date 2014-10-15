@@ -75,7 +75,7 @@ public class FileRepository implements ServletContextAware {
 	}
 
 	public File retrieve(String name) {
-		return new File(ctx.getRealPath(name));
+		return new File(getRealPath(name));
 	}
 	
 	private String getRealPath(String name){
