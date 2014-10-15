@@ -24,6 +24,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.util.WebUtils;
@@ -69,7 +70,7 @@ public class CmsAuthenticationFilter extends FormAuthenticationFilter {
         String userName =request.getParameter("username");
         String password =request.getParameter("password");
         if(!org.springframework.util.StringUtils.hasText(userName)|| !org.springframework.util.StringUtils.hasText(password)){
-            return onLoginFailure(token,adminLogin, new AuthenticationException("用户名或者密码不能为空"), request, response);
+            return onLoginFailure(token,adminLogin, new UnknownAccountException("用户名或者密码不能为空"), request, response);
         }
 		//验证码校验
 		if (isCaptchaRequired(username,req, res)) {
