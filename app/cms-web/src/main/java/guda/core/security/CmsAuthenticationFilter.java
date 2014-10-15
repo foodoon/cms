@@ -51,11 +51,14 @@ public class CmsAuthenticationFilter extends FormAuthenticationFilter {
 	public static final String RETURN_URL = "returnUrl";
 
 	protected boolean executeLogin(ServletRequest request,ServletResponse response) throws Exception {
+
 		AuthenticationToken token = createToken(request, response);
+
 		if (token == null) {
 			String msg = "create AuthenticationToken error";
 			throw new IllegalStateException(msg);
 		}
+
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		String username = (String) token.getPrincipal();
@@ -63,6 +66,11 @@ public class CmsAuthenticationFilter extends FormAuthenticationFilter {
 		if (req.getRequestURI().startsWith(req.getContextPath() + getAdminPrefix())){
 			adminLogin=true;
 		}
+        String userName =request.getParameter("username");
+        String password =request.getParameter("password");
+        if(!org.springframework.util.StringUtils.hasText(userName)|| !org.springframework.util.StringUtils.hasText(password)){
+            return onLoginFailure(token,adminLogin, new AuthenticationException("用户名或者密码不能为空"), request, response);
+        }
 		//验证码校验
 		if (isCaptchaRequired(username,req, res)) {
 			String captcha = request.getParameter(CAPTCHA_PARAM);
