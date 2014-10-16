@@ -92,16 +92,16 @@ h3{  padding:0; margin:0; font-weight:normal; width:100%; font-size:12px;display
         </@cms_perm>
     </div>
 <h3><span class="span-padding7"><@s.m 'cmsData.function'/></span><b class="fa fa-angle-right"></b></h3>
-<div style="margin:0; padding:0;">
+<div class="submenu" style="margin:0; padding:0;">
     <@cms_perm url="/data/v_list.do">
     <li><a href="../${db!}/data/v_list.do" target="rightFrame"><@s.m "db.backup"/></a></li>
-</@cms_perm>
-<@cms_perm url="/data/v_revert.do">
-<li><a href="../${db!}/data/v_revert.do" target="rightFrame"><@s.m "db.revert"/></a></li>
-</@cms_perm>
-<@cms_perm url="/data/v_listfiles.do">
-<li><a href="../${db!}/data/v_listfiles.do" target="rightFrame"><@s.m "db.dir"/></a></li>
-</@cms_perm>
+    </@cms_perm>
+    <@cms_perm url="/data/v_revert.do">
+    <li><a href="../${db!}/data/v_revert.do" target="rightFrame"><@s.m "db.revert"/></a></li>
+    </@cms_perm>
+    <@cms_perm url="/data/v_listfiles.do">
+    <li><a href="../${db!}/data/v_listfiles.do" target="rightFrame"><@s.m "db.dir"/></a></li>
+    </@cms_perm>
 </div>
 <h3><span class="span-padding7"><@s.m 'cmsInteractive.function'/></span><b class="fa fa-angle-right"></b></h3>
     <div class="submenu" style="margin:0; padding:0;">
@@ -150,19 +150,7 @@ h3{  padding:0; margin:0; font-weight:normal; width:100%; font-size:12px;display
             }else{
                 $(this).addClass("leftNol");
             }
-            $(this).click( function () {
-                $("li").each(function(){
-                    $(this).removeClass();
-                    $(this).addClass("leftNol");
-                });
-                $("h3").each(function(){
-                    $(this).next().hide();
-                    $(this).removeClass();
-                    $(this).addClass("leftNol");
-                });
-                $(this).removeClass();
-                $(this).addClass("leftCurr");
-            });
+
         });
         $("h3").each(function(){
             $(this).next().hide();
@@ -182,5 +170,26 @@ h3{  padding:0; margin:0; font-weight:normal; width:100%; font-size:12px;display
                 $(this).next().show();
             });
         });
+
+//        $("h3").each(function(i){
+//            if(i==0){
+//                $(this).addClass("leftCurr");
+//            }else{
+//                $(this).next().hide();
+//                $(this).addClass("leftNol");
+//            }
+//            $(this).click( function () {
+//                $("h3").each(function(i){
+//                    if(i!=0){
+//                        $(this).next().hide();
+//                    }
+//                    $(this).removeClass();
+//                    $(this).addClass("leftNol");
+//                });
+//                $(this).removeClass();
+//                $(this).addClass("leftCurr");
+//                $(this).next().show();
+//            });
+//        });
     });
 </script>
