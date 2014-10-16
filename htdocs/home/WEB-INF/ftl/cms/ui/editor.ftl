@@ -9,17 +9,27 @@
 	onclick="" ondblclick="" onmousedown="" onmouseup="" onmouseover="" onmousemove="" onmouseout="" onfocus="" onblur="" onkeypress="" onkeydown="" onkeyup="" onselect="" onchange=""
 	>
 <#include "control.ftl"/><#rt/>
+<#--
 <textarea id="${name}" name="${name}">${value}</textarea>  
+-->
+<script id="${name}" name="${name}" type="text/plain">${value}</script>
 <script type="text/javascript">
-$(function() {
-   	CKEDITOR.replace( '${name}' ,
-   			{
-		   		filebrowserUploadUrl : '${base+appBase}/fck/upload.do?Type=File',  
-		   		filebrowserImageUploadUrl : '${base+appBase}/fck/upload.do?Type=Image',  
-		   		filebrowserFlashUploadUrl : '${base+appBase}/fck/upload.do?Type=Flash'  
-   		     }
-   	);  
- });
+  <#if site??>MARK="${site.mark?string('true','false')}";<#else>MARK="true";</#if>
+   var editor= UE.getEditor('${name}',{
+   		imageUrl:"${base+appBase}/ueditor/upload.do?Type=Image&mark="+MARK ,
+   		fileUrl:"${base+appBase}/ueditor/upload.do?Type=File",
+   		catcherUrl:"${base+appBase}/ueditor/getRemoteImage.do?Type=Image",
+   		imageManagerUrl:"${base+appBase}/ueditor/imageManager.do?picNum=50&insite=false",
+   		snapscreenServerUrl:"${base}/snapscreen.svl",
+   		wordImageUrl:"${base+appBase}/ueditor/upload.do?Type=File" ,
+   		getMovieUrl:"${base+appBase}/ueditor/getmovie.do",
+   		videoUrl:"${base+appBase}/ueditor/upload.do;jsessionid="+$.cookie("JSESSIONID")+"?Type=Media"
+   });
+   //截图快捷键ctrl+shift+A
+   editor.addshortcutkey({
+        "snapscreen" : "ctrl+shift+65"
+    });
 </script>
+
 <#include "control-close.ftl"/><#rt/>
 </#macro>
