@@ -70,7 +70,10 @@ Cms.siteFlow("${base}", location.href, document.referrer);
             <li><strong>上一篇：</strong>[@cms_content id=content.id next='1' channelId=channel.id][#if tag_bean??]<a href="${tag_bean.url}">${tag_bean.title}</a>[#else]没有了[/#if][/@cms_content]</li>
             <li><strong>下一篇：</strong>[@cms_content id=content.id next='0' channelId=channel.id][#if tag_bean??]<a href="${tag_bean.url}">${tag_bean.title}</a>[#else]没有了[/#if][/@cms_content]</li>
             </ul>
+                <!-- -->
+                [#include "../include/bshare.html"/]
             </div>
+
         </div>
         <div class="clear10"></div>
         <div class="hundred100">
