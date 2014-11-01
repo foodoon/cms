@@ -39,13 +39,20 @@ function channelChange(n) {
 	//0为请选择，所以必须减一。
 	n--;
 	var trt = $('#tr-titleImg');
-	var trc = $('#tr-contentImg');
-	trt.toggle(channels[n].hasContentImg);
+
+	trt.toggle(channels[n].hasTitleImg);
 	$('#zoomWidth1').val(channels[n].titleImgWidth);
 	$('#zoomHeight1').val(channels[n].titleImgHeight);
-	trc.toggle(channels[n].hasTitleImg);
-	$('#zoomWidth2').val(channels[n].contentImgWidth);
-	$('#zoomHeight2').val(channels[n].contentImgHeight);
+
+//    var trc = $('#tr-contentImg');
+//	trc.toggle(channels[n].hasContentImg);
+//	$('#zoomWidth2').val(channels[n].contentImgWidth);
+//	$('#zoomHeight2').val(channels[n].contentImgHeight);
+
+    var typp = $('#tr-typeImg');
+    typp.toggle(types[n].hasTypeImg);
+    $('#zoomWidth0').val(types[n].imgWidth);
+    $('#zoomHeight0').val(types[n].imgHeight);
 	fetchTopics(channels[n].id);
 }
 function fetchTopics(channelId) {
@@ -54,6 +61,7 @@ function fetchTopics(channelId) {
 		ts.empty();
 		var len = topics.length;
 		var s="<select name='topicIds'>";
+        s +="<option>请选择专题</option>"
 		for(var i=0;i<len;i++) {
 			s+="<option value='"+topics[i].id+"'>"+topics[i].name+"</option>";
 		}
@@ -426,12 +434,12 @@ function submitContent(){
 <input onchange="$('#uploadFileText0').val(this.value)" size="14" type="file" id="uploadFile0" class="file-button"/>
 </span>
 <label><input type="checkbox" onclick="$('#mark0').val(this.checked);"/><@s.m "imageupload.mark"/></label><input type="hidden" id="mark0" value="false"/> <input type="button" value="<@s.m "imageupload.upload"/>" onclick="upload(0);" class="upload-button"/><br/>
-<@s.m "global.width"/>: <input type="text" id="zoomWidth0" value="${typeList[0].imgWidth}" size="5"/> <@s.m "global.height"/>: <input type="text" id="zoomHeight0" value="${typeList[0].imgHeight}" size="5"/> <input type="button" value="<@s.m "imageupload.cut"/>" onclick="imgCut(0);" class="cut-button"/> 
+<@s.m "global.width"/>: <input type="text" id="zoomWidth0" value="${typeList[0].imgWidth}" size="5"/> <@s.m "global.height"/>: <input type="text" id="zoomHeight0" value="${typeList[0].imgHeight}" size="5"/> <input type="button" value="<@s.m "imageupload.cut"/>" onclick="imgCut(0);" class="cut-button"/>
 </@p.td><@p.td colspan="1" width="50">
 <img id="preImg0" alt="<@s.m "imageupload.preview"/>" style="width:100px;height:70px;background-color:#ccc;border:1px solid #333"/>
 </@p.td>
 
-<#elseif item.field=="titleImg">
+    <#elseif item.field=="titleImg" && (channel.hasTitleImg)!true>
 <@p.td id="titleImg" label=item.label colspan="1" width="50" noHeight="true">
 <@p.text id="uploadImgPath1" name="titleImg" style="width:220px"/> <input type="button" value="<@s.m "imageupload.preview"/>" onclick="previewImg(1);" class="preview-button"/><br/>
 <span id="ufc1" style="position:relative">
@@ -445,7 +453,7 @@ function submitContent(){
 <img id="preImg1" alt="<@s.m "imageupload.preview"/>" style="width:100px;height:70px;background-color:#ccc;border:1px solid #333"/>
 </@p.td>
 
-<#elseif item.field=="contentImg">
+    <#elseif item.field=="contentImg" && (channel.hasContentImg)!true>
 <@p.td id="contentImg" label=item.label colspan="1" width="50" noHeight="true">
 <@p.text id="uploadImgPath2" name="contentImg" style="width:220px"/> <input type="button" value="<@s.m "imageupload.preview"/>" onclick="previewImg(2);" class="preview-button"/><br/>
 <span id="ufc2" style="position:relative">

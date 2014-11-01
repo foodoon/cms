@@ -63,8 +63,17 @@
             countUnreadMsg();
         });
         setTimeout( "countUnreadMsg() ",1000*60*10);
-        function mapDialog(){
-            var result=window.showModalDialog("map.do","","dialogHeight:600px;dialogWidth:800px;center:yes;resizable: yes;");
+        function mapDialog() {
+            var result;
+            if (navigator.userAgent.indexOf("Chrome") > 0) {
+                var winOption = "height=600px,width=800px,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,fullscreen=0";
+                result = window.open("map.do", window, winOption);
+                if (!result) {
+                    result = window.returnValue;
+                }
+            } else {
+                result = window.showModalDialog("map.do", window, "dialogHeight:600px;dialogWidth:800px;center:yes;resizable: yes;");
+            }
             if(result!=null){
                 var href=result.split(";")[0];
                 var target=result.split(";")[1];
@@ -102,7 +111,16 @@
                                         <img src="${base}/res/jeecms/img/admin/top_useinfo_icon_02.png"/>&nbsp;<a href="logout.do?returnUrl=index.do" target="_top" id="logout" onclick="return confirm('<@s.m "global.confirm.logout"/>');"><@s.m "global.admin.logout"/></a>　　
                                         <img src="${base}/res/jeecms/img/admin/top_useinfo_icon_03.png"/>&nbsp;&nbsp;<a href="message/v_list.do" target="rightFrame"><@s.m "cmsUser.has"/>&nbsp;<span id="countDiv"></span>&nbsp;<@s.m "cmsUser.unreadcount"/></a>
                                     </td>
-                                    <td align="right">
+                                    <td align="right" >
+                                        <a href="#" onclick="mapDialog()">
+                                            <i class="icon-cog"></i>
+                                            网站地图
+                                        </a>
+                                    </td>
+                                    <td  width="80px">
+                                        &nbsp;<a id="view_index" href="${site.url}" target="_blank"><@s.m "global.admin.viewFrontIndex"/></a>
+                                    </td>
+                                    <td >
                                         <form action="index.do" target="_top" method="get">
                                             <select name="${siteParam}" onchange="this.form.submit();">
                                                 <#list siteList as s>
@@ -111,9 +129,8 @@
                                             </select>
                                         </form>
                                     </td>
-                                    <td width="180">
-                                        &nbsp;<a id="view_index" href="${site.url}" target="_blank"><@s.m "global.admin.viewFrontIndex"/></a>
-                                    </td>
+
+
                                 </tr>
                             </table>
                         </div>
