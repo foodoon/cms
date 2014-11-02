@@ -49,7 +49,7 @@ $(function() {
 <input onchange="$('#uploadFileText2').val(this.value)" size="14" type="file" id="uploadFile2" class="file-button"/>
 </span>
 <label><input type="checkbox" onclick="$('#mark2').val(this.checked);"/><@s.m "imageupload.mark"/></label><input type="hidden" id="mark2" value="false"/> <input class="upload-button" value="<@s.m "imageupload.upload"/>" onclick="upload(2);"/><br/>
-<@s.m "global.width"/>: <input type="text" id="zoomWidth2" value="310" size="5"/> <@s.m "global.height"/>: <input type="text" id="zoomHeight2" value="310" size="5"/> <input class="cut-button" type="button" value="<@s.m "imageupload.cut"/>" onclick="imgCut(2);"/> 
+<@s.m "global.width"/>: <input type="text" id="zoomWidth2" value="480" size="5"/> <@s.m "global.height"/>: <input type="text" id="zoomHeight2" value="112" size="5"/> <input class="cut-button" type="button" value="<@s.m "imageupload.cut"/>" onclick="imgCut(2);"/>
 </@p.td><@p.td colspan="1" width="50">
 <img id="preImg2" alt="<@s.m "imageupload.preview"/>" style="width:100px;height:70px;background-color:#CCCCCC;border:1px solid #333"/>
 </@p.td><@p.tr/>
