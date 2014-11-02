@@ -154,7 +154,9 @@ function appendModelTpl(modelId,tpl){
 </@p.td><@p.tr/>
 
 <#elseif item.field=="afterCheck">
-<@p.select value=channel.afterCheck headerKey="" headerValue="global.default" list={"1":"cmsSite.afterCheck.1","2":"cmsSite.afterCheck.2","3":"cmsSite.afterCheck.3"} help=item.help helpPosition="${item.helpPosition!2}" label=item.label name=item.field colspan=item.single?string("2","1") width="${item.single?string(100,50)}"/><#if count%2==0><@p.tr/></#if>
+<@p.select value=channel.afterCheck headerKey="" headerValue="global.default" list={"1":"cmsSite.afterCheck.1","2":"cmsSite.afterCheck.2","3":"cmsSite.afterCheck.3"} help=item.help helpPosition="${item.helpPosition!2}" label=item.label name=item.field colspan=item.single?string("2","1") width="${item.single?string(100,50)}"/>
+
+    <#if count%2==0><@p.tr/></#if>
 
 <#elseif item.field=="commentControl">
 <@p.radio value=channel.commentControl list={"0":"channel.commentControl.0","1":"channel.commentControl.1","2":"channel.commentControl.2"} help=item.help helpPosition="${item.helpPosition!2}" label=item.label name=item.field colspan=item.single?string("2","1") width="${item.single?string(100,50)}"/><#if count%2==0><@p.tr/></#if>
