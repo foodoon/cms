@@ -227,7 +227,7 @@ img{ border:0; -ms-interpolation-mode:bicubic; display:block;}
 .blk_18 .RightBotton{ background-position:-50px -1px;}
 .blk_18 .LeftBotton:hover{ background-position:-1px -54px;}
 .blk_18 .RightBotton:hover{ background-position:-50px -54px;}
-.blk_18 .pl img{ display: block; margin:0 auto 1px; cursor: pointer; border-top-style: none; border-right-style: none; border-left-style: none; border-bottom-style: none;}
+.blk_18 .pl img{ display: block; margin:0 auto 1px;width:198px; cursor: pointer; border-top-style: none; border-right-style: none; border-left-style: none; border-bottom-style: none;}
 .blk_18 .pl{ border:#fff 1px solid; float:left; width:198px; line-height:30px; text-align:center; background:#000; color:#fff;}
 .blk_18 A.pl:hover{ border:#000 1px solid; background: #fff; color:#000;}
 .commu_cont3{ margin:9px 7px 7px; line-height:150%;}
