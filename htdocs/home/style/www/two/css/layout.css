@@ -18,7 +18,9 @@
 .page{width:980px; margin:0 auto;}
 .page2{width:980px; margin:5px auto;}
 .page3{width:700px; margin:5px 0 0 0 auto; }
-.page4{width:976px; margin:5px auto;}
+
+.page4{width:1000px; margin:5px auto;}
+
 #header{width:100%;	margin:auto; background:url(../img/.gif) repeat-x;}
 
 #logo{height:74px;}
