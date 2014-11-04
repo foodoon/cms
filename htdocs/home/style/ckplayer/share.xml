@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ckplayer>
 	<share_html>
-	{embed src="http://localhost:8080/v6/r/cms/ckplayer/ckplayer.swf" flashvars="[$share]" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" allowFullscreen="true" type="application/x-shockwave-flash"}{/embed}
+	{embed src="http://localhost:8080/style/ckplayer/ckplayer.swf" flashvars="[$share]" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" allowFullscreen="true" type="application/x-shockwave-flash"}{/embed}
 	</share_html>
 	<share_flash>
-	http://localhost:8080/v6/r/cms/ckplayer/ckplayer.swf?[$share]
+	http://localhost:8080/style/ckplayer/ckplayer.swf?[$share]
 	</share_flash>
 	<share_flashvars>
 	f,my_url,my_pic,a
 	</share_flashvars>
 	<share_path>
-	../r/cms/ckplayer/share/
+	../style/ckplayer/share/
 	</share_path>
 	<share_replace>
 	</share_replace>

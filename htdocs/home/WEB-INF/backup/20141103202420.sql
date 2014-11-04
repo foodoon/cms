@@ -526,7 +526,7 @@ CREATE TABLE `jc_config` (
   `port` int(11) DEFAULT NULL COMMENT '端口',
   `db_file_uri` varchar(50) NOT NULL DEFAULT '/dbfile.svl?n=' COMMENT '数据库附件访问地址',
   `is_upload_to_db` tinyint(1) NOT NULL DEFAULT '0' COMMENT '上传附件至数据库',
-  `def_img` varchar(255) NOT NULL DEFAULT '/JeeCms/r/cms/www/default/no_picture.gif' COMMENT '图片不存在时默认图片',
+  `def_img` varchar(255) NOT NULL DEFAULT '/style/www/default/no_picture.gif' COMMENT '图片不存在时默认图片',
   `login_url` varchar(255) NOT NULL DEFAULT '/login.jspx' COMMENT '登录地址',
   `process_url` varchar(255) DEFAULT NULL COMMENT '登录后处理地址',
   `mark_on` tinyint(1) NOT NULL DEFAULT '1' COMMENT '开启图片水印',
@@ -2058,14 +2058,14 @@ CREATE TABLE `jc_score_item` (
   KEY `fk_jc_score_item_group` (`score_group_id`),
   CONSTRAINT `fk_jc_score_item_group` FOREIGN KEY (`score_group_id`) REFERENCES `jc_score_group` (`score_group_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='评分项';
- INSERT INTO `jc_score_item` VALUES(1,1,'开心',1,'/r/cms/smilies/m1.gif',1);
- INSERT INTO `jc_score_item` VALUES(2,1,'板砖',1,'/r/cms/smilies/m2.gif',2);
- INSERT INTO `jc_score_item` VALUES(3,1,'感动',1,'/r/cms/smilies/m3.gif',3);
- INSERT INTO `jc_score_item` VALUES(4,1,'有用',1,'/r/cms/smilies/m4.gif',4);
- INSERT INTO `jc_score_item` VALUES(5,1,'疑问',1,'/r/cms/smilies/m5.gif',5);
- INSERT INTO `jc_score_item` VALUES(6,1,'难过',1,'/r/cms/smilies/m6.gif',6);
- INSERT INTO `jc_score_item` VALUES(7,1,'无聊',1,'/r/cms/smilies/m7.gif',7);
- INSERT INTO `jc_score_item` VALUES(8,1,'震惊',1,'/r/cms/smilies/m8.gif',8);
+ INSERT INTO `jc_score_item` VALUES(1,1,'开心',1,'/style/smilies/m1.gif',1);
+ INSERT INTO `jc_score_item` VALUES(2,1,'板砖',1,'/style/smilies/m2.gif',2);
+ INSERT INTO `jc_score_item` VALUES(3,1,'感动',1,'/style/smilies/m3.gif',3);
+ INSERT INTO `jc_score_item` VALUES(4,1,'有用',1,'/style/smilies/m4.gif',4);
+ INSERT INTO `jc_score_item` VALUES(5,1,'疑问',1,'/style/smilies/m5.gif',5);
+ INSERT INTO `jc_score_item` VALUES(6,1,'难过',1,'/style/smilies/m6.gif',6);
+ INSERT INTO `jc_score_item` VALUES(7,1,'无聊',1,'/style/smilies/m7.gif',7);
+ INSERT INTO `jc_score_item` VALUES(8,1,'震惊',1,'/style/smilies/m8.gif',8);
  INSERT INTO `jc_score_item` VALUES(9,2,'非常差',1,'',1);
  INSERT INTO `jc_score_item` VALUES(10,2,'差',2,'',2);
  INSERT INTO `jc_score_item` VALUES(11,2,'一般',3,'',3);

@@ -207,7 +207,7 @@ public class CmsSite extends BaseCmsSite {
 	}
 
 	/**
-	 * 获得模板资源路径。如：/r/cms/www
+	 * 获得模板资源路径。如：/style/www
 	 * 
 	 * @return
 	 */
