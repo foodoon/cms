@@ -428,12 +428,12 @@ img{ border:0; -ms-interpolation-mode:bicubic; display:block;}
 .plfl2{ float:left;text-align:right; margin-top:10px; width:80px; line-height:26px;}
 .plfr2{ float:left; margin-top:10px;}
 
-.LanMu01-1/*标题背景*/{ background-image:url(../img/title1-1.gif); width:23px; height:30px; float:left;}
-.LanMu01-2{ background-image:url(../img/title1-2.gif); width:100%; height:30px;}
+.LanMu01-1/*标题背景*/{ background-color:#EEE; width:23px; height:30px; float:left;}
+.LanMu01-2{ background-color:#EEE; width:100%; height:30px;}
 .LanMu01-2 a{ font-size:12px;}
 .LanMu01-2 span{ line-height:30px; float:left; font-size:14px; font-weight:bold; color:#000;}
 .LanMu01-2 em{float:right; padding-right:1%; font-size:12px; line-height:28px;}
-.LanMu01-3{ background-image:url(../img/title1-3.gif); width:10px; height:30px; float:right;}
+.LanMu01-3{ background-color:#EEE; width:10px; height:30px; float:right;}
 
 #commentList{ line-height:30px; float:right; margin-right:5px; font-size:12px;}
 #commentList a{ font-size:12px;}
