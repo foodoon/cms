@@ -12,7 +12,10 @@ ul,li{ list-style-type:none; margin:0; padding:0;}
 h1,h2,h3,h4,h5,p,dl,em,dt,dd{ margin:0; padding:0; font-weight:normal; font-style:normal;}
 img{ border:0; -ms-interpolation-mode:bicubic; display:block;}
 
-.ntes-nav/*顶栏不动*/{ background-attachment:scroll; background-clip:border-box; background-color:#333333; background-image:none; background-origin:padding-box; background-position:0 0; color:#FFF; background-repeat:repeat; background-size:auto auto; border-bottom-color:#606060;
+.ntes-nav/*顶栏不动*/{ background-attachment:scroll;
+    background-clip:border-box; background-color:#fcfcfc;
+    background-image:none; background-origin:padding-box; background-position:0 0;
+    color:#000; background-repeat:repeat; background-size:auto auto; border-bottom-color:#f4f4f4;
  border-bottom-style:solid; border-bottom-width:2px; height:43px; font-size:12px; left:0;
  line-height:42px; margin-bottom:0; margin-left:auto; margin-right:auto; margin-top:0;
  position:fixed; top:0; width:100%; z-index:9999;}
@@ -30,11 +33,11 @@ img{ border:0; -ms-interpolation-mode:bicubic; display:block;}
 .kuang3/*友情链接*/{ border:1px solid #e0e0e0;}
 
 .topfl/*顶栏左边*/{ float:left; font-family:Arial,"宋体"; padding-left:5px;}
-.topfl a{ color:#FFF; font-size:12px; padding-left:5px;}
+.topfl a{ color:#000; font-size:12px; padding-left:5px;}
 .topfl a:hover{ color:#d9d9d9;}
 
 .topfr/*顶栏右边*/{ float:right; padding-right:5px;}
-.topwelcome/*欢迎*/{ float:left; margin-right:12px; color:#d9d9d9; font-family:Arial,"宋体";}
+.topwelcome/*欢迎*/{ float:left; margin-right:12px; color:#000; font-family:Arial,"宋体";}
 .topzhuce/*免费注册*/{ float:left; color:#fff;}
 .topzhuce a/*免费注册*/{ color:#fff; margin-left:8px; font-size:12px;}
 .topzhuce a:hover{ color:#d9d9d9;}
@@ -50,8 +53,17 @@ img{ border:0; -ms-interpolation-mode:bicubic; display:block;}
 .toplogin{position:relative; z-index:200; float:left; margin-right:8px;}
 .menu{ height:45px; width:64px; _overflow:hidden; margin:0; padding:0; line-height:45px; text-align:center; color:#fff;}
 .denglumenu{}
-.denglumenu a{color:#fff; position:relative; display:block; width:64px; background-color:#E11515; background-image:-moz-linear-gradient(center top, #E11515, #BB0E0E); border-bottom:#8F2F2F 4px solid; height:45px; width:64px; z-index:200px; position:relative; text-align:center; font-size:12px;}
-.denglumenu a:hover{ background-color:#CD0C0C; display:block; height:45px; width:64px; background-color:#CD0C0C; background-image:-moz-linear-gradient(center top , #CD0C0C, #A20000); border-bottom:#8F2F2F 4px solid; font-size:12px;}
+.denglumenu a{
+    color:#000; position:relative; display:block;
+    width:64px;
+    /*background-color:#E11515;
+    background-image:-moz-linear-gradient(center top, #E11515, #BB0E0E);
+    border-bottom:#8F2F2F 4px solid;*/
+    height:45px; width:64px; z-index:200px;
+    position:relative; text-align:center; font-size:12px;}
+.denglumenu a:hover{ background-color:#dbdbdb; display:block; height:45px; width:64px;
+  /*  background-color:#CD0C0C; background-image:-moz-linear-gradient(center top , #CD0C0C, #A20000); border-bottom:#8F2F2F 4px solid;*/
+    font-size:12px;}
 .menu li{ font-size:12px; position:relative;list-style-type:none; color:#000; font-family:Arial,"宋体";}
 .menu li:hover{}
 .menu li:hover a{ color:#fff;}
