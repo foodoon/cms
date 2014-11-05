@@ -500,11 +500,11 @@ dl.rmpl dt span{ color:#d80c18;}
 .tukuList1 ul li{ height:28px; line-height:28px; background:url(../img/redicon.gif) no-repeat 1px 12px; text-indent:10px;}
 
 .rim05{ border:1px solid #d7d7d7;}
-.tuku_select1{ background-image:url(../img/tuku_bg1.gif); width:678px; height:31px; line-height:31px;}
+.tuku_select1{ background-color:#EAEAEA; width:678px; height:31px; line-height:31px;}
 .tuku_select1 h1{ text-indent:10px; font-size:14px; font-weight:bold; float:left;}
 .tuku_select1 em{ float:right; font-size:12px; padding-right:8px;}
 
-.tuku_select2{ background-image:url(../img/tuku_bg2.gif); width:998px; height:31px; line-height:31px;}
+.tuku_select2{ background-color:#EAEAEA;width:998px; height:31px; line-height:31px;}
 .tuku_select2 h1{ text-indent:10px; font-size:14px; font-weight:bold; float:left;}
 .tuku_select2 em{ float:right;padding-right:8px;}
 .tuku_select2 a{ font-size:12px;}

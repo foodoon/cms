@@ -105,14 +105,15 @@ ul.topnews li em{position:absolute; right:0; top:0; padding-left:6px;color:#9999
 .line-right{border-right:dotted 1px #dddddd;}
 
 /*灰色右则版块样式*/
-.rb_right_top{height:34px; background:url(../img/right_titlebg_1.jpg);}
+.rb_right_top{height:34px; background-color:#999;}
 .rb_right_low{height:7px; overflow:hidden;}
-.rb_right_div{border-left:solid 1px #d8d8d8; border-right:solid 1px #d8d8d8; border-bottom:solid 1px #d8d8d8;height:100%; overflow:hidden;}
+.rb_right_div{border-left:solid 1px #d8d8d8; border-right:solid 1px #d8d8d8;
+    border-bottom:solid 1px #d8d8d8;height:100%; overflow:hidden;}
 .rb_right_top h2{height:34px; line-height:32px !important;line-height:34px;color:#ffffff;padding-left:15px;}
 .rb_right_top h2 a,.rb_right_top h2 a:visited{background:url(../img/); color:#ffffff;padding-left:15px;}
 
 /*蓝色右则版块样式*/
-.blue_right_top{height:34px; background:url(../img/right_titlebg_1.jpg);}
+.blue_right_top{height:34px; background-color:#999;}
 .blue_right_low{height:7px; overflow:hidden;}
 .blue_right_div{border-left:solid 1px #d8d8d8; border-right:solid 1px #d8d8d8; border-bottom:solid 1px #d8d8d8; height:100%; overflow:hidden;}
 .blue_right_top h2{height:34px; line-height:34px; color:#ffffff;padding-left:15px;}

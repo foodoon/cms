@@ -55,6 +55,8 @@ public class JettyServer {
         webapp.setDescriptor(getWebDescriptor());
         webapp.setResourceBase(getAppRoot() + "/htdocs/home");
         webapp.setContextPath("/");
+        webapp.setInitParameter("org.eclipse.jetty.servlet.Default.dirAllowed", "false");
+        webapp.setInitParameter("org.eclipse.jetty.servlet.Default.useFileMappedBuffer", "false");
       //  webapp.setInitParameter("useFileMappedBuffer","false");
         SecurityHandler securityHandler = new ConstraintSecurityHandler();
         HashLoginService loginService  = new HashLoginService();

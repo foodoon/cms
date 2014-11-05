@@ -22,16 +22,22 @@ $(function() {
 [#include "../include/header_nav.html"/]
 <div class="w1000">
 	<div class="w370">
+        [@cms_content_list count='1' orderBy='9' channelId='77' titLen='10' channelOption='1']
+        [#list tag_list as a]
     	<div class="video1">
-        	<a href="#">
-        	<img src="../../${res}/img/ac1.jpg" width="370" height="220">
+        	<a href="${a.url}" target="_blank">
+        	<img src="${a.titleImg!site.defImg}" width="370" height="220">
             <span class="videoBtn"></span>
             </a>
     	</div>
         <div class="video1about">
-            <h1><a href="#">"练家子"石头狠踢老爸 展大哥范儿照顾小伙伴</a></h1>
-            <p>坚强的石头节目从头到尾没有掉过一滴眼泪，还时刻照顾弟弟妹妹。</p>
+            <h1> <a href="${a.url}" title="${a.title}" target="_blank">
+                [@text_cut s=a.title len=titLen /]
+            </a></h1>
+            <p>${a.title}</p>
         </div>
+        [/#list]
+        [/@cms_content_list]
         <div class="clear10"></div>
         <div class="video1List">
         	<ul>
