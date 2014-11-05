@@ -13,6 +13,9 @@
     <script src="${resSys}/jquery.js" type="text/javascript"></script>
     <script src="${resSys}/front.js" type="text/javascript"></script>
     <script src="/${res}/js/common.js" type="text/javascript"></script>
+
+    <script src="${resSys}/ckplayer6.5/ckplayer.js" type="text/javascript"></script>
+    <script src="${resSys}/ckplayer6.5/offlights.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function() {
             Cms.attachment("${base}","${content.id}","${content.attachments?size}","attach");
@@ -45,10 +48,13 @@
     	 <!--ckplayer播放视频-->
             <div id="video" style="position:relative;z-index: 100;width:960px;height:500px;float: left;"><div id="a1"></div></div>
 	    	<script type="text/javascript">
-	    	//函数名称不允许更改 function ckmarqueeadv(){return '广告内容'};
-			var flashvars={f:'${content.mediaPath!}',c:0,b:1,my_url:'${content.url!}',my_pic:'${content.typeImg!}'};
-			var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always'};
-			CKobject.embedSWF('${resSys}/ckplayer/ckplayer.swf','a1','ckplayer_a1','980','500',flashvars,params);
+                var flashvars={f:'${content.mediaPath!}',c:0,b:1,my_url:'${content.url!}',my_pic:'${content.typeImg!}'};
+                var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always'};
+                CKobject.embedSWF('${resSys}/ckplayer/ckplayer.swf','a1','ckplayer_a1','980','500',flashvars,params);
+
+                var video=['http://movie.ks.js.cn/flv/other/1_0.mp4->video/mp4','http://www.ckplayer.com/webm/0.webm->video/webm','http://www.ckplayer.com/webm/0.ogv->video/ogg'];
+                var support=['iPad','iPhone','ios','android+false','msie10+false'];
+                CKobject.embedHTML5('a1','ckplayer_a1',600,400,video,flashvars,support);
 			var box = new LightBox();
 			function closelights(){//关灯
 				box.Show();
@@ -89,7 +95,7 @@
             </div>
         </div>
     </div>
-    [#include "../include/friend_link.html"/]
+    [#include "../include/footer_link.html"/]
     [#include "../include/footer.html"/]
 </div>
 </body>
