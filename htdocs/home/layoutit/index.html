@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="title" content="LayoutIt! - Bootstrap可视化布局系统">
-<meta name="description" content="LayoutIt! 可拖放排序在线编辑的Bootstrap可视化布局系统">
+<meta name="title" content="可视化布局系统">
+<meta name="description" content="可视化布局系统">
 <meta name="keywords" content="可视化,布局,系统">
-<title>Bootstrap 可视化布局系统</title>
+<title>可视化布局系统</title>
 
 <!-- Le styles -->
 <link href="css/bootstrap-combined.min.css" rel="stylesheet">
@@ -63,14 +63,7 @@
 			</div>
           </li>
         </ul>
-        <ul class="nav pull-right">
-               	  <li>
-               	  <div class="btn-group">
-               	  <span><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=justjavac&repo=layoutit&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe></span>
-			      <span><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=justjavac&repo=layoutit&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe></span>
-			      </div>
-			      </li>
-          </ul>
+        
       </div>
       <!--/.nav-collapse --> 
     </div>
@@ -86,11 +79,22 @@
               <div class="popover fade right">
                 <div class="arrow"></div>
                 <h3 class="popover-title">功能</h3>
-                <div class="popover-content">在这里设置你的栅格布局, 栅格总数默认为12, 用空格分割每列的栅格值, 如果您需要了解更多信息，请访问<a target="_blank" href="http://twitter.github.io/bootstrap/scaffolding.html#gridSystem">Bootstrap栅格系统.</a></div>
+                <div class="popover-content">在这里设置你的栅格布局, 栅格总数默认为12, 用空格分割每列的栅格值</div>
               </div>
             </div>
             <i class="icon-plus icon-white"></i> 布局设置 </li>
           <li style="display: list-item;" class="rows" id="estRows">
+            
+            <div class="lyrow ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+              <div class="preview">
+                <input value="1" type="text">
+              </div>
+              <div class="view">
+                <div class="row-fluid clearfix">
+                  <div class="span1 column"></div>
+                </div>
+              </div>
+            </div>
             <div class="lyrow ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
               <div class="preview">
                 <input value="12" type="text">
@@ -155,7 +159,7 @@
               <div class="popover fade right">
                 <div class="arrow"></div>
                 <h3 class="popover-title">帮助</h3>
-                <div class="popover-content">这里提供了一系列基本元素样式，你可以通过区块右上角的编辑按钮修改样式设置。如需了解更多信息，请访问<a target="_blank" href="http://twitter.github.io/bootstrap/base-css.html">基本CSS.</a></div>
+                <div class="popover-content">这里提供了一系列基本元素样式，你可以通过区块右上角的编辑按钮修改样式设置。</div>
               </div>
             </div>
           </li>
@@ -421,7 +425,7 @@
               <div class="popover fade right">
                 <div class="arrow"></div>
                 <h3 class="popover-title">帮助</h3>
-                <div class="popover-content">拖放组件到布局框内. 拖入后你可以设置组件样式. 查看这里获取更多帮助 <a target="_blank" href="http://twitter.github.io/bootstrap/components.html">Components.</a></div>
+                <div class="popover-content">拖放组件到布局框内. 拖入后你可以设置组件样式. </div>
               </div>
             </div>
           </li>
@@ -667,7 +671,7 @@
               <div class="popover fade right">
                 <div class="arrow"></div>
                 <h3 class="popover-title">帮助</h3>
-                <div class="popover-content">拖放组件到布局容器. 拖入后, 你可以配置显示样式. 如果有任何疑问可访问 <a target="_blank" href="http://twitter.github.io/bootstrap/javascript.html">JavaScript.</a></div>
+                <div class="popover-content">拖放组件到布局容器. 拖入后, 你可以配置显示样式.</div>
               </div>
             </div>
           </li>
@@ -838,9 +842,142 @@
           </li>
         </ul>
         <ul class="nav nav-list accordion-group">
-          <li class="nav-header"><i class="icon-plus icon-white"></i> 应用扩展 </li>
+          <li class="nav-header"><i class="icon-plus icon-white"></i> 应用模块 </li>
           <li style="display: none;" class="boxes mute" id="elmComm">
-            <div class="preview">建设中...</div>
+              <div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+                <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+                <div class="preview">专题概要</div>
+                <div class="view">
+                  ${topic.description!}
+                </div>
+            </div>
+            <div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+                <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+                <div class="preview">专题资讯头条（焦点图）</div>
+                <div class="view">
+                  <pre> [@cms_content_list count='2' orderBy='4' typeId='3' titLen='18' channelOption='1' topicId=topic.id]
+                                        [#list tag_list as a]
+                                        <li>
+                                            <a href="${a.url}" target="_blank">
+                                            <img src="${a.typeImg!site.defImg}" alt="${a.title}" width="310" height="210"/>
+                                            </a>
+                                            <span class="title">
+                                            [@text_cut s=a.title len=titLen /]
+                                            </span>
+                                        </li>
+                                        [/#list]
+                   [/@cms_content_list]
+                   </pre>
+                </div>
+            </div>
+            <div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+                <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+                <div class="preview">专题资讯头条（文字）</div>
+                <div class="view">
+                  <pre>
+                   [@cms_content_list topicId=topic.id count='9' orderBy='4' titLen='15'  append='...' channelOption='1']
+                        <ul class="list">
+                        [#list tag_list as a]
+                        <li><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=20 append=append/]</a></li>
+                        [/#list]
+                        </ul>
+                    [/@cms_content_list]
+                  </pre>
+                </div>
+            </div>
+            <div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+                <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+                <div class="preview">专题精彩图文</div>
+                <div class="view">
+                  <pre>
+                     [@cms_content_list typeId='2' count='10' titLen='8' channelOption='1' topicId=topic.id orderBy='4']
+                                [#list tag_list as a]
+                                  <li>
+                                <a href="${a.url}" title="${a.title}" target="_blank">
+                                    <img src="${a.typeImg!site.defImg}" alt="${a.title}" />
+                                </a>
+                                <a href="${a.url}" title="${a.title}" target="_blank">   
+                                <p>[@text_cut s=a.stit len=titLen append=append/]</p>
+                                </a>
+                                </li>
+                                [/#list]
+                      [/@cms_content_list]
+                  </pre>
+                </div>
+            </div>
+            <div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+                <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+                <div class="preview">专题资讯库</div>
+                <div class="view">
+                  <pre>
+                     [@cms_content_page topicId=topic.id count='15' titLen='30' append='...' orderBy='2' dateFormat='MM-dd' channelOption='1']
+                        <ul>
+                        [#list tag_pagination.list as a]
+                        <li><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append=append/]</a><em>[${a.date?string(dateFormat)}]</em></li>
+                        [/#list]
+                        </ul>
+                        [/@cms_content_page]
+                  </pre>
+                </div>
+            </div>
+            <div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+                <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+                <div class="preview">专题资讯关注排行</div>
+                <div class="view">
+                  <pre>
+                    [@cms_content_list topicId=topic.id count='10' titLen='17' orderBy='8' channelOption='1']
+                        [#list tag_list as a]
+                        <li><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append=append/]</a></li>
+                        [/#list]
+                        [/@cms_content_list]
+                  </pre>
+                </div>
+            </div>
+            <div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+                <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+                <div class="preview">专题热评资讯</div>
+                <div class="view">
+                  <pre>
+                    [@cms_comment_list count='8' checked='1' textLen='50' append='...']
+                                [#list tag_list as c]
+                                <li>
+                                    <span style="color:#E66100;">${(c.commentUser.username)!"匿名网友"}</span>
+                                    <span style="color:#aaaaaa;">&nbsp;对&nbsp;</span>
+                                    <a href="${c.content.url}" target="_blank"><span style="color:#1C77BA;">${c.content.title}</span></a>
+                                    <span style="color:#aaaaaa;">评论道：</span>
+                                    <span style="color:#000000;">[@text_cut s=c.textHtml len=textLen append=append/]</span>
+                                </li>
+                                [/#list]
+                    [/@cms_comment_list]
+                  </pre>
+                </div>
+            </div>
+            <div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+                <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+                <div class="preview">其它热门专题</div>
+                <div class="view">
+                  <pre>
+                    [@cms_topic_list count='7' recommend='1' descLen='35' append='...']
+                        [#list tag_list as t]
+                        <li>
+                        <h3 onMouseOver=javascript:ShowFLT(${t_index+1}) href="javascript:void(null)">
+                        <a href="${base}/topic/${t.id}.jspx">
+                        ${t.name}
+                        </a>
+                        </h3>
+                        <p id=LM${t_index+1} [#if t_index!=0]style="display:none;"[/#if] class="drink-me clearfix">
+                        <a href="${base}/topic/${t.id}.jspx">
+                        <img src="${t.titleImg!site.defImg}" width="90" height="64"/>
+                        </a>
+                        [@text_cut s=t.description len=descLen append=append/]
+                        <span class="cBlue"><a href="${base}/topic/${t.id}.jspx"> 详细&gt;&gt;</a></span>
+                        </p>
+                        </li>
+                        [/#list]
+                        [/@cms_topic_list]
+                  </pre>
+                </div>
+            </div>
           </li>
         </ul>
       </div>
@@ -921,15 +1058,7 @@
   <div class="modal-footer"> <a class="btn" data-dismiss="modal">Close</a> </div>
 </div>
 
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?5578a27c6c70bf44e7509eda26137f4c";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
+   
        
 </body>
 </html>
