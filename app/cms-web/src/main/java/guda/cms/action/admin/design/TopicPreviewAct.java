@@ -12,6 +12,7 @@ import guda.common.web.freemarker.DirectiveUtils;
 import guda.core.web.util.FrontUtils;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,7 @@ import java.util.List;
 /**
  * Created by foodoon on 2014/11/7.
  */
+@Controller
 public class TopicPreviewAct {
 
     @Autowired

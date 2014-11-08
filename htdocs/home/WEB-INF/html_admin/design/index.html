@@ -1156,6 +1156,47 @@
                                                                                                          data-dismiss="modal">关闭</a>
     </div>
 </div>
+<!-- 设置业务属性-->
+<div class="modal hide fade" role="dialog" id="setBiz">
+    <div class="modal-header"><a class="close" data-dismiss="modal">×</a>
+        <h3>设置组件属性</h3>
+    </div>
+    <form class="form-inline" role="form">
+        <div class="form-group">
+            <label class="sr-only">Email</label>
+            <p class="form-control-static">email@example.com</p>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword2" class="sr-only">Password</label>
+            <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-default">Confirm identity</button>
+    </form>
+        <div class="form-group">
+            <label for="recordCount" class="col-sm-2 control-label">记录条数:</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" id="recordCount"  /></div>
+            <label for="titleLength" class="col-sm-2 control-label">标题字符数:</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" id="titleLength"  /></div>
+
+        </div>
+        <form>
+            <div class="row">
+                <label  class="span1">记录条数:</label>
+                <div class="span1"><input type="text" name="aaaa"/></div>
+                <label  class="span1">记录条数:</label>
+                <div class="span1"><input type="text" name="bbbb"/></div>
+                <div class="span1"><input type="text" name="bbbb"/></div>
+                <div class="span1"><input type="text" name="bbbb"/></div>
+            </div>
+        </form>
+
+    <div class="modal-footer"><a id="previewBizContent" class="btn btn-primary" data-dismiss="modal">预览</a>
+        <a id="saveBizContent" class="btn btn-primary" data-dismiss="modal">保存</a> <a class="btn" data-dismiss="modal">关闭</a>
+    </div>
+</div>
+
 <div class="modal hide fade" role="dialog" id="downloadModal">
     <div class="modal-header"><a class="close" data-dismiss="modal">×</a>
 
@@ -1333,18 +1374,8 @@
 
 
 
-        $('body.edit .demo').on("click", "[data-target=#setBiz]", function (e) {
-            e.preventDefault();
 
-        });
-        $("[data-target=#setBiz]").click(function (e) {
-            e.preventDefault();
-            handleSaveLayout();
-        });
-        $("#saveBizContent").click(function (e) {
-            e.preventDefault();
-            currenteditor.html(contenthandle.getData());
-        });
+
     })
 </script>
 
