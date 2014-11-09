@@ -12,7 +12,19 @@
 
     </div>
 </div>
-        <!--
+
+<div class="box box-element ui-draggable"><a href="#close" class="remove label label-important"><i
+        class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+            <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal"
+                                                role="button" data-toggle="modal">编辑
+            </button></span>
+
+    <div class="preview">专题概要</div>
+    <div class="view">
+       专题概要：  ${r"${topic.description!}"}
+    </div>
+</div>
+
 <div class="box box-element ui-draggable"><a href="#close" class="remove label label-important"><i
         class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
             <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal"
@@ -21,16 +33,18 @@
 
     <div class="preview">专题资讯头条（焦点图）</div>
     <div class="view">
+        ${r"
         <ul>
-            <li>
-                <a href="#" target="_blank">
-                    <img src="${base}/layoutit/img/a.jpg" width="310" height="210"/>
-                </a>
-                       <span class="title">
-                              这里是标题这里是标题
-                        </span>
-            </li>
+           [@cms_content_list count='2' orderBy='4' typeId='3' titLen='18' channelOption='1' topicId=topic.id]
+                [#list tag_list as a]
+                    <li>
+                       <a href='${a.url}' target='_blank'> <img src='${a.typeImg!site.defImg}'  width='310' height='210'/> </a>
+                        <span>[@text_cut s=a.title len=titLen /]</span>
+                   </li>
+               [/#list]
+        [/@cms_content_list]
         </ul>
+        "}
     </div>
 </div>
 <div class="box box-element ui-draggable"><a href="#close" class="remove label label-important"><i
@@ -41,106 +55,136 @@
 
     <div class="preview">专题资讯头条（文字）</div>
     <div class="view">
-
-        <ul>
-            <li><a href="#" target="_blank">这里是链接这里是链接</a></li>
-        </ul>
+        ${r"
+               [@cms_content_list topicId=topic.id count='9' orderBy='4' titLen='15'  append='...' channelOption='1']
+               <ul>
+                   [#list tag_list as a]
+                   <li><a href='${a.url}' target='_blank'>[@text_cut s=a.title len=20 append=append/]</a></li>
+                    [/#list]
+             </ul>
+        [/@cms_content_list]
+        "}
     </div>
 </div>
-<div class="box box-element ui-draggable"><a href="#close" class="remove label label-important"><i
-        class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
-            <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal"
-                                                role="button" data-toggle="modal">编辑
-            </button></span>
 
-    <div class="preview">专题精彩图文</div>
-    <div class="view">
-        <ul>
-            <li>
-                <a href="#" target="_blank">
-                    <img src="${base}/layoutit/img/a.jpg"/>
+<div class="box box-element ui-draggable"><a href="#close" class="remove label label-important"><i
+class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+    <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal"
+                                        role="button" data-toggle="modal">编辑
+    </button></span>
+
+<div class="preview">专题精彩图文</div>
+<div class="view">
+    ${r"
+    <ul>
+        [@cms_content_list typeId='2' count='10' titLen='8' channelOption='1' topicId=topic.id orderBy='4']
+        [#list tag_list as a]
+        <li>
+            <a href='${a.url}' target='_blank'> <img src='${a.typeImg!site.defImg}' /> </a>
+            <a href='${a.url}' target='_blank'>
+                <p>[@text_cut s=a.stit len=titLen append=append/]</p>
+            </a>
+        </li>
+        [/#list]
+        [/@cms_content_list]
+    </ul>
+    "}
+</div>
+</div>
+<div class="box box-element ui-draggable"><a href="#close" class="remove label label-important"><i
+class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+    <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal"
+                                        role="button" data-toggle="modal">编辑
+    </button></span>
+
+<div class="preview">专题资讯库</div>
+<div class="view">
+    ${r"
+      [@cms_content_page topicId=topic.id count='15' titLen='30' append='...' orderBy='2' dateFormat='MM-dd' channelOption='1']
+      <ul>
+          [#list tag_pagination.list as a]
+          <li><a href='${a.url}'  target='_blank'>[@text_cut s=a.title len=titLen append=append/]</a><em>[${a.date?string(dateFormat)}]</em></li>
+        [/#list]
+    </ul>
+    [/@cms_content_page]
+    "}
+</div>
+</div>
+<div class="box box-element ui-draggable"><a href="#close" class="remove label label-important"><i
+class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+    <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal"
+                                        role="button" data-toggle="modal">编辑
+    </button></span>
+
+<div class="preview">专题资讯关注排行</div>
+<div class="view">
+    ${r"
+     <ul>
+      [@cms_content_list topicId=topic.id count='10' titLen='17' orderBy='8' channelOption='1']
+      [#list tag_list as a]
+      <li><a href='${a.url}'  target='_blank'>[@text_cut s=a.title len=titLen append=append/]</a></li>
+        [/#list]
+        [/@cms_content_list]
+    </ul>
+    "}
+</div>
+</div>
+<div class="box box-element ui-draggable"><a href="#close" class="remove label label-important"><i
+class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+    <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal"
+                                        role="button" data-toggle="modal">编辑
+    </button></span>
+
+<div class="preview">专题热评资讯</div>
+<div class="view">
+    ${r"
+    <ul>
+        [@cms_comment_list count='8' checked='1' textLen='50' append='...']
+        [#list tag_list as c]
+        <li>
+            <span style='color:#E66100;'>${(c.commentUser.username)!'匿名网友'}</span>
+            <span style='color:#aaaaaa;'>&nbsp;对&nbsp;</span>
+            <a href='${c.content.url}' target='_blank'><span style='color:#1C77BA;'>${c.content.title}</span></a>
+            <span style='color:#aaaaaa;'>评论道：</span>
+            <span style='color:#000000;'>[@text_cut s=c.textHtml len=textLen append=append/]</span>
+        </li>
+        [/#list]
+        [/@cms_comment_list]
+    </ul>
+    "}
+</div>
+</div>
+<div class="box box-element ui-draggable"><a href="#close" class="remove label label-important"><i
+class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+    <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal"
+                                        role="button" data-toggle="modal">编辑
+    </button></span>
+
+<div class="preview">其它热门专题</div>
+<div class="view">
+    ${r"
+<ul>
+    [@cms_topic_list count='7' recommend='1' descLen='35' append='...']
+    [#list tag_list as t]
+    <li>
+        <h3 onMouseOver=javascript:ShowFLT(${t_index+1}) href='javascript:void(null)'>
+                <a href='${base}/topic/${t.id}.jspx'>
+                    ${t.name}
                 </a>
-                <a href="#" target="_blank">
-                    <p>文字内容</p>
-                </a>
-            </li>
-        </ul>
-    </div>
+            </h3>
+            <p id=LM${t_index+1} [#if t_index!=0]style='display:none;'[/#if] class='drink-me clearfix'>
+            <a href='${base}/topic/${t.id}.jspx'>
+                <img src='${t.titleImg!site.defImg}' width='90' height='64'/>
+            </a>
+            [@text_cut s=t.description len=descLen append=append/]
+            <span><a href='${base}/topic/${t.id}.jspx'> 详细&gt;&gt;</a></span>
+            </p>
+        </li>
+        [/#list]
+        [/@cms_topic_list]
+    </ul>
+    "}
 </div>
-<div class="box box-element ui-draggable"><a href="#close" class="remove label label-important"><i
-        class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
-            <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal"
-                                                role="button" data-toggle="modal">编辑
-            </button></span>
-
-    <div class="preview">专题资讯库</div>
-    <div class="view">
-
-        <ul>
-            <li><a href="#" target="_blank">这里文字</a><em>2014年9月11日</em></li>
-
-        </ul>
-    </div>
 </div>
-<div class="box box-element ui-draggable"><a href="#close" class="remove label label-important"><i
-        class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
-            <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal"
-                                                role="button" data-toggle="modal">编辑
-            </button></span>
-
-    <div class="preview">专题资讯关注排行</div>
-    <div class="view">
-        <ul>
-            <li><a href="#" target="_blank">这里文字</a></li>
-        </ul>
-    </div>
-</div>
-<div class="box box-element ui-draggable"><a href="#close" class="remove label label-important"><i
-        class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
-            <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal"
-                                                role="button" data-toggle="modal">编辑
-            </button></span>
-
-    <div class="preview">专题热评资讯</div>
-    <div class="view">
-        <ul>
-            <li>
-                <span style="color:#E66100;">"匿名网友"}</span>
-                <span style="color:#aaaaaa;">&nbsp;对&nbsp;</span>
-                <a href="#" target="_blank"><span style="color:#1C77BA;">资讯标题</span></a>
-                <span style="color:#aaaaaa;">评论道：</span>
-                <span style="color:#000000;">评论内容</span>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="box box-element ui-draggable"><a href="#close" class="remove label label-important"><i
-        class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
-            <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal"
-                                                role="button" data-toggle="modal">编辑
-            </button></span>
-
-    <div class="preview">其它热门专题</div>
-    <div class="view">
-        <ul>
-            <li>
-                <h3>
-                    <a href="#">
-                        专题名称
-                    </a>
-                </h3>
-
-                <p>
-                    <a href="#">
-                        <img src="${base}/layoutit/img/a.jpg" width="90" height="64"/>
-                    </a>
-                    内容
-                    <span class="cBlue"><a href="#"> 详细&gt;&gt;</a></span>
-                </p>
-            </li>
-        </ul>
-    </div>
-</div>
--->
 
 
