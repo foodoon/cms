@@ -4,6 +4,7 @@ import guda.cms.entity.main.Channel;
 import guda.cms.entity.main.CmsModel;
 import guda.cms.entity.main.CmsModelItem;
 import guda.cms.entity.main.CmsTopic;
+import guda.cms.manager.assist.CmsDirectiveTplMng;
 import guda.cms.manager.assist.CmsFileMng;
 import guda.cms.manager.main.*;
 import guda.cms.service.ImageSvc;
@@ -62,12 +63,15 @@ public class DesignAct {
     private CmsFileMng fileMng;
     @Autowired
     private CmsSiteMng siteMng;
+    @Autowired
+    private CmsDirectiveTplMng directiveTplMng;
 
 
    // @RequiresPermissions("visual:index")
     @RequestMapping(value ="/design/index.do")
     public String index(String html,ModelMap model) {
         model.addAttribute("html", html);
+        model.addAttribute("directives", directiveTplMng.getList(Integer.MAX_VALUE));
         return "design/index";
     }
 

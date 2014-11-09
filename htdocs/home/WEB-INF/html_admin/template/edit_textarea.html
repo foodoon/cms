@@ -58,6 +58,10 @@ function designDialog(url){
 		$("#source").val(result);
 	}
 }
+function designBoostrap(url){
+    var html=$("#source").val();
+    window.open(url,html,"");
+}
 function ajaxSubmit() {
 	$.post("o_ajaxUpdate.do", {
 		"root" : $("#root").val(),
@@ -119,16 +123,18 @@ function selectModule(){
 <@p.form id="jvForm" action="o_ajaxUpdate.do" labelWidth="15" onsubmit="ajaxSubmit();return false;">
 <@p.td colspan="1" width="50" label="template.filename" help="template.source.help"><input type="text" value="${template.filename}" readonly="readonly" size="40" class="disabled"/></@p.td>
 <@p.td colspan="1" >
+<@p.button code="cms.visual.design" onclick="designBoostrap('../design/index.do')" class="pfzgl"/>&nbsp;
+<!--
 <input id="directiveButton" class="pfzgl" type="button" value="<@s.m 'directive.directives'/>"/>
 <@cms_perm url="/visual/index.do">
 <@p.button code="cms.visual.design" onclick="designDialog('../visual/index.do')" class="pfzgl"/>&nbsp;
 <@p.button code="cms.visual.channel.design" onclick="designDialog('../visual/channelSelect.do')" class="pfzgl"/>&nbsp;
 <@p.button code="cms.visual.content.design" onclick="designDialog('../visual/contentSelect.do')" class="pfzgl"/>&nbsp;
 <@p.button code="cms.visual.topic.design" onclick="designDialog('../visual/v_topic_list.do')" class="pfzgl"/>
-</@cms_perm>
+</@cms_perm>-->
 </@p.td><@p.tr/>
 <@p.td colspan="2">
-	<@p.textarea id="source" name="source" value=template.source style="width:90%;height:350px" wrap="off" maxlength="1232896" onkeydown="if((event.keyCode==115||event.keyCode==83)&&event.ctrlKey){ajaxSubmit();return false;}"/>
+	<@p.textarea id="source" name="source" value=template.source style="width:90%;height:550px" wrap="off" maxlength="1232896" onkeydown="if((event.keyCode==115||event.keyCode==83)&&event.ctrlKey){ajaxSubmit();return false;}"/>
 </@p.td><@p.tr/>
 <@p.td colspan="2">
 	<@p.hidden id="name" name="name" value=template.name/>

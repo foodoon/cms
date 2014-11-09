@@ -21,10 +21,14 @@
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="${base}/layoutit/img/favicon.png">
 
-    <script type="text/javascript" src="${base}/layoutit/js/jquery-2.0.0.min.js"></script>
+    <script src="${base}/res/common/js/jquery.js" type="text/javascript"></script>
     <!--[if lt IE 9]>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <![endif]-->
+    <script src="${base}/res/common/js/jquery.form.js" type="text/javascript"></script>
+    <link href="${base}/res/common/css/jquery.ui.css" rel="stylesheet" type="text/css"/>
+    <link href="${base}/res/common/css/jquery.validate.css" rel="stylesheet" type="text/css"/>
+    <script src="${base}/res/common/js/jquery.ext.js" type="text/javascript"></script>
     <script type="text/javascript" src="${base}/layoutit/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="${base}/layoutit/js/jquery-ui.js"></script>
     <script type="text/javascript" src="${base}/layoutit/js/jquery.ui.touch-punch.min.js"></script>
@@ -67,7 +71,10 @@
                                     class="icon-chevron-down icon-white"></i>下载
                             </button>
                             <button class="btn btn-primary" href="/share/index" role="button" data-toggle="modal"
-                                    data-target="#shareModal"><i class="icon-share icon-white"></i>保存
+                                    data-target="#shareModal"><i class="icon-share icon-white"></i>保存草稿
+                            </button>
+                            <button class="btn btn-primary" href="/share/index" role="button" id="finishDesign"
+                                    ><i class="icon-share icon-white"></i>保存
                             </button>
                             <button class="btn btn-primary" href="#clear" id="clear"><i
                                     class="icon-trash icon-white"></i>清空
@@ -108,18 +115,6 @@
     </li>
     <li style="display: list-item;" class="rows" id="estRows">
 
-        <div class="lyrow ui-draggable"><a href="#close" class="remove label label-important"><i
-                class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
-
-            <div class="preview">
-                <input value="1" type="text">
-            </div>
-            <div class="view">
-                <div class="row-fluid clearfix">
-                    <div class="span1 column"></div>
-                </div>
-            </div>
-        </div>
         <div class="lyrow ui-draggable"><a href="#close" class="remove label label-important"><i
                 class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
 
@@ -513,6 +508,7 @@
         class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span
         class="configuration"> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown"
                                                            href="#">样式 <span class="caret"></span></a>
+
               <ul class="dropdown-menu">
                   <li class="active"><a href="#" rel="">默认</a></li>
                   <li class=""><a href="#" rel="img-rounded">圆角</a></li>
@@ -864,7 +860,7 @@
 </li>
 </ul>
 <ul class="nav nav-list accordion-group">
-<li class="nav-header"><i class="icon-plus icon-white"></i> 交互组件 <span class="label label-important">NEW!</span>
+<li class="nav-header"><i class="icon-plus icon-white"></i> 交互组件
 
     <div class="pull-right popover-info"><i class="icon-question-sign "></i>
 
@@ -1156,46 +1152,6 @@
                                                                                                          data-dismiss="modal">关闭</a>
     </div>
 </div>
-<!-- 设置业务属性-->
-<div class="modal hide fade" role="dialog" id="setBiz">
-    <div class="modal-header"><a class="close" data-dismiss="modal">×</a>
-        <h3>设置组件属性</h3>
-    </div>
-    <form class="form-inline" role="form">
-        <div class="form-group">
-            <label class="sr-only">Email</label>
-            <p class="form-control-static">email@example.com</p>
-        </div>
-        <div class="form-group">
-            <label for="inputPassword2" class="sr-only">Password</label>
-            <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-default">Confirm identity</button>
-    </form>
-        <div class="form-group">
-            <label for="recordCount" class="col-sm-2 control-label">记录条数:</label>
-            <div class="col-md-4">
-                <input class="form-control" type="text" id="recordCount"  /></div>
-            <label for="titleLength" class="col-sm-2 control-label">标题字符数:</label>
-            <div class="col-md-4">
-                <input class="form-control" type="text" id="titleLength"  /></div>
-
-        </div>
-        <form>
-            <div class="row">
-                <label  class="span1">记录条数:</label>
-                <div class="span1"><input type="text" name="aaaa"/></div>
-                <label  class="span1">记录条数:</label>
-                <div class="span1"><input type="text" name="bbbb"/></div>
-                <div class="span1"><input type="text" name="bbbb"/></div>
-                <div class="span1"><input type="text" name="bbbb"/></div>
-            </div>
-        </form>
-
-    <div class="modal-footer"><a id="previewBizContent" class="btn btn-primary" data-dismiss="modal">预览</a>
-        <a id="saveBizContent" class="btn btn-primary" data-dismiss="modal">保存</a> <a class="btn" data-dismiss="modal">关闭</a>
-    </div>
-</div>
 
 <div class="modal hide fade" role="dialog" id="downloadModal">
     <div class="modal-header"><a class="close" data-dismiss="modal">×</a>
@@ -1229,6 +1185,29 @@
     <div class="modal-body">保存成功</div>
     <div class="modal-footer"><a class="btn" data-dismiss="modal">Close</a></div>
 </div>
+
+
+<!--对话框-->
+
+
+<div class="modal hide fade" role="dialog"  id="tempDialog" title="<@s.m 'directive.directives'/>">
+    <div class="modal-header"><a class="close" data-dismiss="modal">×</a>
+        <h3>设置组件属性</h3>
+    </div>
+
+    <@p.form id="tempForm" action="../directive/v_getcode.do" labelWidth="12">
+    <@p.td required="true" label='directive.module' colspan='2' width="100">
+    <@p.select onchange="selectModule()" list={"channel":"directive.channel","content":"directive.content","comment":"directive.comment","topic":"directive.topic","vote":"directive.vote","guestbook":"directive.guestbook","advertise":"directive.advertise","link":"directive.link","tag":"directive.tag"} name="module" id="module" colspan="2" width="100"/>
+    </@p.td>
+    <@p.tr/>
+    <@p.td colspan="2" label='directive.module.rule' colspan='2' width="100" >
+    <div id="operator"></div>
+    </@p.td><@p.tr/>
+    <@p.td colspan="2" width="100" ><@p.submit code="directive.code.insert"/></@p.td>
+    </@p.form>
+<div class="modal-footer"><a class="btn" data-dismiss="modal">Close</a></div>
+</div>
+<!-- 对话框结束-->
 <script language="javascript">
     $(document).ready(function () {
         CKEDITOR.disableAutoInline = true;
@@ -1291,6 +1270,12 @@
             currenteditor = $(this).parent().parent().find('.view');
             var eText = currenteditor.html();
             contenthandle.setData(eText);
+        });
+        $('body.edit .demo').on("click", "[data-target=#tempDialog]", function (e) {
+            e.preventDefault();
+            currenteditor = $(this).parent().parent().find('.view');
+            //var eText = currenteditor.html();
+           // contenthandle.setData(eText);
         });
 
         $("#savecontent").click(function (e) {
@@ -1374,9 +1359,133 @@
 
 
 
+        $("#previewBizContent").click(function (e) {
+            e.preventDefault();
+            currenteditor.html(contenthandle.getData());
+        });
+
+        $("#tempForm").validate({
+            submitHandler: function(form,e) {
+                var options = {
+                    url: '../directive/v_getcode.do',
+                    type: 'post',
+                    dataType: 'json',
+                    data: $("#tempForm").serialize(),
+                    success:  function (data) {
+                         e.preventDefault();
+                       // insert(data.code);
+                        currenteditor.html(data.code);
+                        //$( "#tempDialog" ).dialog("close");
+                    }
+                };
+                $.ajax(options);
+                return false;
+            }
+        });
+        $("#operator").load("../directive/module.do?module=channel");
+//        $("#directiveDialog").dialog({
+//            autoOpen: false,
+//            height: 400,
+//            width: 450,
+//            modal: true,
+//            buttons: {
+//                "<@s.m code='directive.code.insert'/>": function() {
+//                    var directive=$("#selectCode").val();
+//                    insert(directive);
+//                    $( "#directiveDialog" ).dialog("close");
+//                }
+//            }
+//        });
+//        $("#tempDialog").dialog({
+//            autoOpen: false,
+//            height: 400,
+//            width: 450,
+//            modal: true
+//        });
+
+         $('#finishDesign').click(function(){
+             finishDesign();
+         });
 
 
     })
+
+
+
+    function designDialog(url){
+        var html=$("#source").val();
+        var result=window.showModalDialog(url,html,"dialogHeight:800px;dialogWidth:1000px;center:yes;resizable: yes;");
+        if(result!=null){
+            $("#source").val(result);
+        }
+    }
+    function ajaxSubmit() {
+        $.post("o_ajaxUpdate.do", {
+            "root" : $("#root").val(),
+            "name" : $("#name").val(),
+            "source" : $("#source").val()
+        }, function(data) {
+            if (data.success) {
+                $.alert("<@s.m 'global.prompt'/>","<@s.m 'global.success.save'/>");
+            } else {
+                $.alert("<@s.m 'global.prompt'/>",data.msg);
+            }
+        }, "json");
+    }
+    function selectTpl(){
+        var id=$('#selectTpl').val();
+        $("#selectDecri").html($("#d_"+id).val());
+        $("#selectCode").val($("#t_"+id).val());
+    }
+    //未定位鼠标则插入开始位置
+    function insert(str){
+        var source = document.getElementById("source");
+        var sourcelen = source.value.length;
+        source.focus();
+        if(typeof document.selection != "undefined")
+        {
+            document.selection.createRange().text = str;
+        }
+        else
+        {
+            source.value = source.value.substr(0,source.selectionStart)+str+source.value.substring(source.selectionStart,sourcelen);
+        }
+    }
+    function selectModule(){
+        var module=$("#module").val();
+        $("#operator").load("../directive/module.do?module="+module);
+    }
+
+
+    function finishDesign(){
+        downloadLayoutSrc();
+       var h = "<!DOCTYPE html>";
+
+        h+="  <html> <head> <meta charset=\"utf-8\">";
+        h+="  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+        h+="  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">";
+        h+="  <title>请输入标题</title>";
+
+        h+=" <script src=\"/$" +"{base}/res/common/js/jquery.js\" type='text/javascript'><\/script>";
+        h+=" <script src=\"/$" +"{base}/res/common/js/bootstrap.min.js\" type='text/javascript'><\/script>";
+        h+=" <link href=\"$" + "{base}/layoutit/css/bootstrap-combined.min.css\" rel=\"stylesheet\">";
+        h+="</head><body>";
+        h+=$("#downloadModal textarea").val();
+        h+="</body>";
+        //alert(h);
+      //  window.returnValue =h;
+       // window.close();
+        if(window.opener) {
+           var  source = window.opener.document.getElementById("source");
+            if(source){
+                $(source).val(h);
+                window.close();
+            }else{
+                alert("保存错误")
+            }
+        }
+    }
+
 </script>
 
 

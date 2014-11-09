@@ -46,12 +46,12 @@ function checkReceiverUser(){
 <#if message??>
 	<@p.text colspan="2" width="50" label="cmsMessage.title" name="msgTitle"  required="true" class="required" maxlength="100" value="${message.titleHtml!}" />
 	<@p.tr/>
-	<@p.textarea  style="width:90%;height:350px" wrap="off" maxlength="1024000"  label="cmsMessage.content" name="msgContent" value="${message.msgContent!}"/>
+	<@p.textarea  style="width:90%;height:550px" wrap="off" maxlength="1024000"  label="cmsMessage.content" name="msgContent" value="${message.msgContent!}"/>
 	<@p.tr/>
 <#else>
 	<@p.text colspan="2" width="50" label="cmsMessage.title" name="msgTitle"  required="true" class="required"  maxlength="100"/>
 	<@p.tr/>
-	<@p.textarea  style="width:90%;height:350px" wrap="off" maxlength="1024000"  label="cmsMessage.content" name="msgContent"/>
+	<@p.textarea  style="width:90%;height:550px" wrap="off" maxlength="1024000"  label="cmsMessage.content" name="msgContent"/>
 	<@p.tr/>
 </#if>
 

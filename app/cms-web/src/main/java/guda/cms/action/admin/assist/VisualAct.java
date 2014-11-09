@@ -7,6 +7,7 @@ import guda.cms.entity.main.Channel;
 import guda.cms.entity.main.CmsTopic;
 import guda.cms.entity.main.Content;
 import guda.cms.entity.main.Content.ContentStatus;
+import guda.cms.manager.assist.CmsDirectiveTplMng;
 import guda.cms.manager.main.ChannelMng;
 import guda.cms.manager.main.CmsTopicMng;
 import guda.cms.manager.main.ContentMng;
@@ -47,6 +48,7 @@ public class VisualAct {
 	@RequestMapping(value ="/visual/index.do")
 	public String index(String html,ModelMap model) {
 		model.addAttribute("html", html);
+        model.addAttribute("directives", directiveTplMng.getList(Integer.MAX_VALUE));
 		return "visual/index";
 	}
 	
@@ -259,4 +261,7 @@ public class VisualAct {
 	private ContentMng contentMng;
 	@Autowired
 	private CmsTopicMng topicMng;
+    @Autowired
+    private CmsDirectiveTplMng directiveTplMng;
+
 }

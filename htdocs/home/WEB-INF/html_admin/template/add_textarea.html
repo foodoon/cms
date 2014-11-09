@@ -58,6 +58,10 @@ function designDialog(url){
 		$("#source").val(result);
 	}
 }
+function designBoostrap(url){
+    var html=$("#source").val();
+    window.open(url,html,"");
+}
 function selectTpl(){
 	var id=$('#selectTpl').val();
 	$("#selectDecri").html($("#d_"+id).val());
@@ -105,15 +109,17 @@ function selectModule(){
 <@p.form id="jvForm" action="o_save.do" labelWidth="15">
 <@p.text  colspan="1" width="50" label="template.filename" name="filename" size="30" required="true" class="required" maxlength="100" help=".html"/>
 <@p.td colspan="1" >
+    <@p.button code="cms.visual.design" onclick="designBoostrap('../design/index.do')" class="pfzgl"/>&nbsp;
+    <!--
 <input id="directiveButton" class="pfzgl" type="button" value="<@s.m 'directive.directives'/>"/>
 <@cms_perm url="/visual/index.do">
 <@p.button code="cms.visual.design" onclick="designDialog('../visual/index.do')" class="pfzgl"/>&nbsp;
 <@p.button code="cms.visual.channel.design" onclick="designDialog('../visual/channelSelect.do')" class="pfzgl"/>&nbsp;
 <@p.button code="cms.visual.content.design" onclick="designDialog('../visual/contentSelect.do')" class="pfzgl"/>&nbsp;
 <@p.button code="cms.visual.topic.design" onclick="designDialog('../visual/v_topic_list.do')" class="pfzgl"/>
-</@cms_perm>
+</@cms_perm>-->
 </@p.td><@p.tr/>
-<@p.td colspan="2"><@p.textarea id="source" name="source" style="width:90%;height:350px" wrap="off" maxlength="1232896"/></@p.td><@p.tr/>
+<@p.td colspan="2"><@p.textarea id="source" name="source" style="width:90%;height:550px" wrap="off" maxlength="1232896"/></@p.td><@p.tr/>
 <@p.td colspan="2">
 	<input type="hidden" name="root" value="${root}"/>
 	<@p.submit code="global.submit"/> &nbsp; <@p.reset code="global.reset"/>

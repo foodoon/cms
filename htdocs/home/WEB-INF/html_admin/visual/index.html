@@ -8,10 +8,27 @@
 <link href="${base}/res/common/css/jquery.ui.css" rel="stylesheet" type="text/css"/>
 <link href="${base}/res/jeecms/css/visual.css" rel="stylesheet" type="text/css"/>
 <link href="${base}/res/common/css/theme.css" rel="stylesheet" type="text/css"/>
+
 <script type="text/javascript" >
 var blockIndex=1;
 var editBlockId;
 $(function(){
+    $("#tempForm").validate({
+        submitHandler: function(form) {
+            var options = {
+                url: '../directive/v_getcode.do',
+                type: 'post',
+                dataType: 'json',
+                data: $("#tempForm").serialize(),
+                success:  function (data) {
+                    insert(data.code);
+                    $( "#tempDialog" ).dialog("close");
+                }
+            };
+            $.ajax(options);
+            return false;
+        }
+    });
 	$("#directiveDialog").dialog({
 		autoOpen: false,
 		modal: true,
@@ -25,6 +42,38 @@ $(function(){
 			}
 		}
 	});
+
+
+
+    $("#bizDirectiveDialog").dialog({
+        autoOpen: false,
+        height: 400,
+        width: 450,
+        modal: true,
+        buttons: {
+            "<@s.m code='directive.code.insert'/>": function() {
+                var directive=$("#selectCode").val();
+                editBizBlock(directive);
+                $(this).dialog("close");
+
+            }
+        }
+    });
+    $("#tempDialog").dialog({
+        autoOpen: false,
+        height: 400,
+        width: 450,
+        modal: true
+    });
+
+    $("#directiveButton").click(function() {
+        $( "#bizDirectiveDialog" ).dialog("open");
+    });
+    $("#tempImport").click(function() {
+        $( "#bizDirectiveDialog" ).dialog("close");
+        $( "#tempDialog" ).dialog("open");
+    });
+
 	//编辑展示块
 	var html=window.dialogArguments;
 	$("#right").html(html);
@@ -34,12 +83,17 @@ $(function(){
 	loadBlocks();
 	dragbox();
 	openEditBlock();
+    openSetBizBlock();
+
+
+
 });
 function addLayOut(layoutId) {
 	layout=$.ajax({url:"layout"+layoutId+".do",async:false});
 	$("#right").append(layout.responseText);
 	dragbox();
 	openEditBlock();
+    openSetBizBlock();
 }
 function dragbox(){
 	$('.dragbox').each(function(){
@@ -52,7 +106,10 @@ function dragbox(){
 			$(this).find('.configure').css('visibility', 'visible');
 		}, function(){
 			$(this).find('.configure').css('visibility', 'hidden');
-		})
+		}, function(){
+                    $(this).find('.setBiz').css('visibility', 'hidden');
+                }
+        )
 		.end()
 		.find('.configure').css('visibility', 'hidden');
 	});
@@ -65,11 +122,24 @@ function openEditBlock(){
 		return false;
 	});	
 }
+function openSetBizBlock(){
+    $('.setBiz a').click(function(){
+        $('#bizDirectiveDialog').dialog('open');
+        editBlockId=$(this).parent().parent().parent().attr("id");
+        $("#directive").val($("#directiveTextArea"+editBlockId).val());
+        return false;
+    });
+}
 function editBlock() {
 	var directive=$("#directive").val();
 	ajaxEditBlockPage(directive);
 	processEditBlockDirective(directive);
     setTimeout("loadEditBlockPage()",500*1);   
+}
+
+function editBizBlock(directive) {
+    alert(directive);
+
 }
 
 var blockTempIndex=1;
@@ -174,6 +244,25 @@ function design(){
 	window.returnValue =returnValue;
 	window.close();
 }
+
+function insert(str){
+    $("#"+editBlockId+" div").append(str);
+//    var source = document.getElementById("source");
+//    var sourcelen = source.value.length;
+//    source.focus();
+//    if(typeof document.selection != "undefined")
+//    {
+//        document.selection.createRange().text = str;
+//    }
+//    else
+//    {
+//        source.value = source.value.substr(0,source.selectionStart)+str+source.value.substring(source.selectionStart,sourcelen);
+//    }
+}
+function selectModule(){
+    var module=$("#module").val();
+    $("#operator").load("../directive/module.do?module="+module);
+}
 </script>
 </head>
 <body>
@@ -221,8 +310,40 @@ function design(){
 	<div id="h2Div"  style="display: none;">
 		<h2 class="collapse">
 			<span class="configure" ><a href="#" ><@s.m "cms.visual.editblock"/></a></span>
+            <span class="setBiz" ><a href="#" >引入标签</a></span>
 			<span class="delete" ><a href="#" onclick="deleteBlock(this)"><@s.m "cms.visual.deleteblock"/></a></span>
 		</h2>
 	</div>
+
+
+
+    <div id="bizDirectiveDialog" title="<@s.m 'directive.directives'/>">
+        <div style="color: red;"><@s.m  "directive.directives.help"/></div>
+        <@s.m "directive.directives"/><select name="tpl" id="selectTpl" onchange="selectTpl()">
+        <#list directives as d>
+            <option value="${d.id}">${d.name!}</option>
+        </#list>
+    </select> <input id="tempImport" type="button" value="<@s.m 'directive.directive.temp'/>"/> <br />
+        <@s.m "directive.description"/><div  id="selectDecri" ><#if directives?size gt 0>${directives[0].description!}</#if></div>
+        <@s.m "directive.code"/><textarea  id="selectCode" cols="40" rows="8"><#if directives?size gt 0>${directives[0].code!}</#if></textarea>
+        <#list directives as d>
+            <textarea style="display: none;" id="t_${d.id}">${d.code!}</textarea>
+            <textarea style="display: none;" id="d_${d.id}">${d.description!}</textarea>
+        </#list>
+    </div>
+
+    <div id="tempDialog" title="<@s.m 'directive.directives'/>">
+        <div style="color: red;"><@s.m  "directive.directives.help"/></div>
+        <@p.form id="tempForm" action="../directive/v_getcode.do" labelWidth="12">
+        <@p.td required="true" label='directive.module' colspan='2' width="100">
+        <@p.select onchange="selectModule()" list={"channel":"directive.channel","content":"directive.content","comment":"directive.comment","topic":"directive.topic","vote":"directive.vote","guestbook":"directive.guestbook","advertise":"directive.advertise","link":"directive.link","tag":"directive.tag"} name="module" id="module" colspan="2" width="100"/>
+    </@p.td>
+    <@p.tr/>
+    <@p.td colspan="2" label='directive.module.rule' colspan='2' width="100" >
+    <div id="operator"></div>
+    </@p.td><@p.tr/>
+    <@p.td colspan="2" width="100" ><@p.submit code="directive.code.insert"/></@p.td>
+    </@p.form>
+    </div>
 </body>
 </html>

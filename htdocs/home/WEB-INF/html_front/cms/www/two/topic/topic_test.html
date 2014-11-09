@@ -1,0 +1,82 @@
+<!DOCTYPE html>  <html> <head> <meta charset="utf-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <title>请输入标题</title> <script src="/${base}/res/common/js/jquery.js" type='text/javascript'></script> <script src="/${base}/res/common/js/bootstrap.min.js" type='text/javascript'></script> <link href="${base}/layoutit/css/bootstrap-combined.min.css" rel="stylesheet"></head><body><div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<p>
+				<img alt="" src="http://ftp.ums365.com/img/1.jpg" />
+			</p>
+			<div class="carousel slide" id="carousel-451733">
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0" data-target="#carousel-451733">
+					</li>
+					<li data-slide-to="1" data-target="#carousel-451733">
+					</li>
+					<li data-slide-to="2" data-target="#carousel-451733">
+					</li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<img alt="" src="/layoutit/img/1.jpg" />
+						<div class="carousel-caption">
+							<h4>
+								棒球
+							</h4>
+							<p>
+								棒球运动是一种以棒打球为主要特点，集体性、对抗性很强的球类运动项目，在美国、日本尤为盛行。
+							</p>
+						</div>
+					</div>
+					<div class="item">
+						<img alt="" src="/layoutit/img/2.jpg" />
+						<div class="carousel-caption">
+							<h4>
+								冲浪
+							</h4>
+							<p>
+								冲浪是以海浪为动力，利用自身的高超技巧和平衡能力，搏击海浪的一项运动。运动员站立在冲浪板上，或利用腹板、跪板、充气的橡皮垫、划艇、皮艇等驾驭海浪的一项水上运动。
+							</p>
+						</div>
+					</div>
+					<div class="item">
+						<img alt="" src="/layoutit/img/3.jpg" />
+						<div class="carousel-caption">
+							<h4>
+								自行车
+							</h4>
+							<p>
+								以自行车为工具比赛骑行速度的体育运动。1896年第一届奥林匹克运动会上被列为正式比赛项目。环法赛为最著名的世界自行车锦标赛。
+							</p>
+						</div>
+					</div>
+				</div> <a data-slide="prev" href="#carousel-451733" class="left carousel-control">‹</a> <a data-slide="next" href="#carousel-451733" class="right carousel-control">›</a>
+			</div>
+			<div class="row-fluid">
+				<div class="span2">
+				</div>
+				<div class="span6">
+					[@cms_topic_list count='5' descLen='20' append='...'] [#list tag_list as t]
+					<dl>
+						<dt>
+							<a href="${base}/topic/${t.id}.jspx">${t.name}</a>
+						</dt>
+						<dd>
+							<a href="${base}/topic/${t.id}.jspx"><img src="${t.titleImg!site.defImg}" alt='' /></a>
+						</dd>
+						<dd>
+							[@text_cut s=t.description len=descLen append=append/]
+						</dd>
+					</dl> [/#list] [/@cms_topic_list]
+				</div>
+				<div class="span4">
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span2">
+				</div>
+				<div class="span6">
+				</div>
+				<div class="span4">
+				</div>
+			</div>
+		</div>
+	</div>
+</div></body>
