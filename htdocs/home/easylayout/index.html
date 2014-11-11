@@ -1,0 +1,655 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <title>Easy Widgets jQuery plugin</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css" />
+ </head>
+ <body>
+
+  <div id="header">
+   <h1>Easy Widgets jQuery plugin</h1>
+   <h2>A very easy way to use Widgets in your site</h2>
+  </div>
+
+  <div id="content">
+
+   <h2>What is Easy Widgets?</h2>
+   <p>
+    After I read <a href="http://nettuts.com/tutorials/javascript-ajax/inettuts/"
+     title="How to Mimic the iGoogle Interface tutorial">How to Mimic the iGoogle
+     Interface tutorial</a>, I think that is a very simple way to use Widgets in
+    one of my projects: <a href="http://www.gesbit.com/"
+     title="Gesbit open source blog managament system">Gesbit</a>, you can see
+    <a href="http://www.demo.gesbit.com/en/gbadmin/" title="Gesbit demo blog">here
+     a demo</a>. I study the tutorial code and want to put into a <a href="http://www.jquery.com/"
+      title="jQuery website">jQuery</a> plugin.
+     After some work I finally use this plugin in Gesbit and think that maybe can
+     be useful for other developers.
+   </p>
+   <p>
+    <strong>The plugin as been tested in last version of Firefox, Opera, Internet Explorer, Safari, Konqueror and Chrome browsers. Please try the examples for more details.</strong>
+   </p>
+
+   <h2>I want just the code now!</h2>
+   <ul>
+    <li><a href="./jscripts/jquery.easywidgets.js" title="Download Easy Widgets">Just show me the source code Easy Widgets</a></li>
+    <li><a href="easywidgets.zip" title="Download Easy Widgets">Download Easy Widgets 1.0 (beta) (all included)</a></li>
+   </ul>
+
+   <h2>Is useful for you?</h2>
+   <p>
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=1876825" title="Thanks very much!"><img src="./images/paypal-guest.png" alt="Give me a gift!" width="458" height="159" /></a>
+    <br />
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=1876825" title="Thanks very much!">Thanks very much!</a>
+   </p>
+
+   <h2>Plugin requisites</h2>
+   <p>In order to use this plugin you need the <a href="http://www.jquery.com" title="jQuery.com">jQuery library</a> and the <a href="http://ui.jquery.com/actions/download_builder.php" title="ui.jQuery.com">jQuery UI with sortable and draggable stuff</a>.</p>
+
+   <h2>Who use this plugin?</h2>
+   <p>You can view an implementation of this plugin in <a href="http://www.gesbit.com/i18n.php?lang=en" title="Gesbit weblog managament">Gesbit</a>, a Weblog Managament System writen by me. See the <a href="http://www.demo.gesbit.com/en/gbadmin/" title="Gesbit demo website">Gesbit demo</a> for details.</p>
+
+   <h2>
+    I can view some examples please?
+   </h2>
+   <p>Yes. Here is various examples of use of Easy Widgets plugin:</p>
+   <ol>
+    <li><a href="./examples/1/" title="Show this example">Very basic example with no style addition</a></li>
+    <li><a href="./examples/2/" title="Show this example">Very basic example but with some style addition</a></li>
+    <li><a href="./examples/3/" title="Show this example">Movable, Collapsable, Editable, Removable links</a></li>
+    <li><a href="./examples/4/" title="Show this example">Movable, Collapsable,... and Callbacks in actions</a></li>
+    <li><a href="./examples/5/" title="Show this example">How to use images to the widget menu header links</a></li>
+    <li><a href="./examples/6/" title="Show this example">How to internationalize alll used plugin strings</a></li>
+    <li><a href="./examples/7/" title="Show this example">Like some other example in the list with other style</a></li>
+    <li><a href="./examples/8/" title="Show this example">Variable number (4) of columns as widgets place holders</a></li>
+    <li><a href="./examples/9/" title="Show this example">Variable number (2) of columns as widgets place holders</a></li>
+    <li><a href="./examples/10/" title="Show this example">Show how to use the widget argument to identify widgets</a></li>
+    <li><a href="./examples/11/" title="Show this example">Show how to use the ui argument to identify widgets</a></li>
+    <li><a href="./examples/12/" title="Show this example">Show how to use with the addition of Cookie jQuery plugin</a></li>
+    <li><a href="./examples/13/" title="Show this example">Show how to use the widget editbox class for "save changes"</a></li>
+    <li><a href="./examples/14/" title="Show this example">Another example of apply some style to the widget HTML</a></li>
+    <li><a href="./examples/15/" title="Show this example">Show the use of another Widget container instead "div"</a></li>
+   </ol>
+
+   <h2>Amazing! Can you explain more?</h2>
+   <p>
+    Easy Widgets offer you over the control about your Widgets, and this is the
+    very basic usage of the plugin, using the default settings, that we explain
+    bello in this same page.
+   </p>
+   <pre>
+// When DOM ready
+
+$(function(){
+
+  // Prepare the Widgets
+
+  $.fn.EasyWidgets();
+
+});
+   </pre>
+
+   <h3>The HTML markup of Widgets</h3>
+   <p>
+    The plugin is not obstrusive, and degrade gracefully. You are responsible for
+    print out the HTML markup of the Widgets columns and Widgets. I am use a couple
+    of PHP class in Gesbit to do this, but, the fact is that you must write something
+    like this:
+   </p>
+
+   <form action="none">
+    <div>
+     <textarea cols="80" rows="21">
+
+<div class="widget-column">
+
+ <div class="widget">
+  <div class="widget-head">
+   Widget title here
+  </div>
+  <div class="widget-editbox">
+   Widget edit stuff here
+  </div>
+  <div class="widget-content">
+   Widget content here
+  </div>
+ </div>
+
+</div>
+
+<div class="widget-column"></div>
+
+     </textarea>
+    </div>
+   </form>
+
+   <p>
+    In the above example, we print two Widgets columns and one Widget, that can
+    be place in one of the columns. Take a look at the class identifiers: you can
+    change this from the Easy Widgets settings, but we use here the HTML markup
+    corresponding to the default plugin settings.
+   </p>
+   <p>
+    You can determine what number of columns are availables: no limit here, and
+    no limit about the number of Widgets that can be places in the columns. Now
+    we want to explain you how can configure a Widget, using the HTML markup too,
+    in a easy way, just like this:
+   </p>
+
+   <form action="none">
+    <div>
+     <textarea cols="80" rows="4">
+
+ <div class="widget movable editable collapse collapsable removable closeconfirm">
+ </div>
+
+     </textarea>
+    </div>
+   </form>
+
+   <p>
+    In the case of the above Widget, this is collapse by default, movable,
+    editable, collapsable, removable and want to confirm when must be close.
+    You can use anyone of the Widget options, a combination of this or no one.
+    In fact, you can determine too the name of the options, because this form
+    part of the Easy Widgets settings.
+   </p>
+
+   <p>
+    Here we use "DIV" container to store Widgets, but you can use another
+    container like "LI", simply change a configuration option (the default
+    container is "DIV") and you can print out something like this:
+   </p>
+
+   <form action="none">
+    <div>
+     <textarea cols="80" rows="21">
+
+<ul class="widget-column">
+
+ <li class="widget">
+  <div class="widget-head">
+   Widget title here
+  </div>
+  <div class="widget-editbox">
+   Widget edit stuff here
+  </div>
+  <div class="widget-content">
+   Widget content here
+  </div>
+ </li>
+
+</ul>
+
+<ul class="widget-column"></ul>
+
+     </textarea>
+    </div>
+   </form>
+
+   <p>
+    As you can see, the fact is the Widgets need a column to be place, an this
+    column can be a container like "DIV" or "UL" in this case. So, every Widget
+    is added in their own container, that can be "DIV" or "LI", depend of your
+    needed, but using "DIV" per default. As you can see, every Widget contain
+    some subsections: header, editbox and content.
+   </p>
+
+   <p>
+    The header contain the title of the Widget and Easy Widgets put in every
+    Widget headers the appropiate menu links to collapse, remove, edit the
+    Widget, etc., depend of the Widget options. The content of the Widgets is
+    the content of the Widget, ok? And the editbox can contain a HTML form
+    to edit the Widget, for example, and can show by the appropiate link in
+    the menu links header.
+   </p>
+
+   <p>
+    This is the elements of a Widgets columns and for the Widgets: remember that
+    is possible to use any number of columns or Widgets. And note that we not
+    use here "identifiers" for the Widgets, that can be useful and maybe needed,
+    for example, if you want to use the Cookies feature of Easy Widgets. In other
+    words maybe is needed (or simply useful) to write something like this, but
+    is optional in any case.
+   </p>
+
+   <form action="none">
+    <div>
+     <textarea cols="80" rows="21">
+
+<div class="widget-column" id="widget-column-1">
+
+ <div class="widget" id="mywidget">
+  <div class="widget-head">
+   Widget title here
+  </div>
+  <div class="widget-editbox">
+   Widget edit stuff here
+  </div>
+  <div class="widget-content">
+   Widget content here
+  </div>
+ </div>
+
+</div>
+
+<div class="widget-column" id="widget-column-2"></div>
+
+     </textarea>
+    </div>
+   </form>
+
+   <h3>The CSS style of the Widgets</h3>
+   <p>
+    This is a good point, because the Widgets can be stylize with the only limit
+    of your imagination. Here is the default CSS rules, with the selectors names
+    using by default in the plugin (remember that you can change this too).
+   </p>
+
+   <form action="none">
+    <div>
+     <textarea cols="80" rows="21">
+
+/**
+ * This is the widgets basic CSS. Note that you can change
+ * the classes names using the plugin settings. But you can
+ * use directly the default classes names, this names.
+ */
+
+.widget-column {
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 33.3%;
+  height: auto;
+  list-style: none;
+  min-height: 400px;
+}
+
+.widget-placeholder {
+  border: #000 dashed 1px;
+}
+
+.widget {}
+
+  .widget-head {}
+
+  .widget-menu-links {
+  }
+
+    .widget-menu-links a {
+      margin: 0 0 0 0.5em;
+    }
+
+  .widget-editbox {}
+
+  .widget-content {}
+
+     </textarea>
+    </div>
+   </form>
+
+   <p>
+    As you can see some little rules is using. But all that we needed for use
+    the plugin from scratch. You can add more rules, change the style of the
+    exists rules, we said, with the only limit of your imagination.
+   </p>
+
+   <h3>Plugin internationalization</h3>
+   <p>
+    You can translate the used Easy Widgets strings in a easy way, use the
+    appropiate option in the plugin settings. In fact you can use this options
+    to use images instead text in the Widget header menu links, as you can see
+    in some of the above plugin examples.
+   </p>
+
+   <form action="none">
+    <div>
+     <textarea cols="80" rows="11">
+
+    i18n : {
+      editText : 'Edit',
+      closeText : 'Close',
+      extendText : 'Extend',
+      collapseText : 'Collapse',
+      cancelEditText : 'Cancel',
+      editTitle : 'Edit this widget',
+      closeTitle : 'Close this widget',
+      confirmMsg : 'Remove this widget?',
+      cancelEditTitle : 'Cancel edition',
+      extendTitle : 'Extend this widget',
+      collapseTitle : 'Collapse this widget'
+    }
+
+     </textarea>
+    </div>
+   </form>
+
+   <p>
+    As you see, you can determine the language to use in the Widgets plugin
+    with the "i18n" configuration settings, so, if you want to use images instead
+    links, you can put the HTML of a image in the appropiate link text.
+   </p>
+
+   <h3>Plugin optional cookies</h3>
+   <p>
+    Easy Widgets can be responsible for the position of the Widgets into the
+    columns, the collapse state of the Widgets, for example. You can determine
+    to use cookies for this and can determine all about the cookies, take a look
+    at the default "cookies" settings for Easy Widgets:
+   </p>
+
+   <form action="none">
+    <div>
+     <textarea cols="80" rows="11">
+
+    // Only for the optional cookie feature
+    cookies : {
+      path : '',
+      domain : '',
+      expires : 90,
+      secure : false,
+      closeName : 'easywidgets-close',
+      positionName : 'easywidgets-position',
+      collapseName : 'easywidgets-collapse'
+    },
+
+     </textarea>
+    </div>
+   </form>
+
+   <p>
+    However, by default the plugin not use cookies, because as you can see
+    bellow, you can determine how the Widgets is showing using the HTML
+    markup, and some server stuff. But, if you want to use cookies, you can
+    use the appropiate option in the "behaviour" settings of the plugin.
+   </p>
+
+   <h3>Plugin optional behaviour</h3>
+   <p>
+    Easy Widgets have some behaviour settings that you can change for your needs:
+   </p>
+
+   <form action="none">
+    <div>
+     <textarea cols="80" rows="11">
+
+    // Plugin behaviour
+    behaviour : {
+      dragDelay : 100,
+      dragRevert : 100,
+      dragOpacity : 0.8,
+      useCookies : false
+    },
+
+     </textarea>
+    </div>
+   </form>
+
+   <p>
+    Maybe the most relevant option in the behaviour settings is "useCookies".
+    If you use cookies, the plugin can be responsible for store the Widgets
+    positions and collapse and closed states, and of course the maintenence of
+    this cookies, fixed this when a Widget is no more use, for example. In other
+    words, the Widget store in cookies the position for a Widget, for example,
+    and after you not print anymore this Widget: the plugin can detect this
+    situation and clean the appropiate cookie to no store unexisting Widgets.
+   </p>
+
+   <h3>Plugin optional callbacks</h3>
+   <p>
+    Easy Widgets allow to handle a lot of task in the Widget via callbacks that
+    you can attach to the appropiate configuration settings, here is all of the
+    available Easy Widgets callbacks:
+   </p>
+
+   <form action="none">
+    <div>
+     <textarea cols="80" rows="11">
+
+    // Callbacks functions
+    callbacks : {
+      onEdit : null,
+      onClose : null,
+      onExtend : null,
+      onDragStop : null,
+      onCollapse : null,
+      onEditQuery : null,
+      onCloseQuery : null,
+      onCancelEdit : null,
+      onExtendQuery : null,
+      onCollapseQuery : null,
+      onCancelEditQuery : null
+    },
+
+     </textarea>
+    </div>
+   </form>
+
+   <h3>Give me all the power!</h3>
+   <p>
+    As you can see, the Easy Widgets plugin can be use without any option, using
+    the default settings, but you can determine all the plugin stuff, between the
+    Widget container, CSS selectors to use, option name, string to use, etc., etc.
+    Here is all the default settings of the plugin, that you change if needed, but
+    can use directly too, or change somethings, whatever you want:
+   </p>
+
+   <form action="none">
+    <div>
+     <textarea cols="80" rows="31">
+
+  /**
+   * Fill the plugin default settings
+   */
+
+  $.fn.EasyWidgets.defaults = {
+
+    // Behaviour of the plugin
+    behaviour : {
+
+      // Miliseconds delay between mousedown and drag start
+      dragDelay : 100,
+
+      // Miliseconds delay between mouseup and drag stop
+      dragRevert : 100,
+
+      // Determinme the opacity of Widget when start drag
+      dragOpacity : 0.8,
+
+      // Cookies (require Cookie plugin) to store positions and states
+      useCookies : false
+    },
+
+    // Only for the optional cookie feature
+    cookies : {
+
+      // Cookie path
+      path : '',
+
+      // Cookie domain
+      domain : '',
+
+      // Cookie expiration time in days
+      expires : 90,
+
+      // Store a secure cookie?
+      secure : false,
+
+      // Cookie name for close Widgets
+      closeName : 'easywidgets-close',
+
+      // Cookie name for positined Widgets
+      positionName : 'easywidgets-position',
+
+      // Cookie name for collapsed Widgets
+      collapseName : 'easywidgets-collapse'
+    },
+
+    // Options name to use in the HTML markup
+    options : {
+
+      // To recognize a movable Widget
+      movable : 'movable',
+
+      // To recognize a editable Widget
+      editable : 'editable',
+
+      // To recognize a collapse Widget
+      collapse : 'collapse',
+
+      // To recognize a removable Widget
+      removable : 'removable',
+
+      // To recognize a collapsable Widget
+      collapsable : 'collapsable',
+
+      // To recognize Widget that require confirmation when remove
+      closeConfirm : 'closeconfirm'
+    },
+
+    // Callbacks functions
+    callbacks : {
+
+      // When a editbox is closed, send the link and the widget objects
+      onEdit : null,
+
+      // When a Widget is closed, send the link and the widget objects
+      onClose : null,
+
+      // When a Widget is extend, send the link and the widget objects
+      onExtend : null,
+
+      // When a editbox is closed, send a ui object, see jQuery::sortable()
+      onDragStop : null,
+
+      // When a Widget is collapse, send the link and the widget objects
+      onCollapse : null,
+
+      // When a editbox is try to close, send the link and the widget objects
+      onEditQuery : null,
+
+      // When a Widget is try to close, send the link and the widget objects
+      onCloseQuery : null,
+
+      // When a editbox is cancel (close), send the link and the widget objects
+      onCancelEdit : null,
+
+      // When a Widget is try to expand, send the link and the widget objects
+      onExtendQuery : null,
+
+      // When a Widget is try to expand, send the link and the widget objects
+      onCollapseQuery : null,
+
+      // When a editbox is try to cancel, send the link and the widget objects
+      onCancelEditQuery : null
+    },
+
+    // Selectors in HTML markup. All can be change by you, but not all is
+    // used in the HTML markup. For example, the "editLink" or "closeLink"
+    // is prepared by the plugin for every Widget.
+    selectors : {
+
+      // Container of a Widget (into another element that use as column)
+      // The container can be "div" or "li", for example. In the first case
+      // use another "div" as column, and a "ul" in the case of "li".
+      container : 'div',
+
+      // Class identifier for a Widget
+      widget : '.widget',
+
+      // Class identifier for a Widget handle (header)
+      handle : '.widget-head',
+
+      // Class for the Widget header links container
+      menuLinks : '.widget-menu-links',
+
+      // Class identifier for a Widget column (parents of Widgets)
+      columns : '.widget-column',
+
+      // Class identifier for Widget editboxes
+      editbox : '.widget-editbox',
+
+      // Class identifier for Widget content
+      content : '.widget-content',
+
+      // Class identifier for editbox close link or button, for example
+      closeEdit : '.widget-close-editbox',
+
+      // Class identifier for a Widget edit link
+      editLink : '.widget-editlink',
+
+      // Class identifier for a Widget close link
+      closeLink : '.widget-closelink',
+
+      // Class identifier for Widgets placehoders
+      placeHolder : 'widget-placeholder',
+
+      // Class identifier for a Widget collapse link
+      collapseLink : '.widget-collapselink'
+    },
+
+    // To be translate the plugin into another languages
+    // But this variables can be used to show images instead
+    // links text, if you preffer. In this case set the HTML
+    // of the IMG elements.
+    i18n : {
+
+      // Widget edit link text
+      editText : 'Edit',
+
+      // Widget close link text
+      closeText : 'Close',
+
+      // Widget extend link text
+      extendText : 'Extend',
+
+      // Widget collapse link text
+      collapseText : 'Collapse',
+
+      // Widget cancel edit link text
+      cancelEditText : 'Cancel',
+
+      // Widget edition link title
+      editTitle : 'Edit this widget',
+
+      // Widget close link title
+      closeTitle : 'Close this widget',
+
+      // Widget confirmation dialog message
+      confirmMsg : 'Remove this widget?',
+
+      // Widget cancel edit link title
+      cancelEditTitle : 'Cancel edition',
+      
+      // Widget extend link title
+      extendTitle : 'Extend this widget',
+
+      // Widget collapse link title
+      collapseTitle : 'Collapse this widget'
+    }
+  };
+
+     </textarea>
+    </div>
+   </form>
+ 
+   <p>
+    Now, please, see the plugin examples, enjoy it, test the plugin, change the
+    default options, apply some style to the Widgets, in fact, enjoy Easy Widgets
+    plugin and thanks a lot for your interest!
+   </p>
+
+  </div>
+  <!-- /content -->
+
+  <div id="footer">
+   Copyrights 2008 <a href="http://www.bitacora.davidesperalta.com/jquery-easywidgets" title="This plugin in my weblog">Easy Widgets jQuery plugin</a> by
+   <a href="http://www.bitacora.davidesperalta.com/"
+    title="David Esperalta blog">David Esperalta</a>
+  </div>
+
+ </body>
+</html>

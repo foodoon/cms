@@ -1,0 +1,85 @@
+
+Easy Widgets jQuery plugin
+
+(C) 2008 David Esperalta - http://www.bitacora.davidesperalta.com/
+
+
+CHANGELOG
+
+
+  1.0 beta - 15/12/2008
+
+  - Another minor changes in plugin webpage and examples
+  - Finally clean cookies just if cookies is use (no as  option)
+
+
+  0.9 beta - 14/12/2008
+
+  - Another minor changes
+  - Finally add a Widgets menu links container
+  - Document the plugin default settings
+
+
+  0.8 beta - 14/12/2008
+
+  - Add the example number 16
+  - Remove duplicates of Cookie plugin from examples
+  - The default container is now a "div", instead of "li"
+  - Now is possible to choose the Widgets container
+
+
+  0.7 beta - 13/12/2008
+
+  - Another minor changes
+  - Use the "blur()" method for every Widget links
+  - Refactoring and documented the plugin source code
+  - A better implementation of cleanCookies feature
+  - Agilize the "sortable items" array excluding columns
+
+
+  0.6 beta - 13/12/2008
+
+  - Add the example number 15
+
+
+  0.6 beta - 12/12/2008
+
+  - Add new option cleanCookies to cleaning the
+    cookies for widgets that not are more printed
+
+
+  0.5 alpha - 12/12/2008
+
+  - Add the example number 14
+  - Fixed use of text() instead of html()
+  - Refactoring the source code of plugin
+  - Send links and widgets objects in callbacks
+  - Revisited some the examples to update it
+
+
+
+  0.4 alpha - 11/12/2008
+
+  - Add examples number 11, 12 and 13
+  - Save widgets position with cookies
+  - Save widgets collapse with cookies
+  - Save widgets close state with cookies
+  - Work optionally with the Cookie jQuery
+
+
+  0.3 alpha - 11/12/2008
+
+  - Add the example number 11
+
+
+
+  0.2 alpha - 11/12/2008
+
+  - Add the example number 10
+  - Every links callbacks send the widget object
+
+
+
+  0.1 alpha - 10/12/2008
+
+  - Init release plugin

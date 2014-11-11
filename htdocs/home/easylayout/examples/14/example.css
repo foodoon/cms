@@ -1,0 +1,75 @@
+
+.widget-column {
+  padding: 0;
+  float: left;
+  width: 33.3%;
+  height: auto;
+  list-style: none;
+  margin: 0 0 1em 0;
+  min-height: 430px;
+}
+
+.widget-placeholder {
+  color: #000;
+  background-color: #fcfce7;
+  border: #ebebeb dashed 1px;
+  margin: 1em 0.5em 0.5em 0.5em;
+}
+
+.widget {
+  color: #000;
+  padding: 0.2em;
+  background-color: #fbfbfb;
+  border: #fbfbfb solid 1px;
+  margin: 0.5em 0.1em 0.5em 0;
+}
+
+  .widget .buttons {
+    color: #000;
+    text-align: right;
+    margin: 0.5em 0 0 0;
+    padding: 0.2em 0 0.2em 0;
+    background-color: #fbfbfb;
+    border-top: #ebebeb solid 1px;
+  }
+
+    .widget .buttons input[type=button],
+    .widget .buttons input[type=submit] {
+      font-size: 0.7em;
+    }
+
+  .widget-head {
+    color: #555;
+    padding: 0.4em;
+    font-size: 0.9em;
+    font-weight: bold;
+    background-color: #fbfbfb;
+  }
+
+  .widget-editbox {
+    color: #000;
+    display: none;
+    margin: 0.2em;
+    padding: 0.5em;
+    overflow: auto;
+    max-height: 100px;
+    background-color: #fff;
+  }
+
+  .widget-content {
+    color: #000;
+    padding: 0.5em;
+    font-size: 0.9em;
+    line-height: 1.3em;
+    background-color: #fff;
+  }
+
+    .widget-content ul {
+      margin: 0 0 0 1em;
+      list-style: circle;
+    }
+
+    .widget-content ol {
+      list-style: decimal;
+      margin: 0 0 0 1.5em;
+    }

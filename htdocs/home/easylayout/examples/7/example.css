@@ -1,0 +1,44 @@
+
+.widget-placeholder {
+  color: #000;
+  margin: 1em;
+  border: red dashed 1px;
+  background-color: yellow;
+}
+
+.widget {
+  margin: 1em;
+  border: #ebebeb solid 1px;
+}
+
+  .widget-head {
+    color: #fff;
+    padding: 0.2em;
+    background-color: #000;
+  }
+
+  .widget-menu-links {
+    display: block;
+    text-align: right;
+    margin: -1.3em 0 0 0;
+  }
+
+    .widget-menu-links a {
+      color: #fff;
+      margin: 0 0 0 0.5em;
+      text-decoration: none;
+      background-color: transparent;
+    }
+
+  .widget-editbox {
+    color: #fff;
+    margin: 0.2em;
+    padding: 0.2em;
+    background-color: red;
+  }
+
+  .widget-content {
+    color: #555;
+    padding: 0.5em;
+    background-color: #fbfbfb;
+  }
