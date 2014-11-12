@@ -258,7 +258,7 @@ public class AdminContextInterceptor extends HandlerInterceptorAdapter {
         UrlPathHelper helper = new UrlPathHelper();
         String uri = helper.getOriginatingRequestUri(request);
         String ctxPath = helper.getOriginatingContextPath(request);
-        int start = 0, i = 0, count = 2;
+        int start = 0, i = 0, count = 1;
         if (!StringUtils.isBlank(ctxPath)) {
             count++;
         }
@@ -269,7 +269,7 @@ public class AdminContextInterceptor extends HandlerInterceptorAdapter {
 
         if (start <= 0) {
             throw new IllegalStateException(
-                    "admin access path not like '/jeeadmin/jeecms/...' pattern: "
+                    "admin access path not like '/s/...' pattern: "
                             + uri);
         }
         return uri.substring(start);

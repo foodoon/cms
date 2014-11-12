@@ -75,6 +75,13 @@ public class DesignAct {
         return "design/index";
     }
 
+    @RequestMapping(value ="/design/2.do")
+    public String d2(String html,ModelMap model) {
+        model.addAttribute("html", html);
+        //model.addAttribute("directives", directiveTplMng.getList(Integer.MAX_VALUE));
+        return "design/2";
+    }
+
     @RequestMapping(value ="/design/setBiz.do")
     public String setBiz(String html,HttpServletRequest request, HttpServletResponse response,
             ModelMap model) {

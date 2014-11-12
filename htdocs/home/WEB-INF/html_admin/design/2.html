@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="${base}/jquery-easyui-1.4.1/themes/metro/easyui.css">
+    <link rel="stylesheet" type="text/css" href="${base}/jquery-easyui-1.4.1/themes/icon.css">
+    <script type="text/javascript" src="${base}/jquery-easyui-1.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="${base}/jquery-easyui-1.4.1/jquery.easyui.min.js"></script>
+  </head>
+
+<body>
+
+<form id="ff" method="post">
+    <div id="cc" class="easyui-layout" style="width:600px;height:400px;">
+
+        <div  class="easyui-panel"  data-options="region:'center',title:''" style="padding:5px;">
+            <table>
+                <tbody>
+                     <tr>
+                         全局设置
+                     </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>&nbsp;</h5>
+                    <input type="radio" name="page_layout" id="page_fixed" value="fixed" rel="page_fixed" checked="true"> <label for="page_fixed"> Fixed</label><br>
+                    <input type="radio" name="page_layout" id="page_liquid" value="liquid" rel="page_liquid"> <label for="page_liquid"> Liquid</label>
+                </div>
+                <div class="col-md-4" rel="page_fixed">
+                    <h5>Alignment</h5>
+                    <input type="radio" name="page_align" id="align_left" value="left" rel="page_width"> <label for="align_left"> Left</label><br>
+                    <input type="radio" name="page_align" id="align_center" value="center" rel="page_width" checked="true"> <label for="align_center"> Centered</label><br>
+                </div><div style="display: none;" id="page_fixed0"></div>
+                <div class="col-md-4" rel="page_width">
+                    <h5>Width</h5>
+                    Page Width:
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="page_width" id="page_width" size="4" value="1000"><span class="input-group-addon">px</span>
+                    </div>
+                </div><div style="display: none;" id="page_width0"></div>
+                <div style="display: none;" id="page_liquid0"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+</form>
+
+</body>
