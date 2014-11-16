@@ -110,8 +110,9 @@ function selectModule(){
 <@p.text  colspan="1" width="50" label="template.filename" name="filename" size="30" required="true" class="required" maxlength="100" help=".html"/>
 <@p.td colspan="1" >
     <@p.button code="cms.visual.design" onclick="designBoostrap('../design/index.do')" class="pfzgl"/>&nbsp;
-    <!--
+
 <input id="directiveButton" class="pfzgl" type="button" value="<@s.m 'directive.directives'/>"/>
+    <!--
 <@cms_perm url="/visual/index.do">
 <@p.button code="cms.visual.design" onclick="designDialog('../visual/index.do')" class="pfzgl"/>&nbsp;
 <@p.button code="cms.visual.channel.design" onclick="designDialog('../visual/channelSelect.do')" class="pfzgl"/>&nbsp;
