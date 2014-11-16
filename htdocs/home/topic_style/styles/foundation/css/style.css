@@ -1,0 +1,80 @@
+html {
+	overflow-y: scroll;
+	font-family: '微软雅黑',sans-serif;
+}
+
+
+.cmsDialog {
+    position: absolute;
+    background: #999999;
+    border: 4px solid #666666;
+    margin-top: -100px;
+    margin-left: 0px;
+    padding: 10px;
+    z-index: 1000;
+    text-align: left;
+}
+#errorBox{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -225px;
+	margin-top: -100px;
+	width: 400px;
+	background-color: red;
+	border: 2px solid black;
+	border-top: 20px solid black;
+	padding: 20px;
+	padding-bottom: 25px;
+	color: white;
+	display: none;
+}
+
+#errorBox h2{
+	padding: 0px;
+	margin: 0px;
+	padding-bottom: 20px;
+}
+
+#errorBox a{
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: white;
+	padding: 5px 25px;
+}
+
+#errorBox * {
+	text-align: center;	
+}
+
+#errorBox p#error {
+	margin-bottom: 20px;
+	border: 1px solid black;
+	padding: 20px;
+}
+#error {
+	text-align: left;
+}
+#tip_message {
+    z-index: 9999;
+    position: fixed;
+    left: 0;
+    top: 40%;
+    text-align: center;
+    width: 100%;
+}
+ 
+#tip_message span {
+    background-color: #03C440;
+    opacity: .8;
+    padding: 20px 50px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+}
+ 
+#tip_message span.error {
+    background-color: #EAA000;
+}
