@@ -105,5 +105,6 @@
 	<bean id="cmsWorkflowEventMng" class="guda.core.manager.impl.CmsWorkflowEventMngImpl"/>
 	<bean id="cmsWorkflowEventUserMng" class="guda.core.manager.impl.CmsWorkflowEventUserMngImpl"/>
 	<bean id="cmsWorkflowRecordMng" class="guda.core.manager.impl.CmsWorkflowRecordMngImpl"/>
-	
+
+
 </beans>
