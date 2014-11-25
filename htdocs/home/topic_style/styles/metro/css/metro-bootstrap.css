@@ -1399,11 +1399,11 @@ a {
   margin-left: 980px !important;
 }
 .metro .grid {
-  margin-bottom: 20px;
+ /* margin-bottom: 20px;*/
 }
 .metro .grid .row {
   display: block;
-  margin-top: 20px;
+  /*margin-top: 20px;*/
 }
 .metro .grid .row:before,
 .metro .grid .row:after {
@@ -8374,7 +8374,10 @@ a {
   background-color: #6f6f6f !important;
 }
 .metro .panel {
-  border: 1px #eaeaea solid;
+  /*border: 1px #eaeaea solid;*/
+}
+.dashed{
+    border: 1px #eaeaea dashed;
 }
 .metro .panel .panel-header {
   padding: 10px;
