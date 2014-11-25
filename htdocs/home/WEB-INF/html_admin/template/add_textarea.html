@@ -109,7 +109,7 @@ function selectModule(){
 <@p.form id="jvForm" action="o_save.do" labelWidth="15">
 <@p.text  colspan="1" width="50" label="template.filename" name="filename" size="30" required="true" class="required" maxlength="100" help=".html"/>
 <@p.td colspan="1" >
-    <@p.button code="cms.visual.design" onclick="designBoostrap('../design/index.do')" class="pfzgl"/>&nbsp;
+    <@p.button code="cms.visual.design" onclick="designBoostrap('${pageUrl}')" class="pfzgl"/>&nbsp;
 
 <input id="directiveButton" class="pfzgl" type="button" value="<@s.m 'directive.directives'/>"/>
     <!--

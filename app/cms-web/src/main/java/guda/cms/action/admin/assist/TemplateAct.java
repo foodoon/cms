@@ -3,6 +3,7 @@ package guda.cms.action.admin.assist;
 import guda.cms.Constants;
 import guda.cms.manager.assist.CmsDirectiveTplMng;
 import guda.cms.manager.assist.CmsResourceMng;
+import guda.cms.service.WebServer;
 import guda.common.util.Zipper;
 import guda.common.util.Zipper.FileEntry;
 import guda.common.web.RequestUtils;
@@ -136,6 +137,7 @@ public class TemplateAct {
 		String style = handerStyle(RequestUtils.getQueryParam(request, "style"));
 		model.addAttribute("directives", directiveTplMng.getList(Integer.MAX_VALUE));
 		model.addAttribute("root", root);
+        model.addAttribute("pageUrl", webServer.getPageServer());
 		return "template/add_" + style;
 	}
 
@@ -154,6 +156,7 @@ public class TemplateAct {
 		model.addAttribute("template", tplManager.get(name));
 		model.addAttribute("root", root);
 		model.addAttribute("name", name);
+        model.addAttribute("pageUrl", webServer.getPageServer());
 		return "template/edit_" + style;
 	}
 
@@ -457,6 +460,8 @@ public class TemplateAct {
 	private CmsSiteMng cmsSiteMng;
 	@Autowired
 	private CmsDirectiveTplMng directiveTplMng;
+    @Autowired
+    private WebServer webServer;
 
 	public void setTplManager(TplManager tplManager) {
 		this.tplManager = tplManager;
@@ -471,4 +476,8 @@ public class TemplateAct {
 	public void setCmsSiteMng(CmsSiteMng cmsSiteMng) {
 		this.cmsSiteMng = cmsSiteMng;
 	}
+    @Autowired
+    public void setWebServer(WebServer webServer) {
+        this.webServer = webServer;
+    }
 }

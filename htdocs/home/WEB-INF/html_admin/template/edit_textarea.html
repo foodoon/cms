@@ -123,7 +123,7 @@ function selectModule(){
 <@p.form id="jvForm" action="o_ajaxUpdate.do" labelWidth="15" onsubmit="ajaxSubmit();return false;">
 <@p.td colspan="1" width="50" label="template.filename" help="template.source.help"><input type="text" value="${template.filename}" readonly="readonly" size="40" class="disabled"/></@p.td>
 <@p.td colspan="1" >
-<@p.button code="cms.visual.design" onclick="designBoostrap('../design/index.do')" class="pfzgl"/>&nbsp;
+<@p.button code="cms.visual.design" onclick="designBoostrap('${pageUrl}')" class="pfzgl"/>&nbsp;
 
 <input id="directiveButton" class="pfzgl" type="button" value="<@s.m 'directive.directives'/>"/>
 <!--

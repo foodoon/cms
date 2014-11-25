@@ -81,4 +81,8 @@
 	</bean>
 	<context:annotation-config/>
 	<tx:annotation-driven transaction-manager="transactionManager" />
+
+    <bean id="webServer" class="guda.cms.service.WebServer">
+        <property name="pageServer" value="#{propertyUtils.getPropertiesString('page.server.url')}"></property>
+    </bean>
 </beans>
