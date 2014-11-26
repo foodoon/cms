@@ -501,6 +501,7 @@ public class CmsStatisticAct {
 			this.comparaField = comparaField;
 		}
 		public int compare(Channel c1, Channel c2) {
+
 			Integer a=0;
 			if(comparaField.equals("view")){
 				a=c2.getViewTotal()-c1.getViewTotal();

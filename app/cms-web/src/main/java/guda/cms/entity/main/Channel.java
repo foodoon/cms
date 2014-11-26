@@ -262,7 +262,9 @@ public class Channel extends BaseChannel implements HibernateTree<Integer>,
 		List<Channel> list = new ArrayList<Channel>();
 		addChildToList(list, this, true);
 		for(Channel c:list){
-			totalView+=c.getChannelCount().getViews();
+            if(c.getChannelCount()!=null) {
+                totalView += c.getChannelCount().getViews();
+            }
 		}
 		return totalView;
 	}
@@ -276,7 +278,9 @@ public class Channel extends BaseChannel implements HibernateTree<Integer>,
 		List<Channel> list = new ArrayList<Channel>();
 		addChildToList(list, this, true);
 		for(Channel c:list){
-			totalView+=c.getChannelCount().getViewsDay();
+            if(c.getChannelCount()!=null) {
+                totalView += c.getChannelCount().getViewsDay();
+            }
 		}
 		return totalView;
 	}
@@ -286,7 +290,9 @@ public class Channel extends BaseChannel implements HibernateTree<Integer>,
 		List<Channel> list = new ArrayList<Channel>();
 		addChildToList(list, this, true);
 		for(Channel c:list){
-			totalView+=c.getChannelCount().getViewsMonth();
+            if(c.getChannelCount()!=null) {
+                totalView += c.getChannelCount().getViewsMonth();
+            }
 		}
 		return totalView;
 	}
@@ -296,7 +302,9 @@ public class Channel extends BaseChannel implements HibernateTree<Integer>,
 		List<Channel> list = new ArrayList<Channel>();
 		addChildToList(list, this, true);
 		for(Channel c:list){
-			totalView+=c.getChannelCount().getViewsWeek();
+            if(c.getChannelCount()!=null) {
+                totalView += c.getChannelCount().getViewsWeek();
+            }
 		}
 		return totalView;
 	}
