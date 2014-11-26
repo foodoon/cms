@@ -50,7 +50,7 @@ public class HandlerExceptionResolver  implements org.springframework.web.servle
 	private InputStream in;
 	private Properties p=new Properties();
 	public void afterPropertiesSet() throws Exception {
-		in = new FileInputStream(realPathResolver.get(Constants.CLASS_ERROR_CODE));
+		in = this.getClass().getResourceAsStream((Constants.CLASS_ERROR_CODE));
 		p.load(in);
 	}
 	public void destroy() throws Exception {

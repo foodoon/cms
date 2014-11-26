@@ -67,7 +67,7 @@ public class WeiXinSvcImpl implements WeiXinSvc {
 	public static final Integer USERS_QUERY_MAX=10000;
 	
 	public String getToken() {
-		String tokenGetUrl=PropertyUtils.getPropertyValue(new File(realPathResolver.get(Constants.JEECMS_CONFIG)),TOKEN_KEY);
+		String tokenGetUrl=PropertyUtils.getPropertyValue(this.getClass().getResourceAsStream(Constants.CMS_CONFIG),TOKEN_KEY);
 		CmsConfig config=configMng.get();
 		String appid=config.getWeixinID();
 		String secret=config.getWeixinKey();
@@ -88,7 +88,7 @@ public class WeiXinSvcImpl implements WeiXinSvc {
 	}
 
 	public Set<String> getUsers(String access_token) {
-		String usersGetUrl=PropertyUtils.getPropertyValue(new File(realPathResolver.get(Constants.JEECMS_CONFIG)),USERS_KEY);
+		String usersGetUrl=PropertyUtils.getPropertyValue(this.getClass().getResourceAsStream(Constants.CMS_CONFIG),USERS_KEY);
 		usersGetUrl+="?access_token="+access_token;
 		JSONObject data=getUrlResponse(usersGetUrl);
 		Set<String>openIds=new HashSet<String>();
@@ -118,7 +118,7 @@ public class WeiXinSvcImpl implements WeiXinSvc {
 
 	
 	public String  uploadFile(String access_token,String filePath,String type){
-		String sendGetUrl=PropertyUtils.getPropertyValue(new File(realPathResolver.get(Constants.JEECMS_CONFIG)),UPLOAD_KEY);
+		String sendGetUrl=PropertyUtils.getPropertyValue(this.getClass().getResourceAsStream(Constants.CMS_CONFIG),UPLOAD_KEY);
         String url = sendGetUrl+"?access_token=" + access_token;
 		String result = null;
 		String mediaId="";
@@ -135,7 +135,7 @@ public class WeiXinSvcImpl implements WeiXinSvc {
 	}
 
 	public void sendText(String access_token,String content) {
-		String sendGetUrl=PropertyUtils.getPropertyValue(new File(realPathResolver.get(Constants.JEECMS_CONFIG)),SEND_KEY);
+		String sendGetUrl=PropertyUtils.getPropertyValue(this.getClass().getResourceAsStream(Constants.CMS_CONFIG),SEND_KEY);
         String url = sendGetUrl+"?access_token=" + access_token;
 		Set<String> openIds=getUsers(access_token);
 		content=filterCharacters(content);
@@ -152,7 +152,7 @@ public class WeiXinSvcImpl implements WeiXinSvc {
 	
 	public void sendContent(String access_token,String title, String description, String url,
 			String picurl) {
-		String sendUrl=PropertyUtils.getPropertyValue(new File(realPathResolver.get(Constants.JEECMS_CONFIG)),SEND_KEY);
+		String sendUrl=PropertyUtils.getPropertyValue(this.getClass().getResourceAsStream(Constants.CMS_CONFIG),SEND_KEY);
         sendUrl = sendUrl+"?access_token=" + access_token;
 		Set<String> openIds=getUsers(access_token);
 		if(description==null){
@@ -176,7 +176,7 @@ public class WeiXinSvcImpl implements WeiXinSvc {
 	}
 
 	public void sendVedio(String access_token,String title, String description, String media_id) {
-		String sendGetUrl=PropertyUtils.getPropertyValue(new File(realPathResolver.get(Constants.JEECMS_CONFIG)),SEND_KEY);
+		String sendGetUrl=PropertyUtils.getPropertyValue(this.getClass().getResourceAsStream(Constants.CMS_CONFIG),SEND_KEY);
         String url = sendGetUrl+"?access_token=" + access_token;
 		Set<String> openIds=getUsers(access_token);
 		if(description==null){

@@ -138,19 +138,19 @@ public class Constants {
 	/**
 	 * 数据库备份文本前缀
 	 */
-	public static String ONESQL_PREFIX="JEECMS_BACKUP_";
+	public static String ONESQL_PREFIX="CMS_BACKUP_";
 	/**
 	 * 防火墙配置文件
 	 */
-	public static String FIREWALL_CONFIGPATH = "/WEB-INF/config/firewall.properties";
+	public static String FIREWALL_CONFIGPATH = "/WEB-INF/firewall.properties";
 	/**
 	 * 类--错误国际化信息配置
 	 */
-	public static String CLASS_ERROR_CODE = "/WEB-INF/config/classes-error.properties";
+	public static String CLASS_ERROR_CODE = "/config/classes-error.properties";
 	/**
 	 * 配置文件
 	 */
-	public static String JEECMS_CONFIG = "/WEB-INF/config/cms/cms.properties";
+	public static String CMS_CONFIG = "/config/cms/cms.properties";
 	/**
 	 * 插件路径
 	 */

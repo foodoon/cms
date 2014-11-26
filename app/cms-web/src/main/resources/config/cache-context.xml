@@ -5,7 +5,7 @@
 	<!--缓存-->
 	<bean id="cacheManager" class="guda.common.web.WebEhCacheManagerFacotryBean">
 		<property name="configLocation">
-			<value>/WEB-INF/config/ehcache-application.xml</value>
+			<value>classpath:config/ehcache-application.xml</value>
 		</property>
 		<property name="diskStoreLocation">
 			<value>/WEB-INF/cache/application</value>

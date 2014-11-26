@@ -10,16 +10,16 @@
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>/WEB-INF/config/jdbc.properties</value>
+				<value>classpath*:config/jdbc.properties</value>
 			</list>
 		</property>
 	</bean>
 	<bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="locations">
 			<list>
-				<value>/WEB-INF/config/jdbc.properties</value>
-				<value>/WEB-INF/config/cms/cms.properties</value>
-				<value>/WEB-INF/config/plug/**/*.properties</value>
+				<value>classpath*:config/jdbc.properties</value>
+				<value>classpath*:config/cms/cms.properties</value>
+				<value>classpath*:config/plug/**/*.properties</value>
 			</list>
 		</property>
 		<qualifier value="main"/>
@@ -69,7 +69,7 @@
 	
 	<bean id="cacheProvider" class="guda.common.hibernate3.SpringEhCacheProvider">
 		<property name="configLocation">
-			<value>/WEB-INF/config/ehcache-hibernate.xml</value>
+			<value>classpath:config/ehcache-hibernate.xml</value>
 		</property>
 		<property name="diskStoreLocation">
 			<value>/WEB-INF/cache/hibernate</value>

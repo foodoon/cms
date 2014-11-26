@@ -18,14 +18,14 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			/WEB-INF/config/application-context.xml
-			/WEB-INF/config/cache-context.xml
-			/WEB-INF/config/captcha-context.xml
-			/WEB-INF/config/cms/core-context.xml
-			/WEB-INF/config/cms/cms-context.xml
-			/WEB-INF/config/shiro-context.xml
-			/WEB-INF/config/plug/**/*-context.xml
-			/WEB-INF/config/quartz-task.xml
+            classpath*:config/application-context.xml
+            classpath*:config/cache-context.xml
+            classpath*:config/captcha-context.xml
+            classpath*:config/cms/core-context.xml
+            classpath*:config/cms/cms-context.xml
+            classpath*:config/shiro-context.xml
+            classpath*:config/plug/**/*-context.xml
+            classpath*:config/quartz-task.xml
 		</param-value>
 	</context-param>
     <context-param>
@@ -166,8 +166,8 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				/WEB-INF/config/cms-servlet-admin.xml
-				/WEB-INF/config/plug/**/*-servlet-admin-action.xml
+                classpath*:config/cms-servlet-admin.xml
+                classpath*:config/plug/**/*-servlet-admin-action.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
@@ -178,8 +178,8 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				/WEB-INF/config/cms-servlet-front.xml
-				/WEB-INF/config/plug/**/*-servlet-front-action.xml
+                classpath*:config/cms-servlet-front.xml
+                classpath*:config/plug/**/*-servlet-front-action.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>2</load-on-startup>

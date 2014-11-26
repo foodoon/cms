@@ -51,7 +51,7 @@ public class CmsFireWallConfigAct {
 	@RequestMapping("/config/o_login.do")
 	public String o_login(String password,HttpServletRequest request,HttpServletResponse response,Model model)
 			throws IOException {
-		InputStream in = new FileInputStream(realPathResolver.get(Constants.FIREWALL_CONFIGPATH));
+		InputStream in = this.getClass().getResourceAsStream((Constants.FIREWALL_CONFIGPATH));
 		Properties p = new Properties();
 		p.load(in);
 		String pass = p.getProperty(property_firewall_password);
@@ -69,7 +69,7 @@ public class CmsFireWallConfigAct {
 			throws IOException {
 		Boolean is_login=(Boolean) session.getAttribute(request, FIREWALL_LOGIN);
 		if(is_login!=null&&is_login){
-			InputStream in = new FileInputStream(realPathResolver.get(Constants.FIREWALL_CONFIGPATH));
+			InputStream in = this.getClass().getResourceAsStream((Constants.FIREWALL_CONFIGPATH));
 			Properties p = new Properties();
 			p.load(in);
 			String password = p.getProperty(property_firewall_password);

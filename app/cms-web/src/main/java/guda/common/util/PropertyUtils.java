@@ -138,11 +138,30 @@ public class PropertyUtils implements BeanFactoryAware {
 		}
 		return props;
 	}
+
+    public static Properties getProperties(InputStream is) {
+        Properties props = new Properties();
+        try {
+            props.load(is);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return props;
+    }
 	
 	public static String getPropertyValue(File file,String key) {
 		Properties props=getProperties(file);
 		return (String) props.get(key);
 	}
+
+    public static String getPropertyValue(InputStream is,String key) {
+        Properties props=getProperties(is);
+        return (String) props.get(key);
+    }
 
 	private BeanFactory beanFactory;
 	private Properties properties;
