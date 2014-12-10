@@ -4,170 +4,173 @@
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
 
-	<appender name="DEFAULT-APPENDER"
-		class="guda.mvc.log4j.DailyRollingFileAppender">
-		<param name="file" value="/home/admin/logs/cms/common-default.log" />
-		<param name="append" value="true" />
-		<param name="encoding" value="UTF-8" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%d - %c  %-5p - %m%n" />
-		</layout>
-	</appender>
+    <appender name="DEFAULT-APPENDER"
+              class="guda.mvc.log4j.DailyRollingFileAppender">
+        <param name="file" value="/home/admin/logs/cms/common-default.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
+        </layout>
+    </appender>
 
-	<appender name="ERROR-APPENDER"
-		class="guda.mvc.log4j.DailyRollingFileAppender">
-		<param name="file" value="/home/admin/logs/cms/common-error.log" />
-		<param name="append" value="true" />
-		<param name="encoding" value="UTF-8" />
-		<param name="threshold" value="error" />
-		<layout class="org.apache.log4j.PatternLayout">
-		<param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
-		</layout>
-	</appender>
+    <appender name="ERROR-APPENDER"
+              class="guda.mvc.log4j.DailyRollingFileAppender">
+        <param name="file" value="/home/admin/logs/cms/common-error.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <param name="threshold" value="error"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
+        </layout>
+    </appender>
+
 
     <appender name="STDOUT-APPENDER" class="org.apache.log4j.ConsoleAppender">
-        <param name="encoding" value="UTF-8" />
-
+        <param name="encoding" value="UTF-8"/>
+        <param name="target" value="System.out"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
         </layout>
 
     </appender>
 
-
     <appender name="STDERR-APPENDER" class="org.apache.log4j.ConsoleAppender">
-		<param name="encoding" value="UTF-8" />
-		<param name="target" value="System.err" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%d - %c  %-5p - %m%n" />
-		</layout>
+        <param name="encoding" value="UTF-8"/>
+        <param name="target" value="System.err"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
+        </layout>
 
-	</appender>
+    </appender>
+
+    <appender name="NULL-APPENDER" class="org.apache.log4j.varia.NullAppender"/>
+
+    <appender name="APACHE-APPENDER"
+              class="guda.mvc.log4j.DailyRollingFileAppender">
+        <param name="file" value="/home/admin/logs/cms/common-apache.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="VELOCITY-APPENDER"
+              class="guda.mvc.log4j.DailyRollingFileAppender">
+        <param name="file"
+               value="/home/admin/logs/cms/common-velocity.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="DAL-APPENDER"
+              class="guda.mvc.log4j.DailyRollingFileAppender">
+        <param name="file" value="/home/admin/logs/cms/cms-dal.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="BIZ-APPENDER"
+              class="guda.mvc.log4j.DailyRollingFileAppender">
+        <param name="file" value="/home/admin/logs/cms/cms-biz.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="WEB-APPENDER"
+              class="guda.mvc.log4j.DailyRollingFileAppender">
+        <param name="file" value="/home/admin/logs/cms/cms-web.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
+        </layout>
+    </appender>
 
 
-	<appender name="APACHE-APPENDER"
-		class="guda.mvc.log4j.DailyRollingFileAppender">
-		<param name="file" value="/home/admin/logs/cms/common-apache.log"/>
-		<param name="append" value="true" />
-		<param name="encoding" value="UTF-8" />
-		<layout class="org.apache.log4j.PatternLayout">
-		<param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
-		</layout>
-	</appender>
-
-	<appender name="VELOCITY-APPENDER"
-		class="guda.mvc.log4j.DailyRollingFileAppender">
-		<param name="file"
-			value="/home/admin/logs/cms/logs/common-velocity.log"/>
-		<param name="append" value="true" />
-		<param name="encoding" value="UTF-8" />
-		<layout class="org.apache.log4j.PatternLayout">
-		<param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
-		</layout>
-	</appender>
-
-	<appender name="DAL-APPENDER"
-		class="guda.mvc.log4j.DailyRollingFileAppender">
-		<param name="file" value="/home/admin/logs/cms-dal.log" />
-		<param name="append" value="true" />
-		<param name="encoding" value="UTF-8" />
-		<layout class="org.apache.log4j.PatternLayout">
-		<param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
-		</layout>
-	</appender>
-
-	<appender name="BIZ-APPENDER"
-		class="guda.mvc.log4j.DailyRollingFileAppender">
-		<param name="file" value="/home/admin/logs/cms-biz.log"/>
-		<param name="append" value="true" />
-		<param name="encoding" value="UTF-8" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
-		</layout>
-	</appender>
-
-	<appender name="WEB-APPENDER"
-		class="guda.mvc.log4j.DailyRollingFileAppender">
-		<param name="file" value="/home/admin/logs/cms-web.log"/>
-		<param name="append" value="true" />
-		<param name="encoding" value="UTF-8" />
-		<layout class="org.apache.log4j.PatternLayout">
-		<param name="ConversionPattern" value="%d - %c  %-5p - %m%n"/>
-		</layout>
-	</appender>
+    <appender name="home-DEFAULT-APPENDER"
+              class="guda.mvc.log4j.DailyRollingFileAppender">
+        <param name="file"
+               value="/home/admin/logs/cms/logs-default.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-5p %c - %m%n"/>
+        </layout>
+    </appender>
 
 
-	<appender name="home-DEFAULT-APPENDER"
-		class="guda.mvc.log4j.DailyRollingFileAppender">
-		<param name="file"
-			value="/home/admin/logs/cms/logs-default.log"/>
-		<param name="append" value="true" />
-		<param name="encoding" value="UTF-8" />
-		<layout class="org.apache.log4j.PatternLayout">
-				<param name="ConversionPattern" value="%d %-5p %c - %m%n"/>
-		</layout>
-	</appender>
-
-	
-	<logger name="org.apache" additivity="false">
-		<level value="info"/>
+    <logger name="STDOUT" additivity="false">
+        <level value="info"/>
         <appender-ref ref="STDOUT-APPENDER"/>
-		<appender-ref ref="APACHE-APPENDER"/>
-		<appender-ref ref="ERROR-APPENDER"/>
-	</logger>
+    </logger>
+
+    <logger name="STDERR" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="STDERR-APPENDER"/>
+    </logger>
+
+    <logger name="org.apache" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="APACHE-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
 
 
-	<logger name="com.ibatis" additivity="false">
-		<level value="info"/>
-        <appender-ref ref="STDOUT-APPENDER"/>
-		<appender-ref ref="DAL-APPENDER"/>
-		<appender-ref ref="ERROR-APPENDER"/>
-	</logger>
+    <logger name="com.ibatis" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="DAL-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
 
-	<logger name="java.sql" additivity="false">
-		<level value="INFO"/>
-        <appender-ref ref="STDOUT-APPENDER"/>
-		<appender-ref ref="DAL-APPENDER"/>
-		<appender-ref ref="ERROR-APPENDER"/>
-	</logger>
+    <logger name="java.sql" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="DAL-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
 
 
-	<logger name="org.springframework" additivity="false">
-		<level value="INFO"/>
-        <appender-ref ref="STDOUT-APPENDER"/>
-		<appender-ref ref="DEFAULT-APPENDER"/>
-		<appender-ref ref="ERROR-APPENDER"/>
-	</logger>
-
-	<logger name="guda.cms.dao" additivity="false">
-		<level value="INFO"/>
-        <appender-ref ref="STDOUT-APPENDER"/>
-		<appender-ref ref="DAL-APPENDER"/>
-		<appender-ref ref="ERROR-APPENDER"/>
-	</logger>
-
-	<logger name="guda.cms.biz" additivity="false">
-		<level value="INFO"/>
-        <appender-ref ref="STDOUT-APPENDER"/>
-		<appender-ref ref="BIZ-APPENDER"/>
-		<appender-ref ref="ERROR-APPENDER"/>
-	</logger>
-<logger name="guda.cms.web" additivity="false">
-	<level value="INFO"/>
-    <appender-ref ref="STDOUT-APPENDER"/>
-	<appender-ref ref="WEB-APPENDER"/>
-	<appender-ref ref="ERROR-APPENDER"/>
-	</logger>
-<logger name="guda" additivity="false">
-    <appender-ref ref="STDOUT-APPENDER"/>
-		<appender-ref ref="home-DEFAULT-APPENDER"/>
-		<appender-ref ref="ERROR-APPENDER"/>
-	</logger>
-	<root>
-		<level value="INFO"/>
-        <appender-ref ref="STDOUT-APPENDER"/>
+    <logger name="org.springframework" additivity="false">
+        <level value="info"/>
         <appender-ref ref="DEFAULT-APPENDER"/>
-		<appender-ref ref="ERROR-APPENDER"/>
-	</root>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+
+    <logger name="guda.cms.dao" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="DAL-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+
+    <logger name="guda.cms.biz" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="BIZ-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+    <logger name="guda.cms.web" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="WEB-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+    <logger name="guda" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="home-DEFAULT-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+    <root>
+        <level value="info"/>
+        <appender-ref ref="DEFAULT-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </root>
 </log4j:configuration>
 
