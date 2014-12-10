@@ -1,6 +1,8 @@
 package guda.cms.action.front;
 
 import static guda.common.web.Constants.INDEX;
+
+
 import guda.cms.entity.main.Channel;
 import guda.cms.entity.main.Content;
 import guda.cms.entity.main.ContentCheck;
@@ -9,6 +11,7 @@ import guda.cms.manager.main.ChannelMng;
 import guda.cms.manager.main.ContentMng;
 import guda.common.page.Paginable;
 import guda.common.page.SimplePage;
+import guda.common.web.Constants;
 import guda.common.web.springmvc.RealPathResolver;
 import guda.core.entity.CmsConfig;
 import guda.core.entity.CmsGroup;
@@ -68,7 +71,7 @@ public class DynamicPageAct {
 			}
 		}
 		//使用静态首页而且静态首页存在
-		if(site.getStaticIndex()&&new File(realPathResolver.get(site.getStaticDir()+INDEX)).exists()){
+		if(site.getStaticIndex()&&new File(realPathResolver.get(site.getStaticDir() + Constants.SPT +INDEX + site.getStaticSuffix())).exists()){
 			return FrontUtils.getTplPath("", site.getStaticDir(), INDEX);
 		}else{
 			return site.getTplIndexOrDef();
