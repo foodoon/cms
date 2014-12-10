@@ -31,8 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class CmsAdminLocalAct extends CmsAdminAbstract {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsAdminLocalAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsAdminLocalAct.class);
 
 	@RequiresPermissions("admin_local:v_list")
 	@RequestMapping("/admin_local/v_list.do")

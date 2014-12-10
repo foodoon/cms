@@ -29,8 +29,7 @@ import guda.core.tpl.TplManager;
 @Service
 @Transactional
 public class DbTplMngImpl implements TemplateLoader, TplManager {
-	private static final Logger log = LoggerFactory
-			.getLogger(DbTplMngImpl.class);
+	private static final Logger log = LoggerFactory.getLogger(DbTplMngImpl.class);
 
 	/**
 	 * @see TemplateLoader#findTemplateSource(String)

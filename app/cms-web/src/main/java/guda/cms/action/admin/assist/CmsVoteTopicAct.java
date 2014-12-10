@@ -35,8 +35,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsVoteTopicAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsVoteTopicAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsVoteTopicAct.class);
 
 	@RequiresPermissions("vote_topic:v_list")
 	@RequestMapping("/vote_topic/v_list.do")

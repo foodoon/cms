@@ -35,8 +35,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsMemberAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsMemberAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsMemberAct.class);
 
 	@RequiresPermissions("member:v_list")
 	@RequestMapping("/member/v_list.do")

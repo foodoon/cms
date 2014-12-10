@@ -25,8 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsAdvertisingSpaceAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsAdvertisingSpaceAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsAdvertisingSpaceAct.class);
 
 	@RequiresPermissions("advertising_space:v_list")
 	@RequestMapping("/advertising_space/v_list.do")

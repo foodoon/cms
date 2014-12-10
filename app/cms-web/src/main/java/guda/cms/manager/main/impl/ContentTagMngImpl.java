@@ -21,8 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class ContentTagMngImpl implements ContentTagMng {
-	private static final Logger log = LoggerFactory
-			.getLogger(ContentTagMngImpl.class);
+	private static final Logger log = LoggerFactory.getLogger(ContentTagMngImpl.class);
 
 	@Transactional(readOnly = true)
 	public List<ContentTag> getListForTag(Integer count) {

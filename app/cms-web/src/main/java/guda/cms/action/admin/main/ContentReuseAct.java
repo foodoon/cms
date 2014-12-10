@@ -33,8 +33,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class ContentReuseAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(ContentReuseAct.class);
+	private static final Logger log = LoggerFactory.getLogger(ContentReuseAct.class);
 
 	@RequiresPermissions("content_reuse:v_main")
 	@RequestMapping("/content_reuse/v_main.do")

@@ -39,8 +39,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class AttachmentAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(AttachmentAct.class);
+	private static final Logger log = LoggerFactory.getLogger(AttachmentAct.class);
 
 	@RequestMapping(value = "/attachment.jspx", method = RequestMethod.GET)
 	public void attachment(Integer cid, Integer i, Long t, String k,

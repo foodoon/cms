@@ -20,8 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class CsiCustomAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CsiCustomAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CsiCustomAct.class);
 
 	/**
 	 * 解析至自定义模板页

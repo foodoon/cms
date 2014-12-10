@@ -17,8 +17,7 @@ import org.springframework.context.ApplicationContextAware;
 @SuppressWarnings("serial")
 public class TreeIntercptor extends EmptyInterceptor implements
 		ApplicationContextAware {
-	private static final Logger log = LoggerFactory
-			.getLogger(TreeIntercptor.class);
+	private static final Logger log = LoggerFactory.getLogger(TreeIntercptor.class);
 	private ApplicationContext appCtx;
 	private SessionFactory sessionFactory;
 	public static final String SESSION_FACTORY = "sessionFactory";

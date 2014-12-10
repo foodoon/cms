@@ -40,8 +40,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class CmsAdvertisingAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsAdvertisingAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsAdvertisingAct.class);
 
 	@RequiresPermissions("advertising:v_list")
 	@RequestMapping("/advertising/v_list.do")

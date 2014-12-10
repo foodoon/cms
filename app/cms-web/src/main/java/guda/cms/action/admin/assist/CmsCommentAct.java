@@ -26,8 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsCommentAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsCommentAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsCommentAct.class);
 
 	@RequiresPermissions("comment:v_list")
 	@RequestMapping("/comment/v_list.do")

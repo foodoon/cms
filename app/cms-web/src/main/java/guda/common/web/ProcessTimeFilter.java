@@ -17,8 +17,7 @@ import org.slf4j.LoggerFactory;
  * 执行时间过滤器
  */
 public class ProcessTimeFilter implements Filter {
-	protected final Logger log = LoggerFactory
-			.getLogger(ProcessTimeFilter.class);
+	protected final Logger log = LoggerFactory.getLogger(ProcessTimeFilter.class);
 	/**
 	 * 请求执行开始时间
 	 */

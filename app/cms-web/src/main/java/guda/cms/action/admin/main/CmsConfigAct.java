@@ -31,8 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsConfigAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsConfigAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsConfigAct.class);
 
 	@RequiresPermissions("config:v_system_edit")
 	@RequestMapping("/config/v_system_edit.do")

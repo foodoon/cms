@@ -37,8 +37,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class CmsResourceMngImpl implements CmsResourceMng {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsResourceMngImpl.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsResourceMngImpl.class);
 
 	public List<FileWrap> listFile(String path, boolean dirAndEditable) {
 		File parent = new File(realPathResolver.get(path));

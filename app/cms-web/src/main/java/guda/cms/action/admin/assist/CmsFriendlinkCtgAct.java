@@ -22,8 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsFriendlinkCtgAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsFriendlinkCtgAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsFriendlinkCtgAct.class);
 
 	@RequiresPermissions("friendlink_ctg:v_list")
 	@RequestMapping("/friendlink_ctg/v_list.do")

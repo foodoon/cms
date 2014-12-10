@@ -19,8 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsSensitivityAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsSensitivityAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsSensitivityAct.class);
 
 	@RequiresPermissions("sensitivity:v_list")
 	@RequestMapping("/sensitivity/v_list.do")

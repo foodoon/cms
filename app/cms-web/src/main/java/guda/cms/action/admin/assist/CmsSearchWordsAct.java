@@ -31,8 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsSearchWordsAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsSearchWordsAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsSearchWordsAct.class);
 	
 	@RequiresPermissions("searchwords:v_list")
 	@RequestMapping("/searchwords/v_list.do")

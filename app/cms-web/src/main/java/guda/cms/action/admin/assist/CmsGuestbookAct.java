@@ -35,8 +35,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsGuestbookAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsGuestbookAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsGuestbookAct.class);
 
 	@RequiresPermissions("guestbook:v_list")
 	@RequestMapping("/guestbook/v_list.do")

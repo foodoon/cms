@@ -15,8 +15,7 @@ import guda.cms.service.ContentListenerAbstract;
 
 @Component
 public class ContentStaticPageListener extends ContentListenerAbstract {
-	private static final Logger log = LoggerFactory
-			.getLogger(ContentStaticPageListener.class);
+	private static final Logger log = LoggerFactory.getLogger(ContentStaticPageListener.class);
 	/**
 	 * 是否已审核
 	 */

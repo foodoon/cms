@@ -47,8 +47,7 @@ import com.octo.captcha.service.image.ImageCaptchaService;
  */
 @Controller
 public class RegisterAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(RegisterAct.class);
+	private static final Logger log = LoggerFactory.getLogger(RegisterAct.class);
 
 	public static final String REGISTER = "tpl.register";
 	public static final String REGISTER_RESULT = "tpl.registerResult";

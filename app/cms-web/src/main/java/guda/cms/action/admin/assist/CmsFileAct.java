@@ -40,8 +40,7 @@ import org.springframework.web.multipart.MultipartFile;
 //
 @Controller
 public class CmsFileAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsFileAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsFileAct.class);
 	private static final String INVALID_PARAM = "template.invalidParams";
 
 

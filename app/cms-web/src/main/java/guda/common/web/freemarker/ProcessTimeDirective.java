@@ -24,8 +24,7 @@ import freemarker.template.TemplateNumberModel;
  * 需要拦截器com.jeecms.common.web.ProcessTimeFilter支持
  */
 public class ProcessTimeDirective implements TemplateDirectiveModel {
-	private static final Logger log = LoggerFactory
-			.getLogger(ProcessTimeDirective.class);
+	private static final Logger log = LoggerFactory.getLogger(ProcessTimeDirective.class);
 	private static final DecimalFormat FORMAT = new DecimalFormat("0.000");
 
 	@SuppressWarnings("unchecked")

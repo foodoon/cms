@@ -11,8 +11,7 @@ import org.slf4j.LoggerFactory;
  * HttpServletResponse帮助类
  */
 public final class ResponseUtils {
-	public static final Logger log = LoggerFactory
-			.getLogger(ResponseUtils.class);
+	public static final Logger log = LoggerFactory.getLogger(ResponseUtils.class);
 
 	/**
 	 * 发送文本。使用UTF-8编码。

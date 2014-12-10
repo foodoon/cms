@@ -22,8 +22,7 @@ import org.springframework.web.util.UrlPathHelper;
  * HttpServletRequest帮助类
  */
 public class RequestUtils {
-	private static final Logger log = LoggerFactory
-			.getLogger(RequestUtils.class);
+	private static final Logger log = LoggerFactory.getLogger(RequestUtils.class);
 
 	/**
 	 * 获取QueryString的参数，并使用URLDecoder以UTF-8格式转码。如果请求是以post方法提交的，

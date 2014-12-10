@@ -24,8 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ImageCutAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(ImageCutAct.class);
+	private static final Logger log = LoggerFactory.getLogger(ImageCutAct.class);
 	/**
 	 * 图片选择页面
 	 */

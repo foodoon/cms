@@ -37,8 +37,7 @@ import com.octo.captcha.service.image.ImageCaptchaService;
  */
 @Controller
 public class ForgotPasswordAct {
-	private static Logger log = LoggerFactory
-			.getLogger(ForgotPasswordAct.class);
+	private static Logger log = LoggerFactory.getLogger(ForgotPasswordAct.class);
 
 	public static final String FORGOT_PASSWORD_INPUT = "tpl.forgotPasswordInput";
 	public static final String FORGOT_PASSWORD_RESULT = "tpl.forgotPasswordResult";

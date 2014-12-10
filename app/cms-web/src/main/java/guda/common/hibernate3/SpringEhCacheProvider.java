@@ -24,8 +24,7 @@ import org.springframework.core.io.Resource;
  */
 @SuppressWarnings("deprecation")
 public final class SpringEhCacheProvider implements CacheProvider {
-	private static final Logger log = LoggerFactory
-			.getLogger(SpringEhCacheProvider.class);
+	private static final Logger log = LoggerFactory.getLogger(SpringEhCacheProvider.class);
 
 	private Resource configLocation;
 	private Resource diskStoreLocation;

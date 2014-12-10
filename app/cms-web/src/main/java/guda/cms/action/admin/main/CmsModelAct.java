@@ -19,8 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsModelAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsModelAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsModelAct.class);
 
 	@RequiresPermissions("model:v_list")
 	@RequestMapping("/model/v_list.do")

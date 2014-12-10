@@ -25,8 +25,7 @@ import org.slf4j.LoggerFactory;
  * 可设置的参数有：模块实体类名、java类包地址、配置文件地址、ftl页面地址。
  */
 public class ModuleGenerator {
-	private static final Logger log = LoggerFactory
-			.getLogger(ModuleGenerator.class);
+	private static final Logger log = LoggerFactory.getLogger(ModuleGenerator.class);
 	public static final String SPT = File.separator;
 
 	public static final String ENCODING = "UTF-8";

@@ -46,8 +46,7 @@ public class TemplateAct {
 	public static final String VISUAL = "visual";
 	private static final String INVALID_PARAM = "template.invalidParams";
 
-	private static final Logger log = LoggerFactory
-			.getLogger(TemplateAct.class);
+	private static final Logger log = LoggerFactory.getLogger(TemplateAct.class);
 
 	@RequiresPermissions("template:template_main")
 	@RequestMapping("/template/template_main.do")

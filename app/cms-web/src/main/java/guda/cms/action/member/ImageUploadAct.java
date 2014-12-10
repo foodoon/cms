@@ -36,8 +36,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class ImageUploadAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(ImageUploadAct.class);
+	private static final Logger log = LoggerFactory.getLogger(ImageUploadAct.class);
 	/**
 	 * 用户头像路径
 	 */

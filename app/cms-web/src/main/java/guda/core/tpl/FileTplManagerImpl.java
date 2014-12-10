@@ -16,8 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileTplManagerImpl implements TplManager {
-	private static Logger log = LoggerFactory
-			.getLogger(FileTplManagerImpl.class);
+	private static Logger log = LoggerFactory.getLogger(FileTplManagerImpl.class);
 
 	public int delete(String[] names) {
 		File f;

@@ -38,8 +38,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsAcquisitionAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsAcquisitionAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsAcquisitionAct.class);
 	
 	@RequiresPermissions("acquisition:v_list")
 	@RequestMapping("/acquisition/v_list.do")

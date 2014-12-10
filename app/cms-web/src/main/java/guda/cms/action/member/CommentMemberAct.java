@@ -33,8 +33,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class CommentMemberAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CommentMemberAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CommentMemberAct.class);
 
 	public static final String COMMENT_LIST = "tpl.commentLists";
 	public static final String COMMENT_MNG = "tpl.commentMng";

@@ -40,8 +40,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class DynamicPageAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(DynamicPageAct.class);
+	private static final Logger log = LoggerFactory.getLogger(DynamicPageAct.class);
 	/**
 	 * 首页模板名称
 	 */

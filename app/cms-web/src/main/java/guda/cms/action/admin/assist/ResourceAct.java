@@ -34,8 +34,7 @@ import org.springframework.web.multipart.MultipartFile;
 // TODO 验证path必须以TPL_BASE开头，不能有..后退关键字
 @Controller
 public class ResourceAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(ResourceAct.class);
+	private static final Logger log = LoggerFactory.getLogger(ResourceAct.class);
 	private static final String INVALID_PARAM = "template.invalidParams";
 
 

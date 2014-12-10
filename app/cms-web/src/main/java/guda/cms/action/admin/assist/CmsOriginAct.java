@@ -32,8 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsOriginAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsOriginAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsOriginAct.class);
 	
 	@RequiresPermissions("origin:v_list")
 	@RequestMapping("/origin/v_list.do")

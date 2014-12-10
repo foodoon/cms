@@ -22,8 +22,7 @@ import org.springframework.core.io.Resource;
 public class WebEhCacheManagerFacotryBean  implements FactoryBean<CacheManager>,
 		InitializingBean, DisposableBean {
 
-	private final Logger log = LoggerFactory
-			.getLogger(WebEhCacheManagerFacotryBean.class);
+	private final Logger log = LoggerFactory.getLogger(WebEhCacheManagerFacotryBean.class);
 
 	private Resource configLocation;
 	private Resource diskStoreLocation;

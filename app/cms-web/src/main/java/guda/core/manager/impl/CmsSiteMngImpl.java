@@ -28,8 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class CmsSiteMngImpl implements CmsSiteMng {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsSiteMngImpl.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsSiteMngImpl.class);
 
 	@Transactional(readOnly = true)
 	public List<CmsSite> getList() {

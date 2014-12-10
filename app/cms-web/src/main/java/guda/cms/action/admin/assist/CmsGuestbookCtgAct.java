@@ -25,8 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsGuestbookCtgAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsGuestbookCtgAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsGuestbookCtgAct.class);
 
 	@RequiresPermissions("guestbook_ctg:v_list")
 	@RequestMapping("/guestbook_ctg/v_list.do")

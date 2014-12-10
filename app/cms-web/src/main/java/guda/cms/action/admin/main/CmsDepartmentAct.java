@@ -37,8 +37,7 @@ import static guda.common.page.SimplePage.cpn;
 
 @Controller
 public class CmsDepartmentAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsDepartmentAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsDepartmentAct.class);
 
 	@RequiresPermissions("department:depart_main")
 	@RequestMapping("/department/depart_main.do")

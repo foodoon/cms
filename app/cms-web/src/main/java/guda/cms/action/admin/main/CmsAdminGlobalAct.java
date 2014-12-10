@@ -30,8 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class CmsAdminGlobalAct extends CmsAdminAbstract {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsAdminGlobalAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsAdminGlobalAct.class);
 
 	@RequiresPermissions("admin_global:v_list")
 	@RequestMapping("/admin_global/v_list.do")

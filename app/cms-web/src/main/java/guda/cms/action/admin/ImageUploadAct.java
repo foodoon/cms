@@ -27,8 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class ImageUploadAct extends CommonUpload {
-	private static final Logger log = LoggerFactory
-			.getLogger(ImageUploadAct.class);
+	private static final Logger log = LoggerFactory.getLogger(ImageUploadAct.class);
 	/**
 	 * 结果页
 	 */

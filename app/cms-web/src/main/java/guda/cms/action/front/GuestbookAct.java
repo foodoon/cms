@@ -35,8 +35,7 @@ import com.octo.captcha.service.image.ImageCaptchaService;
 
 @Controller
 public class GuestbookAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(GuestbookAct.class);
+	private static final Logger log = LoggerFactory.getLogger(GuestbookAct.class);
 
 	public static final String GUESTBOOK_INDEX = "tpl.guestbookIndex";
 	public static final String GUESTBOOK_CTG = "tpl.guestbookCtg";

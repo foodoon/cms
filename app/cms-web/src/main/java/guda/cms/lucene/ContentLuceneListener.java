@@ -15,8 +15,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ContentLuceneListener extends ContentListenerAbstract {
-	private static final Logger log = LoggerFactory
-			.getLogger(ContentLuceneListener.class);
+	private static final Logger log = LoggerFactory.getLogger(ContentLuceneListener.class);
 	/**
 	 * 是否已审核
 	 */

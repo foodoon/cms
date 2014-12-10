@@ -21,8 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CmsKeywordAct {
-	private static final Logger log = LoggerFactory
-			.getLogger(CmsKeywordAct.class);
+	private static final Logger log = LoggerFactory.getLogger(CmsKeywordAct.class);
 
 	@RequiresPermissions("keyword:v_list")
 	@RequestMapping("/keyword/v_list.do")

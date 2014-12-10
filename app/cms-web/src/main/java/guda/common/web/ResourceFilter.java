@@ -23,8 +23,7 @@ import org.slf4j.LoggerFactory;
  * 
  */
 public class ResourceFilter implements Filter {
-	protected final Logger log = LoggerFactory
-			.getLogger(ResourceFilter.class);
+	protected final Logger log = LoggerFactory.getLogger(ResourceFilter.class);
 
 	public void destroy() {
 	}
