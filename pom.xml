@@ -17,7 +17,12 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <repositories>
-
+                <repository>
+                    <id>snapshots</id>
+                    <url>http://nongmao.info/nexus/content/repositories/snapshots</url>
+                    <snapshots>
+                    </snapshots>
+                </repository>
                 <repository>
                     <id>dev</id>
                     <url>http://nongmao.info/nexus/content/repositories/dev</url>
@@ -38,7 +43,7 @@
         <org.springframework.security.version>3.1.0.RELEASE</org.springframework.security.version>
         <org.slf4j.version>1.6.1</org.slf4j.version>
         <jetty.version>6.1.26</jetty.version>
-        <mvc.runtime.core.version>1.0</mvc.runtime.core.version>
+        <mvc.runtime.core.version>1.0-SNAPSHOT</mvc.runtime.core.version>
     </properties>
 
     <dependencyManagement>
