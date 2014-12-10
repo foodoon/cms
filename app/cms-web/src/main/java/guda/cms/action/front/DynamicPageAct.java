@@ -71,8 +71,12 @@ public class DynamicPageAct {
 			}
 		}
 		//使用静态首页而且静态首页存在
+        if(log.isInfoEnabled()) {
+            log.info("index dir:" + site.getStaticDir() + Constants.SPT + INDEX + site.getStaticSuffix());
+        }
 		if(site.getStaticIndex()&&new File(realPathResolver.get(site.getStaticDir() + Constants.SPT +INDEX + site.getStaticSuffix())).exists()){
-			return FrontUtils.getTplPath("", site.getStaticDir(), INDEX);
+
+            return FrontUtils.getTplPath("", site.getStaticDir(), INDEX);
 		}else{
 			return site.getTplIndexOrDef();
 		}
