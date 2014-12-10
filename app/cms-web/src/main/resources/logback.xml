@@ -8,8 +8,7 @@
         </encoder>
     </appender>
 
-    <appender name="file-append"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <Encoding>UTF-8</Encoding>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <FileNamePattern>${LOG_HOME}/cms.%d{yyyy-MM-dd}.log</FileNamePattern>
@@ -21,11 +20,28 @@
         </layout>
     </appender>
 
+    <appender name="errorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Encoding>UTF-8</Encoding>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/error.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
+            </pattern>
+        </layout>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
 
-    <logger name="guda.cms" level="debug" />
+
+    <logger name="guda.cms" level="debug"/>
 
     <root level="info">
-        <appender-ref ref="Console" />
-        <appender-ref ref="file-append" />
+        <appender-ref ref="Console"/>
+        <appender-ref ref="fileAppender"/>
+        <appender-ref ref="errorAppender"/>
     </root>
 </configuration>
