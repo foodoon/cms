@@ -13,7 +13,7 @@
         <Encoding>UTF-8</Encoding>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <FileNamePattern>${LOG_HOME}/cms.%d{yyyy-MM-dd}.log</FileNamePattern>
-            <MaxHistory>30</MaxHistory>
+            <MaxHistory>5</MaxHistory>
         </rollingPolicy>
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
@@ -22,7 +22,7 @@
     </appender>
 
 
-    <logger name="com.bcc" level="debug" />
+    <logger name="guda.cms" level="debug" />
 
     <root level="info">
         <appender-ref ref="Console" />

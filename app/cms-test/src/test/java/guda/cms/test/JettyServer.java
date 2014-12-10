@@ -90,7 +90,7 @@ public class JettyServer {
     }
 
     protected String getAppRoot() {
-        return ConfigrationFactory.getConfigration().getAppRoot();
+        return System.getProperty("user.dir");
     }
 
     protected String getHtdocsRoot() {

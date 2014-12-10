@@ -39,7 +39,7 @@ img{ border:0; -ms-interpolation-mode:bicubic; display:block;}
 .topfr/*顶栏右边*/{ float:right; padding-right:5px;}
 .topwelcome/*欢迎*/{ float:left; margin-right:12px; color:#000; font-family:Arial,"宋体";}
 .topzhuce/*免费注册*/{ float:left; color:#fff;}
-.topzhuce a/*免费注册*/{ color:#fff; margin-left:8px; font-size:12px;}
+.topzhuce a/*免费注册*/{ color:#000; margin-left:8px; font-size:12px;}
 .topzhuce a:hover{ color:#d9d9d9;}
 
 .toplogo/*网站标志*/{ float:left; margin-right:6.5%; margin-top:50px; _margin-top:5px;}
